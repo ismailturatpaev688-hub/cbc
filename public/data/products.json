@@ -1,0 +1,724 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Картридж струйный HP 951 CN051AE пурпурный (700стр.) для HP OJ Pro 8610/8620",
+      "shortName": "Картридж струйный HP 951 CN051AE пурпурный...",
+      "article": "923642",
+      "warranty": "1 год",
+      "price": 1977,
+      "category": "Картриджи струйные",
+      "categoryLink": "cartridges",
+      "subcategory": "Расходные материалы",
+      "subcategoryLink": "consumables",
+      "image": "/images/Product_cartridge.jpg",
+      "images": [
+        "/images/Product_cartridge.jpg",
+        "/images/Product_cartridge.jpg",
+        "/images/Product_cartridge.jpg",
+        "/images/Product_cartridge.jpg",
+        "/images/Product_cartridge.jpg"
+      ],
+      "stock": {
+        "office": "в наличие (много)",
+        "warehouse": "нет в наличие"
+      },
+      "characteristics": {
+        "Модель": "Картридж",
+        "Тип": "Картридж",
+        "Бренд": "HP",
+        "PartNumber/Артикул Производителя": "CN051AE",
+        "Цвет картриджа": "пурпурный",
+        "Конструктив по принципу печати": "чернильный картридж",
+        "Ресурс, страниц": "700",
+        "Назначение": "для струйных принтеров/МФУ",
+        "Производитель печатающих устройств": "HP",
+        "Совместимость": "OJ Pro 8610/8620",
+        "Цвет": "пурпурный",
+        "EAN": "888182554142",
+        "EANCode": "888182554142"
+      }
+    },
+    {
+      "id": 2,
+      "name": "Телевизор LED Sony 50\" KDL50WF665BR черный/серебристый/FULL HD/50Hz/DVB-T/DVB-T2/DVB-C/DVB-S/DVB-S2/USB/WiFi/Smart TV",
+      "shortName": "Телевизор LED Sony 50\" KDL50WF665BR черный/серебристый...",
+      "article": "1514353",
+      "warranty": "2 года",
+      "price": 38990,
+      "category": "Телевизоры",
+      "categoryLink": "tv",
+      "subcategory": "Телевизоры, аудио- видео техника и аксессуары",
+      "subcategoryLink": "tv",
+      "image": "/images/TV_led.svg",
+      "images": [
+        "/images/TV_led.svg",
+        "/images/TV_led.svg",
+        "/images/TV_led.svg",
+        "/images/TV_led.svg",
+        "/images/TV_led.svg"
+      ],
+      "stock": {
+        "office": "в наличие (много)",
+        "warehouse": "в наличие"
+      },
+      "characteristics": {
+        "Модель": "KDL50WF665BR",
+        "Тип": "LED телевизор",
+        "Бренд": "Sony",
+        "Диагональ": "50\"",
+        "Разрешение": "FULL HD",
+        "Частота": "50Hz",
+        "Smart TV": "Да",
+        "Цвет": "черный/серебристый"
+      }
+    },
+    {
+      "id": 3,
+      "name": "Картридж струйный Cactus CS-BCI24BK черный (9.2мл) для Canon S200/S200x/S300/S330/S30i/250/i320/i350/i450/i455/i470D/i475D/MP110",
+      "shortName": "Картридж струйный Cactus CS-BCI24BK черный (9.2мл)...",
+      "article": "1151107",
+      "warranty": "1 год",
+      "price": 110,
+      "category": "Картриджи струйные",
+      "categoryLink": "cartridges",
+      "subcategory": "Расходные материалы",
+      "subcategoryLink": "consumables",
+      "image": "/images/Product_card.jpg",
+      "images": [
+        "/images/Product_card.jpg",
+        "/images/Product_card.jpg",
+        "/images/Product_card.jpg",
+        "/images/Product_card.jpg",
+        "/images/Product_card.jpg"
+      ],
+      "stock": {
+        "office": "в наличие (много)",
+        "warehouse": "в наличие"
+      },
+      "characteristics": {
+        "Модель": "CS-BCI24BK",
+        "Тип": "Картридж",
+        "Бренд": "Cactus",
+        "Цвет картриджа": "черный",
+        "Объем": "9.2мл",
+        "Совместимость": "Canon S200/S200x/S300/S330"
+      }
+    },
+    {
+      "id": 4,
+      "name": "МФУ лазерный Kyocera Ecosys M3145dn (1102TF3NL0) A4 Duplex Net белый/черный",
+      "shortName": "МФУ лазерный Kyocera Ecosys M3145dn...",
+      "article": "1097110",
+      "warranty": "2 года",
+      "price": 65400,
+      "oldPrice": 61400,
+      "discount": 4000,
+      "isPromo": true,
+      "category": "МФУ",
+      "categoryLink": "mfu",
+      "subcategory": "Офисная техника",
+      "subcategoryLink": "office",
+      "image": "/images/MFU.jpg",
+      "images": [
+        "/images/MFU.jpg",
+        "/images/MFU.jpg",
+        "/images/MFU.jpg",
+        "/images/MFU.jpg",
+        "/images/MFU.jpg"
+      ],
+      "stock": {
+        "office": "в наличие",
+        "warehouse": "в наличие"
+      },
+      "characteristics": {
+        "Модель": "Ecosys M3145dn",
+        "Тип": "МФУ лазерный",
+        "Бренд": "Kyocera",
+        "Формат": "A4",
+        "Цвет": "белый/черный"
+      }
+    },
+    {
+      "id": 5,
+      "name": "Планшет Apple iPad Air 2020 MYH42RU/A A14",
+      "shortName": "Планшет Apple iPad Air 2020 MYH42RU/A A14",
+      "article": "1419381",
+      "warranty": "1 год",
+      "price": 103385,
+      "category": "Смартфоны и планшеты",
+      "categoryLink": "smartphones",
+      "subcategory": "Смартфоны, планшеты и аксессуары",
+      "subcategoryLink": "smartphones",
+      "image": "/images/Apple_ipad.jpg",
+      "images": [
+        "/images/Apple_ipad.jpg",
+        "/images/Apple_ipad.jpg",
+        "/images/Apple_ipad.jpg",
+        "/images/Apple_ipad.jpg",
+        "/images/Apple_ipad.jpg"
+      ],
+      "stock": {
+        "office": "в наличие (много)",
+        "warehouse": "в наличие"
+      },
+      "characteristics": {
+        "Модель": "iPad Air 2020",
+        "Тип": "Планшет",
+        "Бренд": "Apple",
+        "Процессор": "A14",
+        "Артикул": "MYH42RU/A"
+      }
+    },
+    {
+      "id": 6,
+      "name": "Гарнитура вкладыши Digma TWS-10 белый беспроводные",
+      "shortName": "Гарнитура вкладыши Digma TWS-10 белый беспроводные",
+      "article": "1151107",
+      "warranty": "1 год",
+      "price": 1041,
+      "category": "Аудио",
+      "categoryLink": "audio",
+      "subcategory": "Периферия и аксессуары",
+      "subcategoryLink": "peripherals",
+      "image": "/images/Headphones_TWS_10.jpg",
+      "images": [
+        "/images/Headphones_TWS_10.jpg",
+        "/images/Headphones_TWS_10.jpg",
+        "/images/Headphones_TWS_10.jpg",
+        "/images/Headphones_TWS_10.jpg",
+        "/images/Headphones_TWS_10.jpg"
+      ],
+      "stock": {
+        "office": "в наличие",
+        "warehouse": "в наличие"
+      },
+      "characteristics": {
+        "Модель": "TWS-10",
+        "Тип": "Гарнитура",
+        "Бренд": "Digma",
+        "Цвет": "белый",
+        "Подключение": "беспроводные"
+      }
+    },
+    {
+      "id": 7,
+      "name": "Смарт-часы Jet Kid Pinkie Pie 40мм 1.44\" TFT розовый",
+      "shortName": "Смарт-часы Jet Kid Pinkie Pie 40мм 1.44\" TFT розовый",
+      "article": "1178769",
+      "warranty": "1 год",
+      "price": 3615,
+      "category": "Смартфоны и планшеты",
+      "categoryLink": "smartphones",
+      "subcategory": "Смартфоны, планшеты и аксессуары",
+      "subcategoryLink": "smartphones",
+      "image": "/images/Smart_watch.jpg",
+      "images": [
+        "/images/Smart_watch.jpg",
+        "/images/Smart_watch.jpg",
+        "/images/Smart_watch.jpg",
+        "/images/Smart_watch.jpg",
+        "/images/Smart_watch.jpg"
+      ],
+      "stock": {
+        "office": "в наличие (много)",
+        "warehouse": "в наличие"
+      },
+      "characteristics": {
+        "Модель": "Pinkie Pie",
+        "Тип": "Смарт-часы",
+        "Бренд": "Jet Kid",
+        "Размер экрана": "1.44\"",
+        "Цвет": "розовый"
+      }
+    },
+    {
+      "id": 8,
+      "name": "Смартфон Xiaomi Poco X3 Pro 128Gb 6Gb голубой",
+      "shortName": "Смартфон Xiaomi Poco X3 Pro 128Gb 6Gb голубой",
+      "article": "1514353",
+      "warranty": "1 год",
+      "price": 23985,
+      "category": "Смартфоны и планшеты",
+      "categoryLink": "smartphones",
+      "subcategory": "Смартфоны, планшеты и аксессуары",
+      "subcategoryLink": "smartphones",
+      "image": "/images/Telephone_poco.jpg",
+      "images": [
+        "/images/Telephone_poco.jpg",
+        "/images/Telephone_poco.jpg",
+        "/images/Telephone_poco.jpg",
+        "/images/Telephone_poco.jpg",
+        "/images/Telephone_poco.jpg"
+      ],
+      "stock": {
+        "office": "в наличие",
+        "warehouse": "в наличие"
+      },
+      "characteristics": {
+        "Модель": "Poco X3 Pro",
+        "Тип": "Смартфон",
+        "Бренд": "Xiaomi",
+        "Память": "128Gb",
+        "Оперативная память": "6Gb",
+        "Цвет": "голубой"
+      }
+    },
+    {
+      "id": 9,
+      "name": "Планшет Apple iPad Air 2020 MYH42RU/A A14",
+      "shortName": "Планшет Apple iPad Air 2020 MYH42RU/A A14",
+      "article": "1419381",
+      "warranty": "1 год",
+      "price": 103385,
+      "category": "Смартфоны и планшеты",
+      "categoryLink": "smartphones",
+      "subcategory": "Смартфоны, планшеты и аксессуары",
+      "subcategoryLink": "smartphones",
+      "image": "/images/Apple_ipad.jpg",
+      "images": [
+        "/images/Apple_ipad.jpg",
+        "/images/Apple_ipad.jpg",
+        "/images/Apple_ipad.jpg",
+        "/images/Apple_ipad.jpg",
+        "/images/Apple_ipad.jpg"
+      ],
+      "stock": {
+        "office": "в наличие (много)",
+        "warehouse": "в наличие"
+      },
+      "characteristics": {
+        "Модель": "iPad Air 2020",
+        "Тип": "Планшет",
+        "Бренд": "Apple",
+        "Процессор": "A14",
+        "Артикул": "MYH42RU/A"
+      }
+    },
+    {
+      "id": 10,
+      "name": "Гарнитура вкладыши Digma TWS-10 белый беспроводные",
+      "shortName": "Гарнитура вкладыши Digma TWS-10 белый беспроводные",
+      "article": "1151107",
+      "warranty": "1 год",
+      "price": 1041,
+      "category": "Аудио",
+      "categoryLink": "audio",
+      "subcategory": "Периферия и аксессуары",
+      "subcategoryLink": "peripherals",
+      "image": "/images/Headphones_TWS_10.jpg",
+      "images": [
+        "/images/Headphones_TWS_10.jpg",
+        "/images/Headphones_TWS_10.jpg",
+        "/images/Headphones_TWS_10.jpg",
+        "/images/Headphones_TWS_10.jpg",
+        "/images/Headphones_TWS_10.jpg"
+      ],
+      "stock": {
+        "office": "в наличие",
+        "warehouse": "в наличие"
+      },
+      "characteristics": {
+        "Модель": "TWS-10",
+        "Тип": "Гарнитура",
+        "Бренд": "Digma",
+        "Цвет": "белый",
+        "Подключение": "беспроводные"
+      }
+    },
+    {
+      "id": 11,
+      "name": "Смарт-часы Jet Kid Pinkie Pie 40мм 1.44\" TFT розовый",
+      "shortName": "Смарт-часы Jet Kid Pinkie Pie 40мм 1.44\" TFT розовый",
+      "article": "1178769",
+      "warranty": "1 год",
+      "price": 3615,
+      "category": "Смартфоны и планшеты",
+      "categoryLink": "smartphones",
+      "subcategory": "Смартфоны, планшеты и аксессуары",
+      "subcategoryLink": "smartphones",
+      "image": "/images/Smart_watch.jpg",
+      "images": [
+        "/images/Smart_watch.jpg",
+        "/images/Smart_watch.jpg",
+        "/images/Smart_watch.jpg",
+        "/images/Smart_watch.jpg",
+        "/images/Smart_watch.jpg"
+      ],
+      "stock": {
+        "office": "в наличие (много)",
+        "warehouse": "в наличие"
+      },
+      "characteristics": {
+        "Модель": "Pinkie Pie",
+        "Тип": "Смарт-часы",
+        "Бренд": "Jet Kid",
+        "Размер экрана": "1.44\"",
+        "Цвет": "розовый"
+      }
+    },
+    {
+      "id": 12,
+      "name": "Смартфон Xiaomi Poco X3 Pro 128Gb 6Gb голубой",
+      "shortName": "Смартфон Xiaomi Poco X3 Pro 128Gb 6Gb голубой",
+      "article": "1514353",
+      "warranty": "1 год",
+      "price": 23985,
+      "category": "Смартфоны и планшеты",
+      "categoryLink": "smartphones",
+      "subcategory": "Смартфоны, планшеты и аксессуары",
+      "subcategoryLink": "smartphones",
+      "image": "/images/Telephone_poco.jpg",
+      "images": [
+        "/images/Telephone_poco.jpg",
+        "/images/Telephone_poco.jpg",
+        "/images/Telephone_poco.jpg",
+        "/images/Telephone_poco.jpg",
+        "/images/Telephone_poco.jpg"
+      ],
+      "stock": {
+        "office": "в наличие",
+        "warehouse": "в наличие"
+      },
+      "characteristics": {
+        "Модель": "Poco X3 Pro",
+        "Тип": "Смартфон",
+        "Бренд": "Xiaomi",
+        "Память": "128Gb",
+        "Оперативная память": "6Gb",
+        "Цвет": "голубой"
+      }
+    },
+    {
+      "id": 13,
+      "name": "Планшет Apple iPad Air 2020 MYH42RU/A A14",
+      "shortName": "Планшет Apple iPad Air 2020 MYH42RU/A A14",
+      "article": "1419381",
+      "warranty": "1 год",
+      "price": 103385,
+      "category": "Смартфоны и планшеты",
+      "categoryLink": "smartphones",
+      "subcategory": "Смартфоны, планшеты и аксессуары",
+      "subcategoryLink": "smartphones",
+      "image": "/images/Apple_ipad.jpg",
+      "images": [
+        "/images/Apple_ipad.jpg",
+        "/images/Apple_ipad.jpg",
+        "/images/Apple_ipad.jpg",
+        "/images/Apple_ipad.jpg",
+        "/images/Apple_ipad.jpg"
+      ],
+      "stock": {
+        "office": "в наличие (много)",
+        "warehouse": "в наличие"
+      },
+      "characteristics": {
+        "Модель": "iPad Air 2020",
+        "Тип": "Планшет",
+        "Бренд": "Apple",
+        "Процессор": "A14",
+        "Артикул": "MYH42RU/A"
+      }
+    },
+    {
+      "id": 14,
+      "name": "Гарнитура вкладыши Digma TWS-10 белый беспроводные",
+      "shortName": "Гарнитура вкладыши Digma TWS-10 белый беспроводные",
+      "article": "1151107",
+      "warranty": "1 год",
+      "price": 1041,
+      "category": "Аудио",
+      "categoryLink": "audio",
+      "subcategory": "Периферия и аксессуары",
+      "subcategoryLink": "peripherals",
+      "image": "/images/Headphones_TWS_10.jpg",
+      "images": [
+        "/images/Headphones_TWS_10.jpg",
+        "/images/Headphones_TWS_10.jpg",
+        "/images/Headphones_TWS_10.jpg",
+        "/images/Headphones_TWS_10.jpg",
+        "/images/Headphones_TWS_10.jpg"
+      ],
+      "stock": {
+        "office": "в наличие",
+        "warehouse": "в наличие"
+      },
+      "characteristics": {
+        "Модель": "TWS-10",
+        "Тип": "Гарнитура",
+        "Бренд": "Digma",
+        "Цвет": "белый",
+        "Подключение": "беспроводные"
+      }
+    },
+    {
+      "id": 15,
+      "name": "Смарт-часы Jet Kid Pinkie Pie 40мм 1.44\" TFT розовый",
+      "shortName": "Смарт-часы Jet Kid Pinkie Pie 40мм 1.44\" TFT розовый",
+      "article": "1178769",
+      "warranty": "1 год",
+      "price": 3615,
+      "category": "Смартфоны и планшеты",
+      "categoryLink": "smartphones",
+      "subcategory": "Смартфоны, планшеты и аксессуары",
+      "subcategoryLink": "smartphones",
+      "image": "/images/Smart_watch.jpg",
+      "images": [
+        "/images/Smart_watch.jpg",
+        "/images/Smart_watch.jpg",
+        "/images/Smart_watch.jpg",
+        "/images/Smart_watch.jpg",
+        "/images/Smart_watch.jpg"
+      ],
+      "stock": {
+        "office": "в наличие (много)",
+        "warehouse": "в наличие"
+      },
+      "characteristics": {
+        "Модель": "Pinkie Pie",
+        "Тип": "Смарт-часы",
+        "Бренд": "Jet Kid",
+        "Размер экрана": "1.44\"",
+        "Цвет": "розовый"
+      }
+    },
+    {
+      "id": 16,
+      "name": "Смартфон Xiaomi Poco X3 Pro 128Gb 6Gb голубой",
+      "shortName": "Смартфон Xiaomi Poco X3 Pro 128Gb 6Gb голубой",
+      "article": "1514353",
+      "warranty": "1 год",
+      "price": 23985,
+      "category": "Смартфоны и планшеты",
+      "categoryLink": "smartphones",
+      "subcategory": "Смартфоны, планшеты и аксессуары",
+      "subcategoryLink": "smartphones",
+      "image": "/images/Telephone_poco.jpg",
+      "images": [
+        "/images/Telephone_poco.jpg",
+        "/images/Telephone_poco.jpg",
+        "/images/Telephone_poco.jpg",
+        "/images/Telephone_poco.jpg",
+        "/images/Telephone_poco.jpg"
+      ],
+      "stock": {
+        "office": "в наличие",
+        "warehouse": "в наличие"
+      },
+      "characteristics": {
+        "Модель": "Poco X3 Pro",
+        "Тип": "Смартфон",
+        "Бренд": "Xiaomi",
+        "Память": "128Gb",
+        "Оперативная память": "6Gb",
+        "Цвет": "голубой"
+      }
+    },
+    {
+      "id": 17,
+      "name": "Планшет Apple iPad Air 2020 MYH42RU/A A14",
+      "shortName": "Планшет Apple iPad Air 2020 MYH42RU/A A14",
+      "article": "1419381",
+      "warranty": "1 год",
+      "price": 103385,
+      "category": "Смартфоны и планшеты",
+      "categoryLink": "smartphones",
+      "subcategory": "Смартфоны, планшеты и аксессуары",
+      "subcategoryLink": "smartphones",
+      "image": "/images/Apple_ipad.jpg",
+      "images": [
+        "/images/Apple_ipad.jpg",
+        "/images/Apple_ipad.jpg",
+        "/images/Apple_ipad.jpg",
+        "/images/Apple_ipad.jpg",
+        "/images/Apple_ipad.jpg"
+      ],
+      "stock": {
+        "office": "в наличие (много)",
+        "warehouse": "в наличие"
+      },
+      "characteristics": {
+        "Модель": "iPad Air 2020",
+        "Тип": "Планшет",
+        "Бренд": "Apple",
+        "Процессор": "A14",
+        "Артикул": "MYH42RU/A"
+      }
+    },
+    {
+      "id": 18,
+      "name": "Гарнитура вкладыши Digma TWS-10 белый беспроводные",
+      "shortName": "Гарнитура вкладыши Digma TWS-10 белый беспроводные",
+      "article": "1151107",
+      "warranty": "1 год",
+      "price": 1041,
+      "category": "Аудио",
+      "categoryLink": "audio",
+      "subcategory": "Периферия и аксессуары",
+      "subcategoryLink": "peripherals",
+      "image": "/images/Headphones_TWS_10.jpg",
+      "images": [
+        "/images/Headphones_TWS_10.jpg",
+        "/images/Headphones_TWS_10.jpg",
+        "/images/Headphones_TWS_10.jpg",
+        "/images/Headphones_TWS_10.jpg",
+        "/images/Headphones_TWS_10.jpg"
+      ],
+      "stock": {
+        "office": "в наличие",
+        "warehouse": "в наличие"
+      },
+      "characteristics": {
+        "Модель": "TWS-10",
+        "Тип": "Гарнитура",
+        "Бренд": "Digma",
+        "Цвет": "белый",
+        "Подключение": "беспроводные"
+      }
+    },
+    {
+      "id": 19,
+      "name": "Смарт-часы Jet Kid Pinkie Pie 40мм 1.44\" TFT розовый",
+      "shortName": "Смарт-часы Jet Kid Pinkie Pie 40мм 1.44\" TFT розовый",
+      "article": "1178769",
+      "warranty": "1 год",
+      "price": 3615,
+      "category": "Смартфоны и планшеты",
+      "categoryLink": "smartphones",
+      "subcategory": "Смартфоны, планшеты и аксессуары",
+      "subcategoryLink": "smartphones",
+      "image": "/images/Smart_watch.jpg",
+      "images": [
+        "/images/Smart_watch.jpg",
+        "/images/Smart_watch.jpg",
+        "/images/Smart_watch.jpg",
+        "/images/Smart_watch.jpg",
+        "/images/Smart_watch.jpg"
+      ],
+      "stock": {
+        "office": "в наличие (много)",
+        "warehouse": "в наличие"
+      },
+      "characteristics": {
+        "Модель": "Pinkie Pie",
+        "Тип": "Смарт-часы",
+        "Бренд": "Jet Kid",
+        "Размер экрана": "1.44\"",
+        "Цвет": "розовый"
+      }
+    },
+    {
+      "id": 20,
+      "name": "Смартфон Xiaomi Poco X3 Pro 128Gb 6Gb голубой",
+      "shortName": "Смартфон Xiaomi Poco X3 Pro 128Gb 6Gb голубой",
+      "article": "1514353",
+      "warranty": "1 год",
+      "price": 23985,
+      "category": "Смартфоны и планшеты",
+      "categoryLink": "smartphones",
+      "subcategory": "Смартфоны, планшеты и аксессуары",
+      "subcategoryLink": "smartphones",
+      "image": "/images/Telephone_poco.jpg",
+      "images": [
+        "/images/Telephone_poco.jpg",
+        "/images/Telephone_poco.jpg",
+        "/images/Telephone_poco.jpg",
+        "/images/Telephone_poco.jpg",
+        "/images/Telephone_poco.jpg"
+      ],
+      "stock": {
+        "office": "в наличие",
+        "warehouse": "в наличие"
+      },
+      "characteristics": {
+        "Модель": "Poco X3 Pro",
+        "Тип": "Смартфон",
+        "Бренд": "Xiaomi",
+        "Память": "128Gb",
+        "Оперативная память": "6Gb",
+        "Цвет": "голубой"
+      }
+    }
+  ],
+  "categories": [
+    {"id": 1, "name": "Компьютеры и комплектующие", "icon": "/images/Computers.svg", "link": "/catalog/computers"},
+    {"id": 2, "name": "Периферия и аксессуары", "icon": "/images/Peripherals.svg", "link": "/catalog/periphery"},
+    {"id": 3, "name": "Цифровое фото и видео", "icon": "/images/Digital_photo.svg", "link": "/catalog/photo"},
+    {"id": 4, "name": "Сетевое оборудование", "icon": "/images/Network_equipment.svg", "link": "/catalog/network"},
+    {"id": 5, "name": "Расходные материалы", "icon": "/images/Supplies.svg", "link": "/catalog/consumables"},
+    {"id": 6, "name": "Смартфоны, планшеты и аксессуары", "icon": "/images/Smartphones_tablets_accessories.svg", "link": "/catalog/smartphones"},
+    {"id": 7, "name": "Телевизоры, аудио- видео техника и аксессуары", "icon": "/images/TV.svg", "link": "/catalog/tv"},
+    {"id": 8, "name": "Автомобильная техника и электроника", "icon": "/images/Automobile.svg", "link": "/catalog/auto"},
+    {"id": 9, "name": "Системы безопасности, СКС и инженерное оборудование", "icon": "/images/Security.svg", "link": "/catalog/security"},
+    {"id": 10, "name": "Спорт, активный отдых, хобби", "icon": "/images/Sport.svg", "link": "/catalog/sport"},
+    {"id": 11, "name": "Офисная техника", "icon": "/images/Office_equipment.svg", "link": "/catalog/office"},
+    {"id": 12, "name": "Канцтовары и мебель", "icon": "/images/Stationery_furniture.svg", "link": "/catalog/furniture"},
+    {"id": 13, "name": "Акции", "icon": "/images/Stocks.svg", "link": "/catalog/sale"},
+    {"id": 14, "name": "Новинки", "icon": "/images/New.svg", "link": "/catalog/new"}
+  ],
+  "subcategories": [
+    {
+      "id": 1,
+      "name": "Сотовые телефоны",
+      "image": "/images/Iphone_chapter.svg",
+      "link": "/catalog/smartphones/phones"
+    },
+    {
+      "id": 2,
+      "name": "Планшеты",
+      "image": "/images/Ipad_chapter.svg",
+      "link": "/catalog/smartphones/tablets"
+    },
+    {
+      "id": 3,
+      "name": "Аксессуары для мобильной связи",
+      "image": "/images/Headphones_chapter.svg",
+      "link": "/catalog/smartphones/accessories-mobile"
+    },
+    {
+      "id": 4,
+      "name": "Аксессуары для планшетных устройств",
+      "image": "/images/Accessories_for_tablet_devices.svg",
+      "link": "/catalog/smartphones/accessories-tablets"
+    }
+  ],
+  "topCategories": [
+    {"id":1,"name":"Процессоры","image":"/images/Proccesors.svg","link":"/catalog/processors"},
+    {"id":2,"name":"Ноутбуки","image":"/images/Laptops.svg","link":"/catalog/laptops"},
+    {"id":3,"name":"Системные блоки","image":"/images/System_block.svg","link":"/catalog/system-units"},
+    {"id":4,"name":"Мониторы","image":"/images/Monitor.svg","link":"/catalog/monitors"},
+    {"id":5,"name":"Принтеры","image":"/images/Printers.svg","link":"/catalog/printers"},
+    {"id":6,"name":"МФУ","image":"/images/MFU.svg","link":"/catalog/mfu"},
+    {"id":7,"name":"Видеокарты","image":"/images/video_cards.svg","link":"/catalog/gpu"},
+    {"id":8,"name":"Картриджи","image":"/images/cartridges.svg","link":"/catalog/cartridges"},
+    {"id":9,"name":"Микрофоны","image":"/images/Microphone.svg","link":"/catalog/microphones"},
+    {"id":10,"name":"Компьютерная техника","subtitle":"Офис \"под ключ\"","image":"/images/Computer_equipment.svg","link":"/catalog/computer-tech"}
+  ],
+  "benefits": [
+    {"id":1,"title":"Надежный поставщик","description":"С 1993 года на рынке Жуковского. 28 лет рядом с вами.","icon":"/images/Shield.jpg"},
+    {"id":2,"title":"Полный комплекс","description":"Поставки, ремонт и обслуживание в сервис-центре СВС - все в одном месте","icon":"/images/Houses.jpg"},
+    {"id":3,"title":"Заказ под ключ","description":"Подберем технику \"под ключ\" по потребностям и бюджету.","icon":"/images/Key.jpg"},
+    {"id":4,"title":"Качественный сервис","description":"Высококлассные технические специалисты, которые не стоят над душой, но посоветуют то, что надо.","icon":"/images/Medal.jpg"},
+    {"id":5,"title":"Сотрудничество","description":"Работаем с физическими и юридическими лицами, в том числе с Гос. заказчиками по 44 и 223 ФЗ","icon":"/images/People.jpg"}
+  ],
+  "partners": [
+    {"id":1,"name":"«Авиационный техникум имени Казакова»","logo":"/images/Air.svg"},
+    {"id":2,"name":"МФТИ","logo":"/images/MFTI.svg"},
+    {"id":3,"name":"МБУС Раменского городского округа ФК «Сатурн».","logo":"/images/Saturn.svg"},
+    {"id":4,"name":"ФГУП «Цаги»","logo":"/images/Tsagi.svg"},
+    {"id":5,"name":"АО «ЛИИ им. Громова»","logo":"/images/AO.svg"}
+  ],
+  "trustedBy": [
+    {"id":1,"name":"Монро","logo":"/images/Monro.svg"},
+    {"id":2,"name":"ВВС России","logo":"/images/Eagle.svg"},
+    {"id":3,"name":"Аэроса","logo":"/images/Alrosa.svg"},
+    {"id":4,"name":"Сухой","logo":"/images/dry.svg"}
+  ],
+  "brands": [
+    {"id":1,"name":"ASUS","logo":"/images/Asus.jpg"},
+    {"id":2,"name":"HP","logo":"/images/Hp.jpg"},
+    {"id":3,"name":"Samsung","logo":"/images/Samsung.jpg"},
+    {"id":4,"name":"Intel","logo":"/images/Intel.jpg"},
+    {"id":5,"name":"Lenovo","logo":"/images/Lenovo.jpg"}
+  ]
+}
