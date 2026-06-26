@@ -28,6 +28,12 @@ const routes = [
     name: 'service',
     component: () => import('../components/ServiceCenter.vue'),
     props: true
+  },
+  {
+    path: '/commissioning',
+    name: 'commissioning',
+    component: () => import('../components/Commissioning.vue'),
+    props: true
   }
 ]
 

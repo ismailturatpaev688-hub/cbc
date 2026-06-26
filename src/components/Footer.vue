@@ -171,10 +171,4 @@
   background: #001569;
   display: inline-block;
 }
-
-@media (max-width: 768px) {
-  .footer-inner {
-    grid-template-columns: 1fr;
-  }
-}
 </style>

@@ -253,23 +253,3 @@ body {
     background: #1F347B;
     border-color: #1F347B;
 }
-
-@media (max-width: 1200px) {
-    .container {
-        max-width: 100%;
-        padding: 0 20px;
-    }
-}
-
-@media (max-width: 768px) {
-    .section-title {
-        font-size: 24px;
-    }
-    .section-subtitle {
-        font-size: 20px;
-    }
-    .btn-primary {
-        font-size: 16px;
-        padding: 16px 30px;
-    }
-}

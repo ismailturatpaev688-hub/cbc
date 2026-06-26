@@ -306,37 +306,4 @@ function search() {
 .service-link:hover {
   color: #FFAF37;
 }
-
-@media (max-width: 768px) {
-  .header-top-inner {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .header-nav {
-    justify-content: center;
-  }
-
-  .header-middle-inner {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .header-bottom-inner {
-    flex-direction: column;
-  }
-
-  .header-search {
-    width: 100%;
-  }
-
-  .header-contacts-row {
-    justify-content: center;
-  }
-
-  .header-services-inner {
-    flex-direction: column;
-    gap: 15px;
-  }
-}
 </style>

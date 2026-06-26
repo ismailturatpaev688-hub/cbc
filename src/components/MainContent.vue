@@ -1,7 +1,26 @@
 <template>
   <main class="main-content">
+    <!-- Hero Section -->
     <section class="hero-section">
       <div class="container hero-inner">
+        <div class="hero-catalog">
+          <div class="catalog-header">
+            <h2 class="catalog-title">Каталог</h2>
+          </div>
+          <ul class="catalog-menu-list">
+            <li
+                v-for="category in categories"
+                :key="category.id"
+                class="catalog-menu-item"
+                :class="{ active: currentCategory?.id === category.id }">
+              <router-link :to="category.link" class="catalog-menu-link">
+                <img :src="category.icon" :alt="category.name" class="menu-icon-img">
+                <span class="menu-text">{{ category.name }}</span>
+                <span class="menu-arrow">›</span>
+              </router-link>
+            </li>
+          </ul>
+        </div>
         <div class="hero-text">
           <h1 class="hero-title">
             Компьютерный магазин <span class="accent-text">СВС в Жуковском</span><br/>
@@ -26,27 +45,10 @@
           <button class="banner-arrow banner-arrow-left"><img src="/images/Arrow-left.jpg" alt="Arrow"></button>
           <button class="banner-arrow banner-arrow-right"><img src="/images/Arrow-right.jpg" alt="Arrow"></button>
         </div>
-        <div class="hero-catalog">
-          <div class="catalog-header">
-            <h2 class="catalog-title">Каталог</h2>
-          </div>
-          <ul class="catalog-menu-list">
-            <li
-                v-for="category in categories"
-                :key="category.id"
-                class="catalog-menu-item"
-                :class="{ active: currentCategory?.id === category.id }">
-              <router-link :to="category.link" class="catalog-menu-link">
-                <img :src="category.icon" :alt="category.name" class="menu-icon-img">
-                <span class="menu-text">{{ category.name }}</span>
-                <span class="menu-arrow">›</span>
-              </router-link>
-            </li>
-          </ul>
-        </div>
       </div>
     </section>
 
+    <!-- Benefits Section -->
     <section class="benefits-section">
       <div class="container benefits-inner">
         <div class="benefit-card benefit-main">
@@ -84,7 +86,6 @@
             <span class="brand-placeholder"><img src="/images/Samsung.jpg" alt="Samsung"></span>
             <span class="brand-placeholder"><img src="/images/Intel.jpg" alt="Intel"></span>
             <span class="brand-placeholder"><img src="/images/Lenovo.jpg" alt="Lenovo"></span>
-
           </div>
         </div>
         <div class="benefit-card" v-for="benefit in benefits.slice(3, 4)" :key="benefit.id">
@@ -104,6 +105,7 @@
       </div>
     </section>
 
+    <!-- Banners Section -->
     <section class="banners-section">
       <div class="container banners-inner">
         <div class="banner-block banner-block-left">
@@ -136,6 +138,7 @@
       </div>
     </section>
 
+    <!-- Tenders Section -->
     <section class="tenders-section">
       <div class="container tenders-inner">
         <div class="tenders-header">
@@ -148,32 +151,33 @@
         </div>
         <div class="partners-grid">
           <div class="partner-item">
-            <div class="partner-logo-placeholder1"><img src="/images/Air.svg" alt="Air"></div>
-            <p class="partner-name1">«Авиационный техникум <br>
+            <div class="partner-logo-placeholder"><img src="/images/Air.svg" alt="Air"></div>
+            <p class="partner-name">«Авиационный техникум <br>
               имени Казакова»</p>
           </div>
           <div class="partner-item">
-            <div class="partner-logo-placeholder2"><img src="/images/MFTI.svg" alt="MFTI"></div>
-            <p class="partner-name2">МФТИ</p>
+            <div class="partner-logo-placeholder"><img src="/images/MFTI.svg" alt="MFTI"></div>
+            <p class="partner-name">МФТИ</p>
           </div>
           <div class="partner-item">
-            <div class="partner-logo-placeholder3"><img src="/images/Saturn.svg" alt="Saturn"></div>
-            <p class="partner-name3">МБУС Раменского городского <br>
+            <div class="partner-logo-placeholder"><img src="/images/Saturn.svg" alt="Saturn"></div>
+            <p class="partner-name">МБУС Раменского городского <br>
               округа ФК «Сатурн».</p>
           </div>
           <div class="partner-item">
-            <div class="partner-logo-placeholder4"><img src="/images/Tsagi.svg" alt="Tsagi"></div>
-            <p class="partner-name4">ФГУП «Цаги»</p>
+            <div class="partner-logo-placeholder"><img src="/images/Tsagi.svg" alt="Tsagi"></div>
+            <p class="partner-name">ФГУП «Цаги»</p>
           </div>
           <div class="partner-item">
-            <div class="partner-logo-placeholder5"><img src="/images/AO.svg" alt="AO"></div>
-            <p class="partner-name5">АО «ЛИИ <br>
+            <div class="partner-logo-placeholder"><img src="/images/AO.svg" alt="AO"></div>
+            <p class="partner-name">АО «ЛИИ <br>
               им. Громова»</p>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- Categories Section -->
     <section class="categories-section">
       <div class="container categories-inner">
         <div class="categories-header-card">
@@ -183,7 +187,6 @@
           <div class="category-image-placeholder"><img src="/images/Proccesors.svg" alt="Proccesors"></div>
           <div class="category-info">
             <span class="category-name">{{ cat.name }}</span>
-
             <span class="category-arrow">→</span>
           </div>
         </div>
@@ -237,31 +240,32 @@
           </div>
         </div>
         <div class="category-card" v-for="cat in topCategories.slice(8, 9)" :key="cat.id">
-            <div class="category-image-placeholder"><img src="/images/Microphone.svg" alt="Microphone"></div>
-            <div class="category-info">
-              <span class="category-name">{{ cat.name }}</span>
-              <span class="category-arrow">→</span>
-            </div>
+          <div class="category-image-placeholder"><img src="/images/Microphone.svg" alt="Microphone"></div>
+          <div class="category-info">
+            <span class="category-name">{{ cat.name }}</span>
+            <span class="category-arrow">→</span>
+          </div>
         </div>
         <div class="category-card" v-for="cat in topCategories.slice(9, 10)" :key="cat.id">
-            <div class="category-image-placeholder"><img src="/images/Computer_equipment.svg" alt="Computer_equipment"></div>
-            <div class="category-info">
-              <div>
-                <span class="category-name">{{ cat.name }}</span>
-                <span v-if="cat.subtitle" class="category-subtitle">{{ cat.subtitle }}</span>
-              </div>
-              <span class="category-arrow">→</span>
+          <div class="category-image-placeholder"><img src="/images/Computer_equipment.svg" alt="Computer_equipment"></div>
+          <div class="category-info">
+            <div>
+              <span class="category-name">{{ cat.name }}</span>
+              <span v-if="cat.subtitle" class="category-subtitle">{{ cat.subtitle }}</span>
             </div>
-        </div>
-        <div class="category-card1 category-card-btn">
-          <div>
-            <button class="btn-primary1 categories-all-btn">ПОСМОТРЕТЬ ВСЕ КАТЕГОРИИ</button>
+            <span class="category-arrow">→</span>
           </div>
-          <span class="category-arrow1">→</span>
+        </div>
+        <div class="category-card category-card-btn">
+          <div>
+            <button class="btn-primary categories-all-btn">ПОСМОТРЕТЬ ВСЕ КАТЕГОРИИ</button>
+          </div>
+          <span class="category-arrow">→</span>
         </div>
       </div>
     </section>
 
+    <!-- Integration Section -->
     <section class="integration-section">
       <div class="container integration-inner">
         <div class="integration-banner integration-left">
@@ -293,6 +297,7 @@
       </div>
     </section>
 
+    <!-- Service Section -->
     <section class="service-section">
       <div class="container service-inner">
         <div class="service-bg"></div>
@@ -306,10 +311,11 @@
             <span class="arrow-right"></span>
           </button>
         </div>
-        <img src="/images/Photo.svg" alt="Photo">
+        <img src="/images/Photo.svg" alt="Photo" class="service-photo">
       </div>
     </section>
 
+    <!-- Trusted Section -->
     <section class="trusted-section">
       <div class="container trusted-inner">
         <div class="trusted-frame">
@@ -325,12 +331,13 @@
       </div>
     </section>
 
+    <!-- Consultation Section -->
     <section class="consultation-section">
       <div class="container consultation-inner">
         <h2 class="section-title consultation-title">Нужна консультация по выбору компьютерного оборудования?</h2>
         <p class="section-subtitle consultation-subtitle">Остались вопросы? Задайте его в форме ниже:</p>
         <div class="consultation-card">
-          <img src="/images/Women.svg" alt="Women">
+          <img src="/images/Women.svg" alt="Women" class="consultation-img">
           <form class="consultation-form" @submit.prevent="submitForm">
             <div class="form-group">
               <input type="text" v-model="form.name" placeholder="Имя *" class="form-input" required />
@@ -351,6 +358,7 @@
       </div>
     </section>
 
+    <!-- Map Section -->
     <section class="map-section">
       <div class="container map-inner">
         <div class="map-frame">
@@ -382,12 +390,13 @@
                 <span>Сб - Вс: принимаем онлайн-заказы</span>
               </div>
             </div>
-            <img src="/images/Map.svg" alt="Map">
+            <img src="/images/Map.svg" alt="Map" class="map-image">
           </div>
         </div>
       </div>
     </section>
 
+    <!-- Floating Widget -->
     <div class="floating-widget">
       <div class="widget-item widget-cart" @click="openCart">
         <span class="widget-icon cart-icon"></span>
@@ -403,7 +412,6 @@
       </div>
     </div>
   </main>
-
 </template>
 
 <script setup>
@@ -415,6 +423,7 @@ const benefits = ref([])
 const partners = ref([])
 const brands = ref([])
 const trustedBy = ref([])
+const currentCategory = ref(null)
 
 const form = ref({
   name: '',
@@ -463,11 +472,20 @@ function openCompare() {
 </script>
 
 <style scoped>
+/* ===== BASE STYLES (Desktop) ===== */
 .main-content {
   width: 100%;
   overflow-x: hidden;
 }
 
+.container {
+  max-width: 1410px;
+  margin: 0 auto;
+  padding: 0 15px;
+  box-sizing: border-box;
+}
+
+/* ===== HERO SECTION ===== */
 .hero-section {
   padding: 40px 0;
 }
@@ -500,15 +518,15 @@ function openCompare() {
   grid-column: 2;
   position: relative;
   width: 100%;
-  height: 590px;
+  height: 630px;
   border-radius: 10px;
   overflow: hidden;
 }
 
 .banner-image-placeholder {
   width: 100%;
-  height: 590px;
-  background: url("/public/images/Bg.jpg");
+  height: 100%;
+  background: url("/images/Bg.jpg") center/cover;
 }
 
 .banner-overlay {
@@ -534,16 +552,16 @@ function openCompare() {
   margin-bottom: 30px;
 }
 
-.btn-primary1 {
+.btn-primary {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   background: #FFAF37;
   color: #FFFFFF;
   font-family: 'Rubik', sans-serif;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 21px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 123.4%;
   text-transform: uppercase;
   border: none;
   cursor: pointer;
@@ -664,7 +682,8 @@ function openCompare() {
 }
 
 .menu-text {
-  font-family: 'Rubik-Medium', sans-serif;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 500;
   font-size: 15px;
   flex: 1;
   line-height: 1.3;
@@ -676,6 +695,7 @@ function openCompare() {
   opacity: 0.6;
 }
 
+/* ===== BENEFITS SECTION ===== */
 .benefits-section {
   padding: 40px 0;
 }
@@ -715,7 +735,7 @@ function openCompare() {
 .diamond-icon {
   width: 70px;
   height: 72px;
-  background: url("/public/images/Tree.jpg");
+  background: url("/images/Tree.jpg") center/contain no-repeat;
 }
 
 .benefit-title {
@@ -754,6 +774,12 @@ function openCompare() {
   justify-content: center;
 }
 
+.brand-placeholder img {
+  max-width: 80px;
+  max-height: 40px;
+}
+
+/* ===== BANNERS SECTION ===== */
 .banners-section {
   padding: 40px 0;
 }
@@ -822,7 +848,14 @@ function openCompare() {
   height: 60px;
 }
 
-.banner-illustration-placeholder {
+.banner-icon-placeholder img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.banner-illustration-placeholder,
+.banner-illustration-placeholder1,
+.banner-illustration-placeholder2 {
   position: absolute;
   bottom: 15px;
   left: 0;
@@ -830,22 +863,14 @@ function openCompare() {
   height: 230px;
 }
 
-.banner-illustration-placeholder1 {
-  position: absolute;
-  bottom: 42px;
-  left: 0;
-  width: 300px;
-  height: 230px;
+.banner-illustration-placeholder img,
+.banner-illustration-placeholder1 img,
+.banner-illustration-placeholder2 img {
+  max-width: 100%;
+  max-height: 100%;
 }
 
-.banner-illustration-placeholder2 {
-  position: absolute;
-  bottom: 10px;
-  left: 0;
-  width: 300px;
-  height: 230px;
-}
-
+/* ===== TENDERS SECTION ===== */
 .tenders-section {
   padding: 40px 0;
   background: #F0F0FF;
@@ -904,37 +929,21 @@ function openCompare() {
   min-width: 150px;
 }
 
-.partner-logo-placeholder1 {
-  width: 150px;
-  height: 80px;
-  margin: 0 0 34px 50px;
-}
-
-.partner-logo-placeholder2 {
-  width: 150px;
-  height: 80px;
-  margin: 20px 0 0 0;
-}
-
-.partner-logo-placeholder3 {
-  width: 150px;
-  height: 80px;
-  margin: 0 0 19px 95px;
-}
-
-.partner-logo-placeholder4 {
-  width: 150px;
-  height: 80px;
-  margin: 40px 0 0 0;
-}
-
-.partner-logo-placeholder5 {
+.partner-logo-placeholder {
   width: 150px;
   height: 80px;
   margin: 0 auto 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.partner-name1 {
+.partner-logo-placeholder img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.partner-name {
   font-family: 'Rubik', sans-serif;
   font-weight: 500;
   font-size: 20px;
@@ -943,49 +952,7 @@ function openCompare() {
   color: #4A4D4A;
 }
 
-.partner-name2 {
-  font-family: 'Rubik', sans-serif;
-  font-weight: 500;
-  font-size: 20px;
-  line-height: 24px;
-  text-align: center;
-  color: #4A4D4A;
-  padding-top: 20px;
-  padding-left: 50px;
-}
-
-.partner-name3 {
-  font-family: 'Rubik', sans-serif;
-  font-weight: 500;
-  font-size: 20px;
-  line-height: 24px;
-  text-align: center;
-  color: #4A4D4A;
-  padding-top: 20px;
-  padding-left: 50px;
-}
-
-.partner-name4 {
-  font-family: 'Rubik', sans-serif;
-  font-weight: 500;
-  font-size: 20px;
-  line-height: 24px;
-  text-align: center;
-  color: #4A4D4A;
-  padding-left: 30px;
-  padding-bottom: 20px;
-}
-
-.partner-name5 {
-  font-family: 'Rubik', sans-serif;
-  font-weight: 500;
-  font-size: 20px;
-  line-height: 24px;
-  text-align: center;
-  color: #4A4D4A;
-  padding-top: 30px;
-}
-
+/* ===== CATEGORIES SECTION ===== */
 .categories-section {
   padding: 40px 0;
 }
@@ -1015,19 +982,6 @@ function openCompare() {
   align-items: center;
   transition: transform 0.3s;
 }
-.category-card1 {
-  background: #FFFFFF;
-  box-shadow: 0 0 19px rgba(0, 0, 0, 0.25);
-  padding: 128px 20px 120px 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  transition: transform 0.3s;
-}
-
-.category-card1 div {
-  padding-top: 50px;
-}
 
 .category-card:hover {
   transform: translateY(-3px);
@@ -1037,7 +991,15 @@ function openCompare() {
   width: 100%;
   height: 150px;
   margin-bottom: 15px;
-  margin-left: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.category-image-placeholder img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
 }
 
 .category-info {
@@ -1046,6 +1008,7 @@ function openCompare() {
   justify-content: space-between;
   width: 100%;
 }
+
 .category-info div {
   display: flex;
   align-items: center;
@@ -1076,12 +1039,6 @@ function openCompare() {
   font-size: 24px;
   color: #4A4D4A;
 }
-.category-arrow1 {
-  font-size: 24px;
-  color: #4A4D4A;
-  margin-left: 265px;
-  margin-top: 50px;
-}
 
 .category-card-btn {
   display: flex;
@@ -1097,6 +1054,7 @@ function openCompare() {
   min-height: 60px;
 }
 
+/* ===== INTEGRATION SECTION ===== */
 .integration-section {
   padding: 40px 0;
 }
@@ -1125,6 +1083,7 @@ function openCompare() {
   margin-left: auto;
 }
 
+/* ===== SERVICE SECTION ===== */
 .service-section {
   padding: 40px 0;
   background: #F0F0FF;
@@ -1157,19 +1116,21 @@ function openCompare() {
   gap: 15px;
 }
 
-.service-inner img {
+.service-photo {
   width: 400px;
   height: 250px;
   margin-right: 150px;
+  object-fit: cover;
 }
 
+/* ===== TRUSTED SECTION ===== */
 .trusted-section {
   padding: 40px 0;
 }
 
 .trusted-frame {
   border: 6px solid rgba(31, 52, 123, 0.2);
-  padding: 40px 40px 40px 40px;
+  padding: 40px;
   position: relative;
 }
 
@@ -1200,8 +1161,10 @@ function openCompare() {
 .trusted-logos img {
   width: 180px;
   height: 140px;
+  object-fit: contain;
 }
 
+/* ===== CONSULTATION SECTION ===== */
 .consultation-section {
   padding: 40px 0;
 }
@@ -1226,9 +1189,10 @@ function openCompare() {
   align-items: center;
 }
 
-.consultation-card img {
+.consultation-img {
   width: 100%;
   height: 350px;
+  object-fit: contain;
 }
 
 .consultation-form {
@@ -1245,6 +1209,7 @@ function openCompare() {
   font-size: 14px;
   outline: none;
   transition: border-color 0.3s;
+  box-sizing: border-box;
 }
 
 .form-input:focus {
@@ -1276,6 +1241,7 @@ function openCompare() {
   accent-color: #4A4D4A;
 }
 
+/* ===== MAP SECTION ===== */
 .map-section {
   padding: 40px 0;
 }
@@ -1309,9 +1275,10 @@ function openCompare() {
   align-items: start;
 }
 
-.map-content img {
+.map-image {
   max-height: 500px;
   max-width: 600px;
+  width: 100%;
 }
 
 .map-info {
@@ -1332,11 +1299,18 @@ function openCompare() {
   color: #4A4D4A;
 }
 
+.map-info-item img {
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
+}
+
 .map-info-item a {
   color: #4A4D4A;
   text-decoration: none;
 }
 
+/* ===== FLOATING WIDGET ===== */
 .floating-widget {
   position: fixed;
   right: 0;
@@ -1415,92 +1389,553 @@ function openCompare() {
   border-color: #1F347B;
 }
 
-@media (max-width: 1200px) {
+/* ===== COMMON STYLES ===== */
+.section-title {
+  font-family: 'Rubik', sans-serif;
+  font-weight: 500;
+  font-size: 36px;
+  line-height: 43px;
+  color: #4A4D4A;
+  margin: 0 0 20px 0;
+}
+
+.text-regular {
+  font-family: 'Rubik', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+  color: #4A4D4A;
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  background: transparent;
+  border: 2px solid #FFAF37;
+  color: #4A4D4A;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 123.4%;
+  text-transform: uppercase;
+  cursor: pointer;
+  padding: 20px 40px;
+  transition: opacity 0.3s;
+}
+
+/* ============================================ */
+/* ===== MOBILE ADAPTIVE (320px - 360px) ===== */
+/* ============================================ */
+@media (max-width: 320px) {
+  * {
+    box-sizing: border-box;
+  }
+
+  .container {
+    padding: 0 10px;
+    max-width: 320px;
+  }
+
+  /* ===== HERO ===== */
+  .hero-section {
+    padding: 20px 0;
+  }
+
   .hero-inner {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
   }
 
   .hero-catalog {
-    grid-column: 1;
-    grid-row: auto;
+    order: 1;
+    width: 302px;
+    margin: 0 auto;
+  }
+
+  .catalog-header {
+    padding: 12px 25px;
+    background: #F0F0FF;
+  }
+
+  .catalog-title {
+    font-size: 14px;
+    line-height: 123.4%;
+  }
+
+  .catalog-menu-link {
+    padding: 10px 16px;
+  }
+
+  .menu-icon-img {
+    width: 15px;
+    height: 15px;
+  }
+
+  .menu-text {
+    font-size: 12px;
+    line-height: 123.4%;
+  }
+
+  .menu-arrow {
+    font-size: 16px;
   }
 
   .hero-text {
-    grid-column: 1;
+    order: 2;
+    width: 301px;
+    margin: 0 auto;
   }
 
-  .hero-banner {
-    grid-column: 1;
-  }
-
-  .benefits-inner {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .benefit-wide {
-    grid-column: span 2;
-  }
-
-  .categories-inner {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  .consultation-card {
-    grid-template-columns: 1fr;
-  }
-
-  .map-content {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 768px) {
   .hero-title {
     font-size: 24px;
-    line-height: 30px;
+    line-height: 123.4%;
+    text-align: center;
   }
 
   .hero-banner {
-    height: 300px;
+    order: 3;
+    width: 300px;
+    height: 328px;
+    margin: 0 auto;
+  }
+
+  .banner-overlay {
+    left: 0;
+    padding: 20px;
   }
 
   .banner-text {
     font-size: 20px;
+    line-height: 123.4%;
+  }
+
+  .banner-btn {
+    width: 300px;
+    height: 60px;
+    padding: 0;
+    font-size: 16px;
+  }
+
+  .banner-dots {
+    bottom: 15px;
+    gap: 9px;
+  }
+
+  .dot {
+    width: 15px;
+    height: 15px;
+  }
+
+  .banner-arrow {
+    display: none;
+  }
+
+  /* ===== BENEFITS ===== */
+  .benefits-section {
+    padding: 20px 0;
   }
 
   .benefits-inner {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .benefit-card {
+    width: 300px;
+    height: 200px;
+    margin: 0 auto;
+    padding: 20px 25px;
+  }
+
+  .benefit-main-title {
+    font-size: 20px;
+    line-height: 123.4%;
+  }
+
+  .benefit-icon-placeholder {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+  }
+
+  .diamond-icon {
+    width: 70px;
+    height: 72px;
+  }
+
+  .benefit-title {
+    font-size: 18px;
+    line-height: 123.4%;
+    margin-bottom: 10px;
+  }
+
+  .benefit-desc {
+    font-size: 16px;
+    line-height: 123.4%;
   }
 
   .benefit-wide {
-    grid-column: span 1;
+    height: 233px;
   }
 
-  .banners-inner,
-  .integration-inner {
-    grid-template-columns: 1fr;
+  .brands-row {
+    gap: 15px;
+    margin-top: 15px;
+  }
+
+  .brand-placeholder img {
+    max-width: 60px;
+    max-height: 30px;
+  }
+
+  /* ===== BANNERS ===== */
+  .banners-section {
+    padding: 20px 0;
+  }
+
+  .banners-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .banner-block {
+    width: 300px;
+    height: 360px;
+    margin: 0 auto;
+    padding: 20px;
   }
 
   .banner-content {
-    max-width: 100%;
+    top: 40%;
+    text-align: center;
   }
 
-  .categories-inner {
-    grid-template-columns: repeat(2, 1fr);
+  .banner-block-title {
+    font-size: 18px;
+    line-height: 123.4%;
+    text-align: center;
+    margin-bottom: 10px;
   }
 
-  .service-inner {
-    flex-direction: column;
+  .banner-block-desc {
+    font-size: 16px;
+    line-height: 123.4%;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .banner-block .btn-primary {
+    width: 200px;
+    height: 50px;
+    font-size: 16px;
+    padding: 0;
+  }
+
+  .banner-icon-placeholder {
+    width: 40px;
+    height: 42px;
+  }
+
+  .banner-illustration-placeholder,
+  .banner-illustration-placeholder1,
+  .banner-illustration-placeholder2 {
+    left: 20%;
+    width: 200px;
+    height: 180px;
+  }
+
+  /* ===== TENDERS ===== */
+  .tenders-section {
+    padding: 20px 0;
   }
 
   .tenders-header {
     flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
   }
 
+  .tenders-header .section-title {
+    font-size: 20px;
+    line-height: 123.4%;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  .tenders-btn {
+    width: 300px;
+    height: 60px;
+    justify-content: center;
+    font-size: 16px;
+    padding: 0 20px;
+  }
+
+  .partners-grid {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .partner-logo-placeholder {
+    width: 80px;
+    height: 50px;
+    margin: 0 auto 10px;
+  }
+
+  .partner-name {
+    font-size: 14px;
+    line-height: 123.4%;
+  }
+
+  /* ===== CATEGORIES ===== */
+  .categories-section {
+    padding: 20px 0;
+  }
+
+  .categories-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .categories-header-card {
+    padding: 20px;
+  }
+
+  .categories-header-card .section-title {
+    font-size: 20px;
+    line-height: 123.4%;
+  }
+
+  .category-card {
+    width: 300px;
+    margin: 0 auto;
+  }
+
+  .category-image-placeholder {
+    height: 150px;
+    margin-left: 0;
+  }
+
+  .category-name {
+    font-size: 18px;
+  }
+
+  .category-card-btn {
+    height: auto;
+    min-height: 60px;
+    padding: 20px;
+  }
+
+  .categories-all-btn {
+    min-height: 50px;
+    font-size: 16px;
+  }
+
+  /* ===== INTEGRATION ===== */
+  .integration-section {
+    padding: 20px 0;
+  }
+
+  .integration-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .integration-banner {
+    width: 300px;
+    height: 380px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+  .integration-left .banner-content,
+  .integration-right .banner-content {
+    text-align: center;
+    margin-left: 0;
+  }
+
+  .integration-banner .banner-block-title {
+    font-size: 18px;
+  }
+
+  .integration-banner .banner-block-desc {
+    font-size: 16px;
+  }
+
+  /* ===== SERVICE ===== */
+  .service-section {
+    padding: 20px 0;
+  }
+
+  .service-inner {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .service-content {
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .service-content .section-title {
+    font-size: 18px;
+    line-height: 123.4%;
+    margin-bottom: 15px;
+  }
+
+  .service-content .text-regular {
+    font-size: 16px;
+    line-height: 123.4%;
+    margin-bottom: 20px;
+  }
+
+  .service-btn {
+    width: 300px;
+    height: 60px;
+    justify-content: center;
+    margin: 0 auto;
+    font-size: 16px;
+    padding: 0 20px;
+  }
+
+  .service-photo {
+    width: 280px;
+    height: 171px;
+    margin-right: 0;
+  }
+
+  /* ===== TRUSTED ===== */
+  .trusted-section {
+    padding: 20px 0;
+  }
+
+  .trusted-frame {
+    width: 279px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+  .trusted-frame .section-title {
+    font-size: 20px;
+    line-height: 123.4%;
+    margin-bottom: 20px;
+  }
+
+  .trusted-logos {
+    margin-top: 20px;
+    gap: 15px;
+  }
+
+  .trusted-logos img {
+    width: 80px;
+    height: 60px;
+  }
+
+  /* ===== CONSULTATION ===== */
+  .consultation-section {
+    padding: 20px 0;
+  }
+
+  .consultation-title {
+    font-size: 20px;
+    line-height: 123.4%;
+    margin-bottom: 10px;
+  }
+
+  .consultation-subtitle {
+    font-size: 16px;
+    line-height: 123.4%;
+    margin-bottom: 20px;
+  }
+
+  .consultation-card {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 10px;
+    gap: 20px;
+  }
+
+  .consultation-img {
+    display: none;
+  }
+
+  .form-input {
+    width: 300px;
+    height: 60px;
+    margin: 0 auto;
+    display: block;
+    font-size: 14px;
+  }
+
+  .form-submit {
+    width: 300px;
+    height: 60px;
+    margin: 0 auto;
+    display: block;
+    font-size: 16px;
+    padding: 0;
+  }
+
+  .form-checkbox {
+    max-width: 300px;
+    margin: 0 auto;
+  }
+
+  /* ===== MAP ===== */
+  .map-section {
+    padding: 20px 0;
+  }
+
+  .map-frame {
+    width: 302px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+  .map-title {
+    font-size: 20px;
+    line-height: 123.4%;
+    margin-bottom: 20px;
+  }
+
+  .map-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .map-image {
+    width: 300px;
+    height: 324px;
+    margin: 0 auto;
+    border-radius: 20px;
+  }
+
+  .map-info {
+    margin-top: 0;
+    gap: 15px;
+  }
+
+  .map-info-item {
+    font-size: 14px;
+    line-height: 123.4%;
+  }
+
+  .map-info-item img {
+    width: 30px;
+    height: 30px;
+  }
+
+  /* ===== FLOATING WIDGET ===== */
   .floating-widget {
-    bottom: 20px;
+    right: 0;
     top: auto;
-    right: 20px;
+    bottom: 20px;
     transform: none;
     flex-direction: row;
     border-radius: 10px;
@@ -1509,6 +1944,38 @@ function openCompare() {
   .widget-item {
     width: 50px;
     height: 50px;
+  }
+
+  .widget-icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .widget-badge {
+    width: 16px;
+    height: 16px;
+    top: 5px;
+    right: 5px;
+    font-size: 10px;
+  }
+
+  /* ===== COMMON ===== */
+  .section-title {
+    font-size: 20px;
+    line-height: 123.4%;
+  }
+
+  .text-regular {
+    font-size: 16px;
+    line-height: 123.4%;
+  }
+
+  .btn-primary {
+    font-size: 16px;
+  }
+
+  .btn-outline {
+    font-size: 16px;
   }
 }
 </style>

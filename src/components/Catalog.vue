@@ -36,7 +36,6 @@
           <!-- Фильтр по параметрам -->
           <div class="filter-panel">
             <h3 class="filter-panel-title">Фильтр по параметрам</h3>
-
             <!-- Цена -->
             <div class="filter-section">
               <div class="filter-section-header" @click="toggleFilter('price')">
@@ -66,7 +65,6 @@
                 </div>
               </div>
             </div>
-
             <!-- Бренд -->
             <div class="filter-section">
               <div class="filter-section-header" @click="toggleFilter('brand')">
@@ -83,7 +81,6 @@
                 </div>
               </div>
             </div>
-
             <!-- Кнопки -->
             <div class="filter-actions">
               <button class="btn-filter" @click="applyFilters">ПОКАЗАТЬ</button>
@@ -135,28 +132,25 @@
                 v-for="product in paginatedProducts"
                 :key="product.id"
                 class="product-card">
-              <a href="/product/:id">
+              <a :href="`/product/${product.id}`" class="product-link">
                 <div class="product-image">
                   <img :src="product.image" :alt="product.name" @error="handleImageError">
                 </div>
               </a>
-
               <div class="product-info">
-                <h3 class="product-title">{{ product.name }}</h3>
-
+                <h3 class="product-title">
+                  <router-link :to="`/product/${product.id}`">{{ product.name }}</router-link>
+                </h3>
                 <div class="product-sku">
                   Артикул: {{ product.article }}
                 </div>
-
                 <div class="product-availability">
                   В наличии / На складе
                 </div>
-
                 <div class="product-price">
                   <span class="price-value">{{ product.price }}</span>
                   <span class="price-currency">₽</span>
                 </div>
-
                 <button class="add-to-cart-btn" @click="addToCart(product)">
                   <img src="/images/Cart_white.svg" alt="Cart_white">
                   <span>В КОРЗИНУ</span>
@@ -187,429 +181,346 @@
             </div>
           </div>
         </div>
+      </div>
 
-
-        <div class="catalog-main1">
-          <!-- Секция акций -->
-          <section class="promo-section">
-            <div class="promo-container">
-
-              <!-- Левая панель -->
-              <div class="promo-sidebar">
-                <div class="sidebar-title-block">
-                  <img src="/images/Promo_icon.svg" alt="SBC" class="sidebar-icon" />
-                  <h2 class="sidebar-title">Выбирайте<br>по акции в СВС</h2>
-                </div>
-
-                <div class="sidebar-subtitle-block">
-                  <img src="/images/Star_icon.svg" alt="Хит" class="sidebar-star" />
-                  <h3 class="sidebar-subtitle">Хиты продаж в СВС</h3>
-                </div>
-
-                <div class="promo-sidebar-footer">
-                  <router-link to="/catalog?promo=true" class="view-all-link">
-                    Смотреть все
-                    <span class="arrow-right">→</span>
-                  </router-link>
-                </div>
+      <!-- Секция акций -->
+      <div class="catalog-main1">
+        <section class="promo-section">
+          <div class="promo-container">
+            <!-- Левая панель -->
+            <div class="promo-sidebar">
+              <div class="sidebar-title-block">
+                <img src="/images/Promo_icon.svg" alt="SBC" class="sidebar-icon" />
+                <h2 class="sidebar-title">Выбирайте<br>по акции в СВС</h2>
               </div>
-
-              <!-- Сетка товаров акций -->
-              <div class="promo-grid">
-                <div
-                    v-for="product in promoProducts"
-                    :key="product.id"
-                    class="promo-card"
-                    :class="{ 'has-shadow': product.isPromo }">
-                  <!-- Верхняя панель -->
-                  <div class="card-top-bar">
-                    <button class="btn-details">Подробнее</button>
-
-                    <div class="card-top-icons">
-                      <button class="btn-favorite">
-                        <img src="/images/Heart.svg" alt="Heart">
-                      </button>
-                      <button class="btn-favorite">
-                        <img src="/images/Compare.svg" alt="Compare">
-                      </button>
-                    </div>
-                  </div>
-
-                  <!-- Изображение + бейджи -->
-                  <div class="product-image-wrapper">
-                    <!-- Бейдж АКЦИЯ -->
-                    <div v-if="product.isPromo" class="badge-hit-wrapper"></div>
-                    <img :src="product.image" :alt="product.name" class="product-img1" @error="handleImageError">
-                  </div>
-
-                  <!-- Информация -->
-                  <div class="product-info1">
-                    <h3 class="product-title">{{ product.name }}</h3>
-
-                    <div class="product-sku">Артикул: {{ product.article }}</div>
-                    <div class="product-availability">В наличии / На складе</div>
-
-                    <!-- Цены с акцией -->
-                    <div class="product-price-block" v-if="product.oldPrice">
-
-                      <div class="new-price">{{ product.price }} ₽</div>
-
-                    </div>
-                    <!-- Обычная цена -->
-                    <div v-else class="product-price">
-                      <span class="price-value">{{ product.price }}</span>
-                      <span class="price-currency">₽</span>
-                    </div>
-
-                    <button class="add-to-cart-btn" @click="addToCart(product)">
-                      <img src="/images/Cart_white.svg" alt="cart">
-                      В КОРЗИНУ
+              <div class="sidebar-subtitle-block">
+                <img src="/images/Star_icon.svg" alt="Хит" class="sidebar-star" />
+                <h3 class="sidebar-subtitle">Хиты продаж в СВС</h3>
+              </div>
+              <div class="promo-sidebar-footer">
+                <router-link to="/catalog?promo=true" class="view-all-link">
+                  Смотреть все
+                  <span class="arrow-right">→</span>
+                </router-link>
+              </div>
+            </div>
+            <!-- Сетка товаров акций -->
+            <div class="promo-grid">
+              <div
+                  v-for="product in promoProducts"
+                  :key="product.id"
+                  class="promo-card"
+                  :class="{ 'has-shadow': product.isPromo }">
+                <!-- Верхняя панель -->
+                <div class="card-top-bar">
+                  <button class="btn-details">Подробнее</button>
+                  <div class="card-top-icons">
+                    <button class="btn-favorite">
+                      <img src="/images/Heart.svg" alt="Heart">
+                    </button>
+                    <button class="btn-favorite">
+                      <img src="/images/Compare.svg" alt="Compare">
                     </button>
                   </div>
                 </div>
-              </div>
-
-
-              <div class="promo-grid">
-                <div
-                    v-for="product in promoProducts"
-                    :key="product.id"
-                    class="promo-card"
-                    :class="{ 'has-shadow': product.isPromo }">
-
-
-                  <!-- Изображение + бейджи -->
-                  <div class="product-image-wrapper">
-                    <!-- Бейдж АКЦИЯ -->
-                    <div v-if="product.isPromo" class="badge-promo-circle">
-                      АКЦИЯ
-                    </div>
-
-                    <!-- Бейдж ХИТ ПРОДАЖ -->
-                    <div v-if="product.isHit" class="badge-hit">
-                      <div class="hit-circle">
-                        <span class="hit-text">ХИТ<br>ПРОДАЖ</span>
-                      </div>
-                    </div>
-
-                    <img :src="product.image" :alt="product.name" class="product-img" @error="handleImageError">
-                  </div>
-
-                  <!-- Информация -->
-                  <div class="product-info">
-                    <h3 class="product-title">{{ product.name }}</h3>
-
-                    <div class="product-sku">Артикул: {{ product.article }}</div>
-                    <div class="product-availability">В наличии / На складе</div>
-
-                    <!-- Цены с акцией -->
-                    <div class="product-price-block" v-if="product.oldPrice">
-                      <div class="old-price-line">
-                        <span class="old-price">{{ product.price }} ₽</span>
-                      </div>
-                      <div class="new-price"><span>Цена по акции:</span> {{ product.oldPrice }} ₽</div>
-
-                      <div class="discount-block">
-                        <span class="discount-label">Скидка:</span>
-                        <span class="discount-value">{{ product.discount }} ₽</span>
-                      </div>
-                    </div>
-                    <!-- Обычная цена -->
-                    <div v-else class="product-price">
-                      <span class="price-value">{{ product.price }}</span>
-                      <span class="price-currency">₽</span>
-                    </div>
-
-                    <button class="add-to-cart-btn" @click="addToCart(product)">
-                      <img src="/images/Cart_white.svg" alt="cart">
-                      В КОРЗИНУ
-                    </button>
-                  </div>
+                <!-- Изображение + бейджи -->
+                <div class="product-image-wrapper">
+                  <div v-if="product.isPromo" class="badge-hit-wrapper"></div>
+                  <img :src="product.image" :alt="product.name" class="product-img1" @error="handleImageError">
                 </div>
-              </div>
-
-              <div class="promo-grid">
-                <div
-                    v-for="product in promoProducts"
-                    :key="product.id"
-                    class="promo-card"
-                    :class="{ 'has-shadow': product.isPromo }">
-                  <!-- Верхняя панель -->
-                  <div class="card-top-bar">
-                    <button class="btn-details">Подробнее</button>
-
-                    <div class="card-top-icons">
-                      <button class="btn-favorite">
-                        <img src="/images/Heart.svg" alt="Heart">
-                      </button>
-                      <button class="btn-favorite">
-                        <img src="/images/Compare.svg" alt="Compare">
-                      </button>
-                    </div>
+                <!-- Информация -->
+                <div class="product-info1">
+                  <h3 class="product-title">
+                    <router-link :to="`/product/${product.id}`">{{ product.name }}</router-link>
+                  </h3>
+                  <div class="product-sku">Артикул: {{ product.article }}</div>
+                  <div class="product-availability">В наличии / На складе</div>
+                  <div class="product-price-block" v-if="product.oldPrice">
+                    <div class="new-price">{{ product.price }} ₽</div>
                   </div>
-
-                  <!-- Изображение + бейджи -->
-                  <div class="product-image-wrapper">
-                    <!-- Бейдж АКЦИЯ -->
-                    <div v-if="product.isPromo" class="badge-hit-wrapper"></div>
-                    <img :src="product.image" :alt="product.name" class="product-img1" @error="handleImageError">
+                  <div v-else class="product-price">
+                    <span class="price-value">{{ product.price }}</span>
+                    <span class="price-currency">₽</span>
                   </div>
-
-                  <!-- Информация -->
-                  <div class="product-info1">
-                    <h3 class="product-title">{{ product.name }}</h3>
-
-                    <div class="product-sku">Артикул: {{ product.article }}</div>
-                    <div class="product-availability">В наличии / На складе</div>
-
-                    <!-- Цены с акцией -->
-                    <div class="product-price-block" v-if="product.oldPrice">
-
-                      <div class="new-price">{{ product.price }} ₽</div>
-
-                    </div>
-                    <!-- Обычная цена -->
-                    <div v-else class="product-price">
-                      <span class="price-value">{{ product.price }}</span>
-                      <span class="price-currency">₽</span>
-                    </div>
-
-                    <button class="add-to-cart-btn" @click="addToCart(product)">
-                      <img src="/images/Cart_white.svg" alt="cart">
-                      В КОРЗИНУ
-                    </button>
-                  </div>
-                </div>
-              </div>
-
-              <div class="promo-grid">
-                <div
-                    v-for="product in promoProducts"
-                    :key="product.id"
-                    class="promo-card"
-                    :class="{ 'has-shadow': product.isPromo }">
-                  <!-- Верхняя панель -->
-                  <div class="card-top-bar">
-                    <button class="btn-details">Подробнее</button>
-
-                    <div class="card-top-icons">
-                      <button class="btn-favorite">
-                        <img src="/images/Heart.svg" alt="Heart">
-                      </button>
-                      <button class="btn-favorite">
-                        <img src="/images/Compare.svg" alt="Compare">
-                      </button>
-                    </div>
-                  </div>
-
-                  <!-- Изображение + бейджи -->
-                  <div class="product-image-wrapper">
-                    <!-- Бейдж АКЦИЯ -->
-                    <div v-if="product.isPromo" class="badge-hit-wrapper"></div>
-                    <img :src="product.image" :alt="product.name" class="product-img1" @error="handleImageError">
-                  </div>
-
-                  <!-- Информация -->
-                  <div class="product-info1">
-                    <h3 class="product-title">{{ product.name }}</h3>
-
-                    <div class="product-sku">Артикул: {{ product.article }}</div>
-                    <div class="product-availability">В наличии / На складе</div>
-
-                    <!-- Цены с акцией -->
-                    <div class="product-price-block" v-if="product.oldPrice">
-
-                      <div class="new-price">{{ product.price }} ₽</div>
-
-                    </div>
-                    <!-- Обычная цена -->
-                    <div v-else class="product-price">
-                      <span class="price-value">{{ product.price }}</span>
-                      <span class="price-currency">₽</span>
-                    </div>
-
-                    <button class="add-to-cart-btn" @click="addToCart(product)">
-                      <img src="/images/Cart_white.svg" alt="cart">
-                      В КОРЗИНУ
-                    </button>
-                  </div>
-                </div>
-              </div>
-
-
-              <div class="promo-grid">
-                <div
-                    v-for="product in promoProducts"
-                    :key="product.id"
-                    class="promo-card"
-                    :class="{ 'has-shadow': product.isPromo }">
-
-
-                  <!-- Изображение + бейджи -->
-                  <div class="product-image-wrapper">
-                    <!-- Бейдж АКЦИЯ -->
-                    <div v-if="product.isPromo" class="badge-promo-circle">
-                      АКЦИЯ
-                    </div>
-
-                    <!-- Бейдж ХИТ ПРОДАЖ -->
-                    <div v-if="product.isHit" class="badge-hit">
-                      <div class="hit-circle">
-                        <span class="hit-text">ХИТ<br>ПРОДАЖ</span>
-                      </div>
-                    </div>
-
-                    <img :src="product.image" :alt="product.name" class="product-img" @error="handleImageError">
-                  </div>
-
-                  <!-- Информация -->
-                  <div class="product-info">
-                    <h3 class="product-title">{{ product.name }}</h3>
-
-                    <div class="product-sku">Артикул: {{ product.article }}</div>
-                    <div class="product-availability">В наличии / На складе</div>
-
-                    <!-- Цены с акцией -->
-                    <div class="product-price-block" v-if="product.oldPrice">
-                      <div class="old-price-line">
-                        <span class="old-price">{{ product.price }} ₽</span>
-                      </div>
-                      <div class="new-price"><span>Цена по акции:</span> {{ product.oldPrice }} ₽</div>
-
-                      <div class="discount-block">
-                        <span class="discount-label">Скидка:</span>
-                        <span class="discount-value">{{ product.discount }} ₽</span>
-                      </div>
-                    </div>
-                    <!-- Обычная цена -->
-                    <div v-else class="product-price">
-                      <span class="price-value">{{ product.price }}</span>
-                      <span class="price-currency">₽</span>
-                    </div>
-
-                    <button class="add-to-cart-btn" @click="addToCart(product)">
-                      <img src="/images/Cart_white.svg" alt="cart">
-                      В КОРЗИНУ
-                    </button>
-                  </div>
-                </div>
-              </div>
-
-              <div class="promo-grid">
-                <div
-                    v-for="product in promoProducts"
-                    :key="product.id"
-                    class="promo-card"
-                    :class="{ 'has-shadow': product.isPromo }">
-                  <!-- Верхняя панель -->
-                  <div class="card-top-bar">
-                    <button class="btn-details">Подробнее</button>
-
-                    <div class="card-top-icons">
-                      <button class="btn-favorite">
-                        <img src="/images/Heart.svg" alt="Heart">
-                      </button>
-                      <button class="btn-favorite">
-                        <img src="/images/Compare.svg" alt="Compare">
-                      </button>
-                    </div>
-                  </div>
-
-                  <!-- Изображение + бейджи -->
-                  <div class="product-image-wrapper">
-                    <!-- Бейдж АКЦИЯ -->
-                    <div v-if="product.isPromo" class="badge-hit-wrapper"></div>
-                    <img :src="product.image" :alt="product.name" class="product-img1" @error="handleImageError">
-                  </div>
-
-                  <!-- Информация -->
-                  <div class="product-info1">
-                    <h3 class="product-title">{{ product.name }}</h3>
-
-                    <div class="product-sku">Артикул: {{ product.article }}</div>
-                    <div class="product-availability">В наличии / На складе</div>
-
-                    <!-- Цены с акцией -->
-                    <div class="product-price-block" v-if="product.oldPrice">
-
-                      <div class="new-price">{{ product.price }} ₽</div>
-
-                    </div>
-                    <!-- Обычная цена -->
-                    <div v-else class="product-price">
-                      <span class="price-value">{{ product.price }}</span>
-                      <span class="price-currency">₽</span>
-                    </div>
-
-                    <button class="add-to-cart-btn" @click="addToCart(product)">
-                      <img src="/images/Cart_white.svg" alt="cart">
-                      В КОРЗИНУ
-                    </button>
-                  </div>
-                </div>
-              </div>
-
-
-              <div class="promo-grid">
-                <div
-                    v-for="product in promoProducts"
-                    :key="product.id"
-                    class="promo-card"
-                    :class="{ 'has-shadow': product.isPromo }">
-
-
-                  <!-- Изображение + бейджи -->
-                  <div class="product-image-wrapper">
-                    <!-- Бейдж АКЦИЯ -->
-                    <div v-if="product.isPromo" class="badge-promo-circle">
-                      АКЦИЯ
-                    </div>
-
-                    <!-- Бейдж ХИТ ПРОДАЖ -->
-                    <div v-if="product.isHit" class="badge-hit">
-                      <div class="hit-circle">
-                        <span class="hit-text">ХИТ<br>ПРОДАЖ</span>
-                      </div>
-                    </div>
-
-                    <img :src="product.image" :alt="product.name" class="product-img" @error="handleImageError">
-                  </div>
-
-                  <!-- Информация -->
-                  <div class="product-info">
-                    <h3 class="product-title">{{ product.name }}</h3>
-
-                    <div class="product-sku">Артикул: {{ product.article }}</div>
-                    <div class="product-availability">В наличии / На складе</div>
-
-                    <!-- Цены с акцией -->
-                    <div class="product-price-block" v-if="product.oldPrice">
-                      <div class="old-price-line">
-                        <span class="old-price">{{ product.price }} ₽</span>
-                      </div>
-                      <div class="new-price"><span>Цена по акции:</span> {{ product.oldPrice }} ₽</div>
-
-                      <div class="discount-block">
-                        <span class="discount-label">Скидка:</span>
-                        <span class="discount-value">{{ product.discount }} ₽</span>
-                      </div>
-                    </div>
-                    <!-- Обычная цена -->
-                    <div v-else class="product-price">
-                      <span class="price-value">{{ product.price }}</span>
-                      <span class="price-currency">₽</span>
-                    </div>
-
-                    <button class="add-to-cart-btn" @click="addToCart(product)">
-                      <img src="/images/Cart_white.svg" alt="cart">
-                      В КОРЗИНУ
-                    </button>
-                  </div>
+                  <button class="add-to-cart-btn" @click="addToCart(product)">
+                    <img src="/images/Cart_white.svg" alt="cart">
+                    В КОРЗИНУ
+                  </button>
                 </div>
               </div>
             </div>
-          </section>
-        </div>
+
+            <div class="promo-grid">
+              <div
+                  v-for="product in promoProducts"
+                  :key="product.id"
+                  class="promo-card"
+                  :class="{ 'has-shadow': product.isPromo }">
+                <div class="product-image-wrapper">
+                  <div v-if="product.isPromo" class="badge-promo-circle">
+                    АКЦИЯ
+                  </div>
+                  <div v-if="product.isHit" class="badge-hit">
+                    <div class="hit-circle">
+                      <span class="hit-text">ХИТ<br>ПРОДАЖ</span>
+                    </div>
+                  </div>
+                  <img :src="product.image" :alt="product.name" class="product-img" @error="handleImageError">
+                </div>
+                <div class="product-info">
+                  <h3 class="product-title">
+                    <router-link :to="`/product/${product.id}`">{{ product.name }}</router-link>
+                  </h3>
+                  <div class="product-sku">Артикул: {{ product.article }}</div>
+                  <div class="product-availability">В наличии / На складе</div>
+                  <div class="product-price-block" v-if="product.oldPrice">
+                    <div class="old-price-line">
+                      <span class="old-price">{{ product.price }} ₽</span>
+                    </div>
+                    <div class="new-price"><span>Цена по акции:</span> {{ product.oldPrice }} ₽</div>
+                    <div class="discount-block">
+                      <span class="discount-label">Скидка:</span>
+                      <span class="discount-value">{{ product.discount }} ₽</span>
+                    </div>
+                  </div>
+                  <div v-else class="product-price">
+                    <span class="price-value">{{ product.price }}</span>
+                    <span class="price-currency">₽</span>
+                  </div>
+                  <button class="add-to-cart-btn" @click="addToCart(product)">
+                    <img src="/images/Cart_white.svg" alt="cart">
+                    В КОРЗИНУ
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="promo-grid">
+              <div
+                  v-for="product in promoProducts"
+                  :key="product.id"
+                  class="promo-card"
+                  :class="{ 'has-shadow': product.isPromo }">
+                <!-- Верхняя панель -->
+                <div class="card-top-bar">
+                  <button class="btn-details">Подробнее</button>
+                  <div class="card-top-icons">
+                    <button class="btn-favorite">
+                      <img src="/images/Heart.svg" alt="Heart">
+                    </button>
+                    <button class="btn-favorite">
+                      <img src="/images/Compare.svg" alt="Compare">
+                    </button>
+                  </div>
+                </div>
+                <!-- Изображение + бейджи -->
+                <div class="product-image-wrapper">
+                  <div v-if="product.isPromo" class="badge-hit-wrapper"></div>
+                  <img :src="product.image" :alt="product.name" class="product-img1" @error="handleImageError">
+                </div>
+                <!-- Информация -->
+                <div class="product-info1">
+                  <h3 class="product-title">
+                    <router-link :to="`/product/${product.id}`">{{ product.name }}</router-link>
+                  </h3>
+                  <div class="product-sku">Артикул: {{ product.article }}</div>
+                  <div class="product-availability">В наличии / На складе</div>
+                  <div class="product-price-block" v-if="product.oldPrice">
+                    <div class="new-price">{{ product.price }} ₽</div>
+                  </div>
+                  <div v-else class="product-price">
+                    <span class="price-value">{{ product.price }}</span>
+                    <span class="price-currency">₽</span>
+                  </div>
+                  <button class="add-to-cart-btn" @click="addToCart(product)">
+                    <img src="/images/Cart_white.svg" alt="cart">
+                    В КОРЗИНУ
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="promo-grid">
+              <div
+                  v-for="product in promoProducts"
+                  :key="product.id"
+                  class="promo-card"
+                  :class="{ 'has-shadow': product.isPromo }">
+                <!-- Верхняя панель -->
+                <div class="card-top-bar">
+                  <button class="btn-details">Подробнее</button>
+                  <div class="card-top-icons">
+                    <button class="btn-favorite">
+                      <img src="/images/Heart.svg" alt="Heart">
+                    </button>
+                    <button class="btn-favorite">
+                      <img src="/images/Compare.svg" alt="Compare">
+                    </button>
+                  </div>
+                </div>
+                <!-- Изображение + бейджи -->
+                <div class="product-image-wrapper">
+                  <div v-if="product.isPromo" class="badge-hit-wrapper"></div>
+                  <img :src="product.image" :alt="product.name" class="product-img1" @error="handleImageError">
+                </div>
+                <!-- Информация -->
+                <div class="product-info1">
+                  <h3 class="product-title">
+                    <router-link :to="`/product/${product.id}`">{{ product.name }}</router-link>
+                  </h3>
+                  <div class="product-sku">Артикул: {{ product.article }}</div>
+                  <div class="product-availability">В наличии / На складе</div>
+                  <div class="product-price-block" v-if="product.oldPrice">
+                    <div class="new-price">{{ product.price }} ₽</div>
+                  </div>
+                  <div v-else class="product-price">
+                    <span class="price-value">{{ product.price }}</span>
+                    <span class="price-currency">₽</span>
+                  </div>
+                  <button class="add-to-cart-btn" @click="addToCart(product)">
+                    <img src="/images/Cart_white.svg" alt="cart">
+                    В КОРЗИНУ
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="promo-grid">
+              <div
+                  v-for="product in promoProducts"
+                  :key="product.id"
+                  class="promo-card"
+                  :class="{ 'has-shadow': product.isPromo }">
+                <div class="product-image-wrapper">
+                  <div v-if="product.isPromo" class="badge-promo-circle">
+                    АКЦИЯ
+                  </div>
+                  <div v-if="product.isHit" class="badge-hit">
+                    <div class="hit-circle">
+                      <span class="hit-text">ХИТ<br>ПРОДАЖ</span>
+                    </div>
+                  </div>
+                  <img :src="product.image" :alt="product.name" class="product-img" @error="handleImageError">
+                </div>
+                <div class="product-info">
+                  <h3 class="product-title">
+                    <router-link :to="`/product/${product.id}`">{{ product.name }}</router-link>
+                  </h3>
+                  <div class="product-sku">Артикул: {{ product.article }}</div>
+                  <div class="product-availability">В наличии / На складе</div>
+                  <div class="product-price-block" v-if="product.oldPrice">
+                    <div class="old-price-line">
+                      <span class="old-price">{{ product.price }} ₽</span>
+                    </div>
+                    <div class="new-price"><span>Цена по акции:</span> {{ product.oldPrice }} ₽</div>
+                    <div class="discount-block">
+                      <span class="discount-label">Скидка:</span>
+                      <span class="discount-value">{{ product.discount }} ₽</span>
+                    </div>
+                  </div>
+                  <div v-else class="product-price">
+                    <span class="price-value">{{ product.price }}</span>
+                    <span class="price-currency">₽</span>
+                  </div>
+                  <button class="add-to-cart-btn" @click="addToCart(product)">
+                    <img src="/images/Cart_white.svg" alt="cart">
+                    В КОРЗИНУ
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="promo-grid">
+              <div
+                  v-for="product in promoProducts"
+                  :key="product.id"
+                  class="promo-card"
+                  :class="{ 'has-shadow': product.isPromo }">
+                <!-- Верхняя панель -->
+                <div class="card-top-bar">
+                  <button class="btn-details">Подробнее</button>
+                  <div class="card-top-icons">
+                    <button class="btn-favorite">
+                      <img src="/images/Heart.svg" alt="Heart">
+                    </button>
+                    <button class="btn-favorite">
+                      <img src="/images/Compare.svg" alt="Compare">
+                    </button>
+                  </div>
+                </div>
+                <!-- Изображение + бейджи -->
+                <div class="product-image-wrapper">
+                  <div v-if="product.isPromo" class="badge-hit-wrapper"></div>
+                  <img :src="product.image" :alt="product.name" class="product-img1" @error="handleImageError">
+                </div>
+                <!-- Информация -->
+                <div class="product-info1">
+                  <h3 class="product-title">
+                    <router-link :to="`/product/${product.id}`">{{ product.name }}</router-link>
+                  </h3>
+                  <div class="product-sku">Артикул: {{ product.article }}</div>
+                  <div class="product-availability">В наличии / На складе</div>
+                  <div class="product-price-block" v-if="product.oldPrice">
+                    <div class="new-price">{{ product.price }} ₽</div>
+                  </div>
+                  <div v-else class="product-price">
+                    <span class="price-value">{{ product.price }}</span>
+                    <span class="price-currency">₽</span>
+                  </div>
+                  <button class="add-to-cart-btn" @click="addToCart(product)">
+                    <img src="/images/Cart_white.svg" alt="cart">
+                    В КОРЗИНУ
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="promo-grid">
+              <div
+                  v-for="product in promoProducts"
+                  :key="product.id"
+                  class="promo-card"
+                  :class="{ 'has-shadow': product.isPromo }">
+                <div class="product-image-wrapper">
+                  <div v-if="product.isPromo" class="badge-promo-circle">
+                    АКЦИЯ
+                  </div>
+                  <div v-if="product.isHit" class="badge-hit">
+                    <div class="hit-circle">
+                      <span class="hit-text">ХИТ<br>ПРОДАЖ</span>
+                    </div>
+                  </div>
+                  <img :src="product.image" :alt="product.name" class="product-img" @error="handleImageError">
+                </div>
+                <div class="product-info">
+                  <h3 class="product-title">
+                    <router-link :to="`/product/${product.id}`">{{ product.name }}</router-link>
+                  </h3>
+                  <div class="product-sku">Артикул: {{ product.article }}</div>
+                  <div class="product-availability">В наличии / На складе</div>
+                  <div class="product-price-block" v-if="product.oldPrice">
+                    <div class="old-price-line">
+                      <span class="old-price">{{ product.price }} ₽</span>
+                    </div>
+                    <div class="new-price"><span>Цена по акции:</span> {{ product.oldPrice }} ₽</div>
+                    <div class="discount-block">
+                      <span class="discount-label">Скидка:</span>
+                      <span class="discount-value">{{ product.discount }} ₽</span>
+                    </div>
+                  </div>
+                  <div v-else class="product-price">
+                    <span class="price-value">{{ product.price }}</span>
+                    <span class="price-currency">₽</span>
+                  </div>
+                  <button class="add-to-cart-btn" @click="addToCart(product)">
+                    <img src="/images/Cart_white.svg" alt="cart">
+                    В КОРЗИНУ
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
 
       <!-- Секция преимуществ -->
@@ -669,7 +580,7 @@
         </div>
       </section>
 
-      <!-- Секция баннеров -->
+      <!-- Баннеры услуг -->
       <section class="banners-section">
         <div class="banners-inner">
           <div class="banner-block banner-block-left">
@@ -734,7 +645,7 @@
         </div>
       </section>
 
-      <!-- Секция консультации -->
+      <!-- Форма консультации -->
       <section class="consultation-section">
         <div class="consultation-inner">
           <h2 class="section-title consultation-title">Нужна консультация по выбору компьютерного оборудования?</h2>
@@ -761,7 +672,7 @@
         </div>
       </section>
 
-      <!-- Секция карты -->
+      <!-- Карта и контакты -->
       <section class="map-section">
         <div class="map-inner">
           <div class="map-frame">
@@ -883,14 +794,12 @@ watch(() => route.params.category, (newCategory) => {
 
 const filteredProducts = computed(() => {
   let result = [...allProducts.value]
-
   if (currentCategory.value) {
     result = result.filter(p =>
         p.categoryLink === currentCategory.value.link.split('/').pop() ||
         p.subcategoryLink === currentCategory.value.link.split('/').pop()
     )
   }
-
   if (priceFrom.value) {
     result = result.filter(p => p.price >= priceFrom.value)
   }
@@ -900,7 +809,6 @@ const filteredProducts = computed(() => {
   if (selectedBrands.value.length > 0) {
     result = result.filter(p => selectedBrands.value.includes(p.brand))
   }
-
   switch (sortBy.value) {
     case 'price':
       result.sort((a, b) => a.price - b.price)
@@ -912,7 +820,6 @@ const filteredProducts = computed(() => {
     default:
       result.sort((a, b) => b.id - a.id)
   }
-
   return result
 })
 
@@ -983,20 +890,21 @@ onMounted(() => {
 </script>
 
 <style scoped>
+/* Ссылка "Подробнее" в акциях */
 .new-price span {
-  font-family: "Rubik-Regular", sans-serif;
+  font-family: 'Rubik', sans-serif;
   font-weight: 300;
   font-size: 14px;
   line-height: 149%;
   color: #000000;
 }
+
+/* Страница каталога */
 .catalog-page {
   padding: 20px 0 60px;
   min-height: 100vh;
   background: #FFFFFF;
 }
-
-/* container берётся из main.css (max-width: 1410px) */
 
 /* Хлебные крошки */
 .breadcrumbs {
@@ -1004,7 +912,8 @@ onMounted(() => {
   align-items: center;
   gap: 10px;
   padding: 15px 0 20px;
-  font-family: 'Rubik-Regular', sans-serif;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 400;
   font-size: 14px;
   color: #4A4D4A;
 }
@@ -1030,7 +939,7 @@ onMounted(() => {
   border-bottom: 1px dashed #4A4D4A;
 }
 
-/* Layout */
+/* Сетка макета */
 .catalog-layout {
   display: grid;
   grid-template-columns: 453px 1fr;
@@ -1038,7 +947,7 @@ onMounted(() => {
   align-items: start;
 }
 
-/* Sidebar */
+/* Боковая панель */
 .sidebar {
   position: static;
   top: 20px;
@@ -1047,14 +956,8 @@ onMounted(() => {
   gap: 20px;
 }
 
-/* Catalog Menu */
+/* Меню каталога */
 .catalog-menu {
-  background: #FFFFFF;
-  border-radius: 10px 10px 0 0;
-  overflow: hidden;
-  box-shadow: 0 0 28px rgba(0, 0, 0, 0.25);
-}
-.catalog-menu1 {
   background: #FFFFFF;
   border-radius: 10px 10px 0 0;
   overflow: hidden;
@@ -1067,7 +970,8 @@ onMounted(() => {
 }
 
 .catalog-menu-title {
-  font-family: 'Rubik-Medium', sans-serif;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 500;
   font-size: 24px;
   color: #4A4D4A;
   margin: 0;
@@ -1115,7 +1019,8 @@ onMounted(() => {
 }
 
 .menu-text {
-  font-family: 'Rubik-Medium', sans-serif;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 500;
   font-size: 15px;
   flex: 1;
   line-height: 1.3;
@@ -1127,7 +1032,7 @@ onMounted(() => {
   opacity: 0.6;
 }
 
-/* Filter Panel */
+/* Панель фильтров */
 .filter-panel {
   background: #FFFFFF;
   border-radius: 10px;
@@ -1136,7 +1041,8 @@ onMounted(() => {
 }
 
 .filter-panel-title {
-  font-family: 'Rubik-Medium', sans-serif;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 500;
   font-size: 20px;
   color: #4A4D4A;
   margin: 0 0 15px;
@@ -1153,7 +1059,8 @@ onMounted(() => {
   padding: 10px 0;
   border-bottom: 1px solid #f0f0f0;
   cursor: pointer;
-  font-family: 'Rubik-Medium', sans-serif;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 500;
   font-size: 18px;
   color: #4A4D4A;
 }
@@ -1183,7 +1090,8 @@ onMounted(() => {
   padding: 10px 12px;
   border: 1px solid #4A4D4A;
   border-radius: 4px;
-  font-family: 'Rubik-Regular', sans-serif;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 400;
   font-size: 14px;
   outline: none;
 }
@@ -1225,7 +1133,8 @@ onMounted(() => {
   display: flex;
   align-items: center;
   gap: 8px;
-  font-family: 'Rubik-Regular', sans-serif;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 400;
   font-size: 14px;
   color: #4A4D4A;
   cursor: pointer;
@@ -1260,7 +1169,8 @@ onMounted(() => {
   padding: 12px 20px;
   background: #FFAF37;
   color: #FFFFFF;
-  font-family: 'Rubik-Medium', sans-serif;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 500;
   font-size: 14px;
   text-transform: uppercase;
   border: none;
@@ -1278,7 +1188,8 @@ onMounted(() => {
   padding: 12px 20px;
   background: transparent;
   color: #4A4D4A;
-  font-family: 'Rubik-Medium', sans-serif;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 500;
   font-size: 14px;
   text-transform: uppercase;
   border: 1px solid #001569;
@@ -1292,12 +1203,12 @@ onMounted(() => {
   color: #FFFFFF;
 }
 
-/* Main Content */
+/* Основная область контента */
 .catalog-main {
   min-width: 0;
 }
 
-/* Subcategories */
+/* Подкатегории */
 .subcategories {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -1336,14 +1247,15 @@ onMounted(() => {
 }
 
 .subcategory-name {
-  font-family: 'Rubik-Medium', sans-serif;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 500;
   font-size: 14px;
   color: #4A4D4A;
   margin: 0;
   line-height: 1.3;
 }
 
-/* Sort Bar */
+/* Панель сортировки */
 .sort-bar {
   display: flex;
   gap: 20px;
@@ -1354,7 +1266,8 @@ onMounted(() => {
 .sort-btn {
   background: none;
   border: none;
-  font-family: 'Rubik-Regular', sans-serif;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 400;
   font-size: 14px;
   color: #4A4D4A;
   cursor: pointer;
@@ -1372,12 +1285,17 @@ onMounted(() => {
   border-bottom-color: #FFAF37;
 }
 
-/* Products Grid */
+/* Сетка товаров */
 .products-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
   margin-bottom: 40px;
+}
+
+.product-link {
+  text-decoration: none;
+  color: inherit;
 }
 
 .product-card {
@@ -1410,8 +1328,16 @@ onMounted(() => {
   object-fit: contain;
 }
 
+.product-info {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
 .product-title {
-  font-family: 'Rubik-Medium', sans-serif;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 500;
   font-size: 14px;
   line-height: 1.3;
   text-align: center;
@@ -1424,8 +1350,18 @@ onMounted(() => {
   overflow: hidden;
 }
 
+.product-title a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.product-title a:hover {
+  color: #FFAF37;
+}
+
 .product-sku {
-  font-family: 'Rubik-Light', sans-serif;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 300;
   font-size: 12px;
   color: #4A4D4A;
   text-align: center;
@@ -1433,7 +1369,8 @@ onMounted(() => {
 }
 
 .product-availability {
-  font-family: 'Rubik-Regular', sans-serif;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 400;
   font-size: 12px;
   text-align: center;
   color: #000000;
@@ -1449,13 +1386,15 @@ onMounted(() => {
 }
 
 .price-value {
-  font-family: 'Rubik-Medium', sans-serif;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 500;
   font-size: 24px;
   color: #001569;
 }
 
 .price-currency {
-  font-family: 'Rubik-Medium', sans-serif;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 500;
   font-size: 24px;
   color: #001569;
 }
@@ -1465,7 +1404,8 @@ onMounted(() => {
   height: 50px;
   background: #FFAF37;
   border: none;
-  font-family: 'Rubik-Bold', sans-serif;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 700;
   font-size: 16px;
   text-transform: uppercase;
   color: #FFFFFF;
@@ -1475,6 +1415,7 @@ onMounted(() => {
   justify-content: center;
   gap: 8px;
   transition: opacity 0.3s;
+  border-radius: 4px;
 }
 
 .add-to-cart-btn:hover {
@@ -1482,11 +1423,11 @@ onMounted(() => {
 }
 
 .cart-icon {
-  width: 20px;
-  height: 20px;
+  width: 24px;
+  height: 24px;
 }
 
-/* Pagination */
+/* Пагинация */
 .pagination-section {
   display: flex;
   flex-direction: column;
@@ -1501,7 +1442,8 @@ onMounted(() => {
   height: 40px;
   background: #FFFFFF;
   border: 0.4px solid #4A4D4A;
-  font-family: 'Rubik-Medium', sans-serif;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 500;
   font-size: 18px;
   color: #4A4D4A;
   cursor: pointer;
@@ -1527,7 +1469,8 @@ onMounted(() => {
   height: 25px;
   background: #FFFFFF;
   border: none;
-  font-family: 'Rubik-Medium', sans-serif;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 500;
   font-size: 18px;
   color: #4A4D4A;
   cursor: pointer;
@@ -1540,14 +1483,16 @@ onMounted(() => {
 }
 
 .ellipsis {
-  font-family: 'Rubik-Medium', sans-serif;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 500;
   font-size: 18px;
   color: #4A4D4A;
   padding: 0 5px;
 }
 
 .show-all-btn {
-  font-family: 'Rubik-Light', sans-serif;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 300;
   font-size: 10px;
   text-decoration-line: underline;
   color: #1F347B;
@@ -1565,7 +1510,7 @@ onMounted(() => {
   font-size: 8px;
 }
 
-/* Promo Section */
+/* Секция акций */
 .badge-promo-circle {
   position: absolute;
   left: 50px;
@@ -1578,23 +1523,23 @@ onMounted(() => {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Rubik-Medium', sans-serif;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 700;
   font-size: 18px;
-  font-weight: bold;
   text-align: center;
   line-height: 1.1;
   z-index: 3;
   transform: rotate(-6deg);
 }
 
-/* Бейдж ХИТ */
 .badge-hit-wrapper {
   position: absolute;
   left: 20px;
   top: 82px;
   background: url("/images/Hit_sale.svg");
   border-radius: 50%;
-  font-family: 'Rubik-Bold', sans-serif;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 700;
   z-index: 3;
   width: 100px;
   height: 100px;
@@ -1611,6 +1556,7 @@ onMounted(() => {
   font-size: 15px;
   color: #4A4D4A;
 }
+
 .promo-section {
   padding: 40px 0;
 }
@@ -1635,12 +1581,6 @@ onMounted(() => {
   width: 330px;
 }
 
-.promo-sidebar-content {
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-}
-
 .sidebar-title-block {
   display: flex;
   align-items: center;
@@ -1650,7 +1590,8 @@ onMounted(() => {
 }
 
 .sidebar-title {
-  font-family: 'Rubik-Medium', sans-serif;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 500;
   font-size: 25px;
   line-height: 1.23;
   color: #4A4D4A;
@@ -1670,7 +1611,8 @@ onMounted(() => {
 }
 
 .sidebar-subtitle {
-  font-family: 'Rubik-Medium', sans-serif;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 500;
   font-size: 25px;
   line-height: 1.23;
   color: #4A4D4A;
@@ -1692,7 +1634,8 @@ onMounted(() => {
   align-items: center;
   justify-content: center;
   gap: 10px;
-  font-family: 'Rubik-Medium', sans-serif;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 500;
   font-size: 16px;
   color: #4A4D4A;
   text-decoration: none;
@@ -1742,7 +1685,8 @@ onMounted(() => {
   background: #FFFFFF;
   border: 1px solid #4A4D4A;
   padding: 10px 25px;
-  font-family: 'Rubik-Medium', sans-serif;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 500;
   font-size: 18px;
   color: #4A4D4A;
   cursor: pointer;
@@ -1792,15 +1736,6 @@ onMounted(() => {
   transform: scale(1.15);
 }
 
-.chart-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 30px;
-  height: 60px;
-}
-
-/* Обёртка изображения с бейджем */
 .product-image-wrapper {
   position: relative;
   width: 100%;
@@ -1816,6 +1751,7 @@ onMounted(() => {
   max-height: 143px;
   object-fit: contain;
 }
+
 .product-img1 {
   margin-top: 31px;
   max-width: 114px;
@@ -1823,7 +1759,6 @@ onMounted(() => {
   object-fit: contain;
 }
 
-/* Информация о товаре */
 .product-info {
   padding: 15px;
   display: flex;
@@ -1831,6 +1766,7 @@ onMounted(() => {
   flex: 1;
   align-items: center;
 }
+
 .product-info1 {
   padding: 15px;
   display: flex;
@@ -1839,36 +1775,6 @@ onMounted(() => {
   align-items: center;
   margin-top: 31px;
   gap: 7px;
-}
-
-.product-title {
-  font-family: 'Rubik-Medium', sans-serif;
-  font-size: 18px;
-  line-height: 21px;
-  color: #000000;
-  margin: 0 0 10px 0;
-  text-align: center;
-  min-height: 63px;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  width: 100%;
-}
-
-.product-sku {
-  font-family: 'Rubik-Light', sans-serif;
-  font-size: 14px;
-  color: #4A4D4A;
-  text-align: center;
-  margin-bottom: 8px;
-}
-
-.product-availability {
-  font-family: 'Rubik-Regular', sans-serif;
-  font-size: 14px;
-  text-align: center;
-  color: #000000;
 }
 
 .product-price-block {
@@ -1881,7 +1787,8 @@ onMounted(() => {
 }
 
 .old-price {
-  font-family: 'Rubik-Medium', sans-serif;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 500;
   font-size: 20px;
   color: #1F347B;
   text-decoration: line-through;
@@ -1891,21 +1798,9 @@ onMounted(() => {
   margin-bottom: 4px;
 }
 
-.new-price-row {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2px;
-}
-
-.promo-label {
-  font-family: 'Rubik-Light', sans-serif;
-  font-size: 14px;
-  color: #000000;
-}
-
 .new-price {
-  font-family: 'Rubik-Medium', sans-serif;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 500;
   font-size: 24px;
   color: #001569;
   display: flex;
@@ -1918,7 +1813,8 @@ onMounted(() => {
   width: 327px;
   padding: 4px 12px;
   border-radius: 4px;
-  font-family: 'Rubik-Regular', sans-serif;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 400;
   font-size: 14px;
   color: #4A4D4A;
   display: flex;
@@ -1934,64 +1830,111 @@ onMounted(() => {
 }
 
 .discount-value {
-  font-family: 'Rubik-Medium', sans-serif;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 500;
   font-size: 18px;
   color: #4A4D4A;
 }
 
-.discount-currency {
-  font-size: 14px;
+/* Секция преимуществ */
+.benefits-section {
+  padding: 40px 0;
 }
 
-.product-price {
+.benefits-inner {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.benefit-card {
+  background: #FFFFFF;
+  box-shadow: 0 0 11px rgba(0, 0, 0, 0.25);
+  padding: 30px 25px;
+  text-align: center;
   display: flex;
-  align-items: baseline;
-  justify-content: center;
-  gap: 4px;
-  margin-bottom: 15px;
+  flex-direction: column;
+  align-items: center;
 }
 
-.price-value {
-  font-family: 'Rubik-Medium', sans-serif;
-  font-size: 24px;
-  color: #001569;
-}
-
-.price-currency {
-  font-family: 'Rubik-Medium', sans-serif;
-  font-size: 24px;
-  color: #001569;
-}
-
-.add-to-cart-btn {
-  width: 190px;
-  height: 50px;
-  background: #FFAF37;
-  border: none;
-  font-family: 'Rubik-Bold', sans-serif;
-  font-size: 18px;
-  text-transform: uppercase;
-  color: #FFFFFF;
-  cursor: pointer;
+.benefit-card.benefit-main {
+  background: #F0F0FF;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  transition: opacity 0.3s;
-  border-radius: 4px;
-  margin-top: auto;
 }
 
-.add-to-cart-btn:hover {
-  opacity: 0.9;
+.benefit-main-title {
+  font-family: 'Rubik', sans-serif;
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 123%;
+  text-align: center;
+  color: #4A4D4A;
+  margin: 0;
 }
 
-.cart-icon {
-  width: 24px;
-  height: 24px;
+.benefit-icon-placeholder {
+  width: 70px;
+  height: 72px;
+  margin: 0 auto 15px;
 }
 
-/* Banners Section (в стиле MainContent.vue) */
+.benefit-icon-placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.diamond-icon {
+  width: 70px;
+  height: 72px;
+  background: url("/public/images/Tree.jpg");
+}
+
+.benefit-title {
+  font-family: 'Rubik', sans-serif;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 122%;
+  color: #4A4D4A;
+  margin: 0 0 15px 0;
+}
+
+.benefit-desc {
+  font-family: 'Rubik', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+  text-align: center;
+  color: #4A4D4A;
+  margin: 0;
+}
+
+.benefit-card.benefit-wide {
+  grid-column: span 2;
+}
+
+.brands-row {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.brand-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.brand-placeholder img {
+  height: 40px;
+  object-fit: contain;
+}
+
+/* Баннеры услуг */
 .banners-section {
   padding: 40px 0;
 }
@@ -2035,7 +1978,8 @@ onMounted(() => {
 }
 
 .banner-block-title {
-  font-family: 'Rubik-Medium', sans-serif;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 500;
   font-size: 24px;
   line-height: 122%;
   color: #4A4D4A;
@@ -2043,7 +1987,8 @@ onMounted(() => {
 }
 
 .banner-block-desc {
-  font-family: 'Rubik-Regular', sans-serif;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 400;
   font-size: 18px;
   line-height: 21px;
   color: #4A4D4A;
@@ -2074,88 +2019,36 @@ onMounted(() => {
   height: 230px;
 }
 
-/* btn-primary берётся из main.css */
-
-/* Benefits Section */
-.benefits-section {
-  padding: 40px 0;
+.banner-illustration-placeholder2 {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  width: 300px;
+  height: 230px;
 }
 
-.benefits-inner {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-}
-
-.benefit-card {
-  background: #FFFFFF;
-  box-shadow: 0 0 11px rgba(0, 0, 0, 0.25);
-  padding: 30px 25px;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.benefit-main {
-  background: #F0F0FF;
-  display: flex;
+.btn-primary {
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-}
-
-.benefit-main-title {
+  padding: 20px 40px;
+  background: #FFAF37;
+  border: none;
   font-family: 'Rubik', sans-serif;
-  font-weight: 500;
-  font-size: 30px;
-  line-height: 123%;
-  text-align: center;
-  color: #4A4D4A;
-}
-
-.diamond-icon {
-  width: 70px;
-  height: 72px;
-  background: url("/public/images/Tree.jpg");
-}
-
-.benefit-title {
-  font-family: 'Rubik', sans-serif;
-  font-weight: 500;
-  font-size: 24px;
-  line-height: 122%;
-  color: #4A4D4A;
-  margin-bottom: 15px;
-}
-
-.benefit-desc {
-  font-family: 'Rubik', sans-serif;
-  font-weight: 400;
+  font-weight: 700;
   font-size: 18px;
   line-height: 21px;
-  text-align: center;
-  color: #4A4D4A;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  cursor: pointer;
+  transition: opacity 0.3s;
 }
 
-.benefit-wide {
-  grid-column: span 2;
+.btn-primary:hover {
+  opacity: 0.85;
 }
 
-.brands-row {
-  display: flex;
-  gap: 30px;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-top: 15px;
-}
-
-.brand-placeholder {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* Integration Section */
+/* Секция интеграции */
 .integration-section {
   padding: 40px 0;
 }
@@ -2184,7 +2077,7 @@ onMounted(() => {
   margin-left: auto;
 }
 
-/* Consultation Section */
+/* Форма консультации */
 .consultation-section {
   padding: 40px 0;
 }
@@ -2220,11 +2113,16 @@ onMounted(() => {
   gap: 20px;
 }
 
+.form-group {
+  width: 100%;
+}
+
 .form-input {
   width: 100%;
   padding: 20px 15px;
   border: 1px solid #4A4D4A;
   font-family: 'Rubik', sans-serif;
+  font-weight: 400;
   font-size: 14px;
   outline: none;
   transition: border-color 0.3s;
@@ -2259,7 +2157,7 @@ onMounted(() => {
   accent-color: #4A4D4A;
 }
 
-/* Map Section */
+/* Карта и контакты */
 .map-section {
   padding: 40px 0;
 }
@@ -2321,7 +2219,7 @@ onMounted(() => {
   text-decoration: none;
 }
 
-/* Floating Widget */
+/* Плавающий виджет */
 .floating-widget {
   position: fixed;
   right: 0;
@@ -2398,79 +2296,5 @@ onMounted(() => {
 .badge-blue {
   background: #1F347B;
   border-color: #1F347B;
-}
-
-/* Responsive */
-@media (max-width: 1200px) {
-  .catalog-layout {
-    grid-template-columns: 1fr;
-  }
-
-  .sidebar {
-    position: static;
-  }
-
-  .products-grid,
-  .promo-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  .subcategories {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .benefits-inner {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .benefit-wide {
-    grid-column: span 2;
-  }
-
-  .consultation-card {
-    grid-template-columns: 1fr;
-  }
-
-  .map-content {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 768px) {
-  .products-grid,
-  .promo-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .banners-inner,
-  .integration-inner {
-    grid-template-columns: 1fr;
-  }
-
-  .banner-content {
-    max-width: 100%;
-  }
-
-  .benefits-inner {
-    grid-template-columns: 1fr;
-  }
-
-  .benefit-wide {
-    grid-column: span 1;
-  }
-
-  .floating-widget {
-    bottom: 20px;
-    top: auto;
-    right: 20px;
-    transform: none;
-    flex-direction: row;
-    border-radius: 10px;
-  }
-
-  .widget-item {
-    width: 50px;
-    height: 50px;
-  }
 }
 </style>

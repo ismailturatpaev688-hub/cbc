@@ -1,31 +1,35 @@
 <template>
-  <main class="service-center-page">
+  <main class="commissioning-page">
     <div class="container">
+      <!-- Хлебные крошки -->
       <nav class="breadcrumbs">
         <router-link to="/" class="breadcrumb-item">Главная</router-link>
         <span class="breadcrumb-separator">→</span>
-        <span class="breadcrumb-current">Сервисный-центр</span>
+        <span class="breadcrumb-current">Пуско-наладка IT-оборудования</span>
       </nav>
     </div>
+
     <!-- Hero Section -->
     <section class="hero-section">
       <div class="container hero-inner">
         <div class="hero-text">
           <h1 class="hero-title">
-            Компьютерный магазин <span class="accent-text">СВС в Жуковском</span><br/>
-            Поставки компьютерной техники, сервис-центр и услуги для компаний по IT-интеграции
+            Пуско-наладка <span class="accent-text">IT-оборудования</span><br/>
+            от компании СВС в Жуковском — настройка, интеграция и запуск под ключ
           </h1>
         </div>
         <div class="hero-banner">
-          <div class="banner-image-placeholder"></div>
-          <div class="banner-content">
-            <h2 class="banner-title">Покупайте, ремонтируйте и обслуживайте <br>
-              компьютерное оборудование в одном месте <br>
-              - в центре СВС в Жуковском</h2>
-            <p class="banner-desc">Для этого вам совершенно не нужно ездить в Москву. Собственный <br>
-              сервисный центр гарантирует качество, надежность и безопасность <br>
-              ремонта за счет прямых контрактов с производителями</p>
-            <button class="btn-primary banner-btn">Заказать обслуживание</button>
+          <div class="banner-image-placeholder">
+            <div class="banner-content1">
+              <h2 class="banner-title">Решаем cложные задачи пуско-наладки <br>
+                компьютерной техники</h2>
+              <p class="banner-desc">Работаем с 1993 года, хорошо знаем поставщиков,<br>
+                настраиваем, интегрируем и запускаем <br>
+                по самым требовательным ТЗ. Предоставляем <br>
+                оборудование в тест бесплатно на нужный вам срок
+              </p>
+              <button class="btn-primary banner-btn">ЗАПУСТИТЬ ОБОРУДОВАНИЕ</button>
+            </div>
           </div>
         </div>
         <div class="hero-catalog">
@@ -48,55 +52,52 @@
       </div>
     </section>
 
-    <!-- Services Section -->
-    <section class="services-section">
-      <div class="container services-inner">
-        <div class="service-card title-card">
-          <h3 class="title-card-text">Что мы ремонтируем, оптимизируем и чистим?</h3>
+    <!-- Описание услуги -->
+    <section class="description-section">
+      <div class="container description-inner">
+        <div class="description-header">
+          <div class="description-icon"></div>
+          <h2 class="description-title">У вашей компании появилась потребность в закупке оборудования, но нет штатных специалистов по этим вопросам – не беда.</h2>
         </div>
-        <div class="service-card" v-for="service in services" :key="service.id">
-          <div>
-            <div class="service-icon-wrapper">
-              <img :src="service.icon" :alt="service.title" class="service-icon">
-            </div>
-            <div class="block-title">
-              <h4 class="service-title">{{ service.title }}</h4>
-              <p class="service-price">От <span>{{ service.price }}</span> ₽</p>
-            </div>
+        <div class="description-grid">
+          <div class="description-text description-text-accent">
+            <p>СВС не только поставляет хорошую технику, но и делает пусконаладку оборудования. Мы запросто настроим технику в вашем офисе, чтобы ничего не отвлекало Вас и Ваших сотрудников от работы</p>
           </div>
-          <a href="#" class="service-link">Посмотреть прайс-лист <span class="link-arrow">→</span></a>
+          <div class="description-image">
+            <img src="/images/Commissioning.jpg" alt="Commissioning">
+          </div>
+          <div class="description-text">
+            <p>За долгие годы на рынке мы внедрили большое количество проектов и знаем что и как лучше сделать. Мы анализируем текущее состояние оборудования в офисе и предлагаем Вам оптимальное решение по внедрению и отладке.</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Stats Section -->
-    <section class="stats-section">
-      <div class="container stats-inner">
-        <div class="stats-graphics">
-          <h2 class="stats-main-title">За это время мы отремонтировали</h2>
-          <div class="stats-circles">
-            <div class="stat-item stat-monitors">
-              <span class="stat-number">1578</span>
-              <span class="stat-label">Мониторов</span>
-            </div>
-            <div class="stat-item stat-laptops">
-              <span class="stat-number">1050</span>
-              <span class="stat-label">Ноутбуков</span>
-            </div>
-            <div class="stat-item stat-printers">
-              <span class="stat-number">1428</span>
-              <span class="stat-label">Принтеров</span>
-            </div>
-            <div class="stat-item stat-pcs">
-              <span class="stat-number">3587</span>
-              <span class="stat-label">Компьютеров</span>
-            </div>
+    <!-- Задачи Section -->
+    <section class="tasks-section">
+      <div class="container tasks-inner">
+        <h2 class="section-title tasks-title">Какие задачи мы решаем?</h2>
+        <div class="tasks-grid">
+          <div class="task-card">
+            <div class="task-icon1"></div>
+            <h3 class="task-title">Интеграция любого совместимого ПО</h3>
           </div>
-        </div>
-        <div class="stats-text">
-          <h3 class="stats-title">СВС в Жуковском начинал свою деятельность в 1993 году с ремонта ЭВМ</h3>
-          <p class="stats-desc">Мы знаем, как ремонтировать “древние” и новейшие компьютеры, работать со схемами и микрочипами. Бережно обслуживаем оборудование предприятий с уникальным ПО.</p>
-          <button class="btn-primary">Заказать обслуживание</button>
+          <div class="task-card">
+            <div class="task-icon2"></div>
+            <h3 class="task-title">Интеграция систем экономии и контроля печати</h3>
+          </div>
+          <div class="task-card">
+            <div class="task-icon3"></div>
+            <h3 class="task-title">Установка необходимых компонентов системы</h3>
+          </div>
+          <div class="task-card">
+            <div class="task-icon4"></div>
+            <h3 class="task-title">Интеграция системы идентификации пользователей</h3>
+          </div>
+          <div class="task-card">
+            <div class="task-icon5"></div>
+            <h3 class="task-title">Подбор необходимой комплектации по вашему и совместно выработанному ТЗ</h3>
+          </div>
         </div>
       </div>
     </section>
@@ -139,6 +140,7 @@
             <span class="brand-placeholder"><img src="/images/Samsung.jpg" alt="Samsung"></span>
             <span class="brand-placeholder"><img src="/images/Intel.jpg" alt="Intel"></span>
             <span class="brand-placeholder"><img src="/images/Lenovo.jpg" alt="Lenovo"></span>
+
           </div>
         </div>
         <div class="benefit-card" v-for="benefit in benefits.slice(3, 4)" :key="benefit.id">
@@ -245,8 +247,8 @@
     <!-- Consultation Section -->
     <section class="consultation-section">
       <div class="container consultation-inner">
-        <h2 class="section-title consultation-title">Хотите получить консультацию по обслуживанию и ремонту компьютерной техники?</h2>
-        <p class="section-subtitle consultation-subtitle">Остались вопросы? Задайте его в форме ниже:</p>
+        <h2 class="section-title consultation-title">Хотите получить бесплатную консультацию по пуско-наладке компьютерного оборудования под "ключ"?</h2>
+        <p class="consultation-subtitle">После настройки оборудования вы можете получить компьютеры под ваши требования на бесплатное тестирование</p>
         <div class="consultation-card">
           <img src="/images/Women.svg" alt="Women">
           <form class="consultation-form" @submit.prevent="submitForm">
@@ -330,7 +332,6 @@ import { ref, onMounted } from 'vue'
 
 const categories = ref([])
 const benefits = ref([])
-const services = ref([])
 const form = ref({
   name: '',
   phone: '',
@@ -344,21 +345,6 @@ async function loadData() {
     const data = await response.json()
     categories.value = data.categories || []
     benefits.value = data.benefits || []
-
-    // Mock services data
-    services.value = [
-      { id: 1, title: 'Ремонт и обслуживание компьютеров (мониторов)', price: 300, icon: '/images/Monitor.svg' },
-      { id: 2, title: 'Ремонт и обслуживание ноутбуков', price: 500, icon: '/images/Laptops.svg' },
-      { id: 3, title: 'Сборка ПК из комплектующих клиента', price: 800, icon: '/images/System_block.svg' },
-      { id: 4, title: 'Запуск и тестирование компьютерного оборудования', price: 500, icon: '/images/video_cards.svg' },
-      { id: 5, title: 'Ремонт принтеров и МФУ', price: 200, icon: '/images/Printers.svg' },
-      { id: 6, title: 'Лечение от вирусов', price: 500, icon: '/images/antivirus.svg' },
-      { id: 7, title: 'Установка и настройка ПО', price: 200, icon: '/images/Service_software.svg' },
-      { id: 8, title: 'Восстановление информации с HDD', price: 300, icon: '/images/Service_hdd.svg' },
-      { id: 9, title: 'Установка драйверов', price: 300, icon: '/images/Service_driver.svg' },
-      { id: 10, title: 'Установка Windows', price: 700, icon: '/images/Service_windows.svg' },
-      { id: 11, title: 'Чистка от пыли', price: 200, icon: '/images/Service_dust.svg' }
-    ]
   } catch (e) {
     console.error('Data load error:', e)
   }
@@ -385,7 +371,8 @@ onMounted(() => {
   width: 80px;
   height: 53px;
 }
-.service-center-page {
+
+.commissioning-page {
   width: 100%;
   overflow-x: hidden;
 }
@@ -396,8 +383,7 @@ onMounted(() => {
   align-items: center;
   gap: 10px;
   padding: 15px 0 20px;
-  font-family: 'Rubik', sans-serif;
-  font-weight: 400;
+  font-family: 'Rubik-Regular', sans-serif;
   font-size: 14px;
   color: #4A4D4A;
 }
@@ -434,8 +420,7 @@ onMounted(() => {
 }
 .hero-text { grid-column: 2; }
 .hero-title {
-  font-family: 'Rubik', sans-serif;
-  font-weight: 500;
+  font-family: 'Rubik-Medium', sans-serif;
   font-size: 36px;
   line-height: 43px;
   color: #4A4D4A;
@@ -452,10 +437,9 @@ onMounted(() => {
 .banner-image-placeholder {
   width: 100%;
   height: 100%;
-  background: url("/images/Bg_service.jpg") center/cover;
+  background: url("/images/Bg_commissioning.jpg") center/cover;
   position: relative;
 }
-
 .banner-image-placeholder::after {
   content: '';
   position: absolute;
@@ -465,7 +449,6 @@ onMounted(() => {
   bottom: 0;
   z-index: 1;
 }
-
 .banner-content {
   position: absolute;
   top: 300px;
@@ -475,27 +458,21 @@ onMounted(() => {
   z-index: 2;
   margin-top: 170px;
 }
-
 .banner-title {
-  font-family: 'Rubik', sans-serif;
-  font-weight: 500;
+  font-family: 'Rubik-Medium', sans-serif;
   font-size: 30px;
   line-height: 123.4%;
   color: #FFFFFF;
   margin-bottom: 20px;
 }
-
 .banner-desc {
-  font-family: 'Rubik', sans-serif;
-  font-weight: 500;
+  font-family: 'Rubik-Medium', sans-serif;
   font-size: 18px;
   line-height: 21px;
   color: #FFFFFF;
   margin-bottom: 30px;
 }
-.banner-btn {
-  padding: 24px 45px;
-}
+.banner-btn { padding: 24px 45px; }
 .hero-catalog {
   grid-column: 1;
   grid-row: 1 / 3;
@@ -506,8 +483,7 @@ onMounted(() => {
 }
 .catalog-header { padding: 20px 25px; }
 .catalog-title {
-  font-family: 'Rubik', sans-serif;
-  font-weight: 500;
+  font-family: 'Rubik-Medium', sans-serif;
   font-size: 24px;
   line-height: 122%;
   color: #4A4D4A;
@@ -519,9 +495,7 @@ onMounted(() => {
   background: #FFFBFB;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
 }
-.catalog-menu-item {
-  border-bottom: 1px solid #f0f0f0;
-}
+.catalog-menu-item { border-bottom: 1px solid #f0f0f0; }
 .catalog-menu-link {
   display: flex;
   align-items: center;
@@ -531,169 +505,121 @@ onMounted(() => {
   transition: background 0.3s;
   gap: 12px;
 }
-.catalog-menu-link:hover {
-  background: #f5f5f5;
-}
+.catalog-menu-link:hover { background: #f5f5f5; }
 .menu-icon-img { width: 20px; height: 20px; flex-shrink: 0; object-fit: contain; }
 .menu-text { font-family: 'Rubik-Medium', sans-serif; font-size: 15px; flex: 1; line-height: 1.3; }
 .menu-arrow { font-size: 18px; color: #001569; opacity: 0.6; }
 
-/* Services Section */
-.services-section { padding: 40px 0; }
-.services-inner {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 29px;
-}
-.service-card {
-  background: #FFFFFF;
-  box-shadow: 0 0 19px rgba(0, 0, 0, 0.25);
-  padding: 30px 20px;
+/* Описание услуги */
+.description-section { padding: 60px 0; }
+.description-inner { max-width: 1410px; margin: 0 auto; }
+.description-header {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  text-align: center;
-  min-height: 248px;
-  transition: transform 0.3s;
+  gap: 30px;
+  margin-bottom: 40px;
 }
-
-.service-card div {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  text-align: center;
+.description-icon {
+  width: 60px;
+  height: 58px;
+  background: url("/images/Monitors.svg");
 }
-
-.service-card div.block-title {
-  display: flex;
-  flex-direction: column;
-}
-
-.service-card:hover { transform: translateY(-3px); }
-.title-card {
-  background: #F0F0FF;
-  justify-content: center;
-}
-.title-card-text {
-  font-family: 'Rubik', sans-serif;
-  font-weight: 500;
+.description-title {
+  font-family: 'Rubik-Medium', sans-serif;
   font-size: 30px;
   line-height: 123.4%;
   color: #4A4D4A;
+  text-align: center;
+  flex: 1;
 }
-.service-icon-wrapper {
-  height: 115px;
-  width: 140px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 15px;
-  margin-right: 10px;
-}
-.service-icon { width: 108px; height: 90px; object-fit: contain; }
-.service-title {
-  font-family: 'Rubik', sans-serif;
-  font-weight: 500;
-  font-size: 20px;
-  line-height: 24px;
-  color: #4A4D4A;
-  margin-bottom: 10px;
-  min-height: 72px;
-  display: flex;
+.description-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 30px;
   align-items: center;
 }
-.service-price {
-  font-family: 'Rubik', sans-serif;
-  font-weight: 500;
-  font-size: 20px;
-  line-height: 24px;
-  color: #1F347B;
-  margin-bottom: 15px;
-}
-.service-link {
-  font-family: 'Rubik', sans-serif;
-  font-weight: 500;
+.description-text p {
+  font-family: 'Rubik-Regular', sans-serif;
   font-size: 18px;
   line-height: 21px;
   color: #4A4D4A;
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-top: auto;
-  transition: color 0.3s;
+  text-align: center;
 }
-.service-link:hover { color: #FFAF37; }
-.link-arrow { font-size: 24px; }
+.description-text-accent p {
+  color: #FFAF37;
+}
+.description-image img {
+  width: 100%;
+  max-width: 485px;
+  border-radius: 10px;
+  margin: 0 auto;
+  display: block;
+}
 
-/* Stats Section */
-.stats-section {
+/* Задачи */
+.tasks-section {
   padding: 60px 0;
   background: #F0F0FF;
 }
-.stats-inner {
+.tasks-inner { max-width: 1410px; margin: 0 auto; }
+.tasks-title { margin-bottom: 30px; }
+.tasks-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
-  align-items: center;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
 }
-.stats-graphics { position: relative; }
-.stats-main-title {
-  font-family: 'Rubik', sans-serif;
-  font-weight: 500;
-  font-size: 30px;
-  line-height: 123.4%;
-  color: #4A4D4A;
-  margin-bottom: 40px;
-}
-.stats-circles {
-  position: relative;
-  width: 100%;
-  height: 300px;
-}
-.stat-item {
-  position: absolute;
+.task-card {
+  background: #FFFFFF;
+  box-shadow: 0 0 28px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  padding: 30px 20px;
+  text-align: center;
+  min-height: 220px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  transition: transform 0.3s;
 }
-.stat-number {
-  font-family: 'Rubik', sans-serif;
-  font-weight: 500;
-  font-size: 36px;
-  line-height: 43px;
-  color: #FFAF37;
+.task-card:hover {
+  transform: translateY(-3px);
 }
-.stat-label {
-  font-family: 'Rubik', sans-serif;
-  font-weight: 500;
-  font-size: 20px;
-  line-height: 24px;
-  color: #4A4D4A;
-}
-.stat-monitors { top: 20px; left: 0; }
-.stat-laptops { top: 0; right: 50px; }
-.stat-printers { bottom: 0; left: 50px; }
-.stat-pcs { bottom: 20px; right: 0; }
-
-.stats-text { max-width: 475px; margin: 0 auto; }
-.stats-title {
-  font-family: 'Rubik', sans-serif;
-  font-weight: 500;
-  font-size: 24px;
-  line-height: 122%;
-  color: #4A4D4A;
-  text-align: center;
+.task-icon1 {
+  width: 63px;
+  height: 60px;
   margin-bottom: 20px;
+  background: url("/images/Rotary_arrows.svg");
 }
-.stats-desc {
-  font-family: 'Rubik', sans-serif;
-  font-weight: 400;
+.task-icon2 {
+  width: 60px;
+  height: 53px;
+  margin-bottom: 20px;
+  background: url("/images/Monitor_control.svg");
+}
+.task-icon3 {
+  width: 60px;
+  height: 58px;
+  margin-bottom: 20px;
+  background: url("/images/Yellow_disk.svg");
+}
+.task-icon4 {
+  width: 57px;
+  height: 60px;
+  margin-bottom: 20px;
+  background: url("/images/Yellow_man.svg");
+}
+.task-icon5 {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 20px;
+  background: url("/images/Selection_monitor.svg");
+}
+.task-title {
+  font-family: 'Rubik-Medium', sans-serif;
   font-size: 18px;
   line-height: 21px;
   color: #4A4D4A;
   text-align: center;
-  margin-bottom: 30px;
 }
 
 /* Benefits Section */
@@ -719,8 +645,7 @@ onMounted(() => {
   justify-content: center;
 }
 .benefit-main-title {
-  font-family: 'Rubik', sans-serif;
-  font-weight: 500;
+  font-family: 'Rubik-Medium', sans-serif;
   font-size: 30px;
   line-height: 123.4%;
   text-align: center;
@@ -730,18 +655,17 @@ onMounted(() => {
   width: 70px;
   height: 72px;
   background: url("/images/Tree.jpg") center/contain no-repeat;
+  border-radius: 0;
 }
 .benefit-title {
-  font-family: 'Rubik', sans-serif;
-  font-weight: 500;
+  font-family: 'Rubik-Medium', sans-serif;
   font-size: 24px;
   line-height: 122%;
   color: #4A4D4A;
   margin-bottom: 15px;
 }
 .benefit-desc {
-  font-family: 'Rubik', sans-serif;
-  font-weight: 400;
+  font-family: 'Rubik-Regular', sans-serif;
   font-size: 18px;
   line-height: 21px;
   text-align: center;
@@ -762,9 +686,7 @@ onMounted(() => {
 }
 
 /* Trusted Section */
-.trusted-section {
-  padding: 40px 0;
-}
+.trusted-section { padding: 40px 0; }
 .trusted-frame {
   border: 6px solid rgba(31, 52, 123, 0.2);
   padding: 40px;
@@ -780,9 +702,7 @@ onMounted(() => {
   background: rgba(31, 52, 123, 0.2);
   border-radius: 50%;
 }
-.trusted-frame .section-title {
-  margin-bottom: 30px;
-}
+.trusted-frame .section-title { margin-bottom: 30px; }
 .trusted-logos {
   display: flex;
   justify-content: space-around;
@@ -791,11 +711,7 @@ onMounted(() => {
   margin-top: 60px;
   gap: 30px;
 }
-.trusted-logos img {
-  width: 180px;
-  height: 140px;
-  object-fit: contain;
-}
+.trusted-logos img { width: 180px; height: 140px; object-fit: contain; }
 
 /* Banners Section */
 .banners-section { padding: 40px 0; }
@@ -818,22 +734,28 @@ onMounted(() => {
 .banner-bg-light { background: #F0F0FF; }
 .banner-bg-purple { background: #E3E1FF; }
 .banner-content {
-  top: 50px;
-  text-align: end;
-  right: 30px;
+  position: relative;
   margin-top: 0;
+  right: 90px;
+  top: 0;
+  text-align: end;
+}
+.banner-content1 {
+  position: relative;
+  margin-top: 0;
+  right: 50px;
+  top: 200px;
+  text-align: end;
 }
 .banner-block-title {
-  font-family: 'Rubik', sans-serif;
-  font-weight: 500;
+  font-family: 'Rubik-Medium', sans-serif;
   font-size: 24px;
   line-height: 122%;
   color: #4A4D4A;
   margin-bottom: 15px;
 }
 .banner-block-desc {
-  font-family: 'Rubik', sans-serif;
-  font-weight: 400;
+  font-family: 'Rubik-Regular', sans-serif;
   font-size: 18px;
   line-height: 21px;
   color: #4A4D4A;
@@ -847,6 +769,7 @@ onMounted(() => {
   height: 60px;
 }
 .banner-illustration-placeholder,
+.banner-illustration-placeholder1,
 .banner-illustration-placeholder2 {
   position: absolute;
   bottom: 15px;
@@ -854,19 +777,24 @@ onMounted(() => {
   width: 300px;
   height: 230px;
 }
-.banner-illustration-placeholder1 {
-  bottom: 42px;
-  position: absolute;
-  left: 0;
-  width: 200px;
-  height: 230px;
-}
+.banner-illustration-placeholder1 { bottom: 42px; }
 .banner-illustration-placeholder2 { bottom: 10px; }
 
 /* Consultation Section */
-.consultation-section { padding: 40px 0; }
-.consultation-title { text-align: center; margin-bottom: 10px; }
-.consultation-subtitle { text-align: center; margin-bottom: 30px; }
+.consultation-section {
+  padding: 40px 0;
+}
+.consultation-title {
+  text-align: center;
+  margin-bottom: 10px; }
+.consultation-subtitle {
+  text-align: center;
+  margin-bottom: 30px;
+  font-family: 'Rubik-Medium', sans-serif;
+  font-size: 24px;
+  line-height: 123.4%;
+  color: #4A4D4A;
+}
 .consultation-card {
   background: #FFFFFF;
   box-shadow: 0 0 28px rgba(0, 0, 0, 0.25);
@@ -882,7 +810,7 @@ onMounted(() => {
   width: 100%;
   padding: 20px 15px;
   border: 1px solid #4A4D4A;
-  font-family: 'Rubik', sans-serif;
+  font-family: 'Rubik-Regular', sans-serif;
   font-size: 14px;
   outline: none;
   transition: border-color 0.3s;
@@ -893,8 +821,7 @@ onMounted(() => {
   display: flex;
   align-items: flex-start;
   gap: 10px;
-  font-family: 'Rubik', sans-serif;
-  font-weight: 300;
+  font-family: 'Rubik-Light', sans-serif;
   font-size: 10px;
   line-height: 15px;
   color: #4A4D4A;
@@ -942,8 +869,7 @@ onMounted(() => {
   display: flex;
   align-items: center;
   gap: 12px;
-  font-family: 'Rubik', sans-serif;
-  font-weight: 500;
+  font-family: 'Rubik-Medium', sans-serif;
   font-size: 20px;
   line-height: 24px;
   color: #4A4D4A;

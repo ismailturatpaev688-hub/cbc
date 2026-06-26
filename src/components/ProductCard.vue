@@ -1,160 +1,162 @@
 <template>
   <main class="catalog-page">
     <div class="container">
-      <!-- Хлебные крошки -->
-      <nav class="breadcrumbs">
-        <router-link to="/" class="breadcrumb-item">Главная</router-link>
-        <span class="breadcrumb-separator">→</span>
-        <router-link to="/catalog" class="breadcrumb-item">Каталог</router-link>
-        <span v-if="product.category" class="breadcrumb-separator">→</span>
-        <router-link v-if="product.category" :to="`/catalog/${product.categoryLink}`" class="breadcrumb-item">
-          {{ product.category }}
-        </router-link>
-        <span class="breadcrumb-separator">→</span>
-        <span class="breadcrumb-current">{{ product.shortName || product.name }}</span>
-      </nav>
+        <!-- Хлебные крошки -->
+        <nav class="breadcrumbs">
+          <router-link to="/" class="breadcrumb-item">Главная</router-link>
+          <span class="breadcrumb-separator">→</span>
+          <router-link to="/catalog" class="breadcrumb-item">Каталог</router-link>
+          <span v-if="product.category" class="breadcrumb-separator">→</span>
+          <router-link v-if="product.category" :to="`/catalog/${product.categoryLink}`" class="breadcrumb-item">
+            {{ product.category }}
+          </router-link>
+          <span class="breadcrumb-separator">→</span>
+          <span class="breadcrumb-current">{{ product.shortName || product.name }}</span>
+        </nav>
 
-      <div class="catalog-layout">
-        <!-- Левая колонка -->
-        <aside class="sidebar">
-          <div class="catalog-menu">
-            <div class="catalog-menu-header">
-              <h2 class="catalog-menu-title">Каталог</h2>
+        <div class="catalog-layout">
+          <!-- Левая колонка -->
+          <aside class="sidebar">
+            <div class="catalog-menu">
+              <div class="catalog-menu-header">
+                <h2 class="catalog-menu-title">Каталог</h2>
+              </div>
+              <ul class="catalog-menu-list">
+                <li
+                    v-for="category in categories"
+                    :key="category.id"
+                    class="catalog-menu-item"
+                    :class="{ active: product.categoryLink === category.link.split('/').pop() }">
+                  <router-link :to="category.link" class="catalog-menu-link">
+                    <img :src="category.icon" :alt="category.name" class="menu-icon-img">
+                    <span class="menu-text">{{ category.name }}</span>
+                    <span class="menu-arrow">›</span>
+                  </router-link>
+                </li>
+              </ul>
             </div>
-            <ul class="catalog-menu-list">
-              <li
-                  v-for="category in categories"
-                  :key="category.id"
-                  class="catalog-menu-item"
-                  :class="{ active: product.categoryLink === category.link.split('/').pop() }">
-                <router-link :to="category.link" class="catalog-menu-link">
-                  <img :src="category.icon" :alt="category.name" class="menu-icon-img">
-                  <span class="menu-text">{{ category.name }}</span>
-                  <span class="menu-arrow">›</span>
-                </router-link>
-              </li>
-            </ul>
-          </div>
-        </aside>
+          </aside>
 
-        <!-- Правая колонка -->
-        <div class="catalog-main">
-          <!-- Карточка товара -->
-          <div class="product-card-full">
-            <!-- Галерея -->
-            <div class="product-gallery-section">
-              <div class="product-image-main">
-                <img :src="currentImage" :alt="product.name" @error="handleImageError">
-                <div class="product-badges-top">
-                  <button class="icon-btn">
-                    <img src="/images/Heart.svg" alt="Избранное">
+          <!-- Правая колонка -->
+          <div class="catalog-main">
+            <!-- Карточка товара -->
+            <div class="product-card-full">
+              <!-- Галерея -->
+              <div class="product-gallery-section">
+                <div class="product-image-main">
+                  <img :src="currentImage" :alt="product.name" @error="handleImageError">
+                  <div class="product-badges-top">
+                    <button class="icon-btn">
+                      <img src="/images/Heart.svg" alt="Избранное">
+                    </button>
+                    <button class="icon-btn">
+                      <img src="/images/Compare.svg" alt="Сравнить">
+                    </button>
+                  </div>
+                </div>
+                <div class="product-thumbnails-wrapper">
+                  <button class="thumb-arrow" @click="prevImage">‹</button>
+                  <div class="product-thumbnails">
+                    <img
+                        v-for="(img, index) in product.images"
+                        :key="index"
+                        :src="img"
+                        :alt="`Thumbnail ${index + 1}`"
+                        class="thumbnail"
+                        :class="{ active: index === selectedImage }"
+                        @click="selectedImage = index">
+                  </div>
+                  <button class="thumb-arrow" @click="nextImage">›</button>
+                </div>
+              </div>
+
+              <!-- Информация -->
+              <div class="product-info-section">
+                <h1 class="product-title-detail">{{ product.name }}</h1>
+                <div class="product-meta-info">
+                  <p class="product-article">Артикул: {{ product.article }}</p>
+                  <p class="product-warranty">Гарантия: {{ product.warranty }}</p>
+                </div>
+                <div class="product-price-block">
+                  <div class="price-value">
+                    <span class="price-amount">{{ product.price }}</span>
+                    <span class="price-currency">₽/шт</span>
+                  </div>
+                </div>
+                <div class="product-actions-block">
+                  <div class="quantity-control">
+                    <button class="qty-btn" @click="decreaseQty">-</button>
+                    <input type="number" v-model="quantity" min="1" class="qty-input">
+                    <button class="qty-btn" @click="increaseQty">+</button>
+                  </div>
+                  <button class="btn-one-click">
+                    <img src="/images/Hand.svg" alt="Click" class="btn-icon">
+                    <span>купить в один клик</span>
                   </button>
-                  <button class="icon-btn">
-                    <img src="/images/Compare.svg" alt="Сравнить">
+                  <button class="btn-cart" @click="addToCart">
+                    <img src="/images/Cart_white.svg" alt="Cart">
+                    <span>В КОРЗИНУ</span>
                   </button>
                 </div>
-              </div>
-              <div class="product-thumbnails-wrapper">
-                <button class="thumb-arrow" @click="prevImage">‹</button>
-                <div class="product-thumbnails">
-                  <img
-                      v-for="(img, index) in product.images"
-                      :key="index"
-                      :src="img"
-                      :alt="`Thumbnail ${index + 1}`"
-                      class="thumbnail"
-                      :class="{ active: index === selectedImage }"
-                      @click="selectedImage = index">
-                </div>
-                <button class="thumb-arrow" @click="nextImage">›</button>
-              </div>
-            </div>
-
-            <!-- Информация -->
-            <div class="product-info-section">
-              <h1 class="product-title-detail">{{ product.name }}</h1>
-              <div class="product-meta-info">
-                <p class="product-article">Артикул: {{ product.article }}</p>
-                <p class="product-warranty">Гарантия: {{ product.warranty }}</p>
-              </div>
-              <div class="product-price-block">
-                <div class="price-value">
-                  <span class="price-amount">{{ product.price }}</span>
-                  <span class="price-currency">₽/шт</span>
-                </div>
-              </div>
-              <div class="product-actions-block">
-                <div class="quantity-control">
-                  <button class="qty-btn" @click="decreaseQty">-</button>
-                  <input type="number" v-model="quantity" min="1" class="qty-input">
-                  <button class="qty-btn" @click="increaseQty">+</button>
-                </div>
-                <button class="btn-one-click">
-                  <img src="/images/Hand.svg" alt="Click" class="btn-icon">
-                  <span>купить в один клик</span>
-                </button>
-                <button class="btn-cart" @click="addToCart">
-                  <img src="/images/Cart_white.svg" alt="Cart">
-                  <span>В КОРЗИНУ</span>
-                </button>
-              </div>
-              <div class="availability-info">
-                <p class="availability-note">Цена действительна только для интернет-магазина и может отличаться от цен в розничных магазинах</p>
-                <div class="stock-info">
-                  <img src="/images/Shop.svg" alt="Office" class="stock-icon">
-                  <span>Офис в жуковском - <span class="stock-yes">✓</span> {{ product.stock?.office || 'в наличие' }}</span>
-                </div>
-                <div class="stock-info">
-                  <img src="/images/Truck.svg" alt="Warehouse" class="stock-icon">
-                  <span>На складе - {{ product.stock?.warehouse || 'нет в наличие' }}</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Характеристики -->
-          <div class="product-tabs-section">
-            <div class="tabs-header">
-              <button
-                  class="tab-button"
-                  :class="{ active: activeTab === 'specs' }"
-                  @click="activeTab = 'specs'">
-                Характеристики
-              </button>
-              <button
-                  class="tab-button"
-                  :class="{ active: activeTab === 'delivery' }"
-                  @click="activeTab = 'delivery'">
-                Доставка и оплата
-              </button>
-            </div>
-            <div class="tab-content" v-if="activeTab === 'specs'">
-              <div class="specs-section">
-                <h4>Основные характеристики:</h4>
-                <div class="characteristics-list">
-                  <div v-for="(value, key) in product.characteristics" :key="key" class="spec-row">
-                    <span class="spec-label">{{ key }}</span>
-                    <span class="spec-value">{{ value }}</span>
+                <div class="availability-info">
+                  <p class="availability-note">Цена действительна только для интернет-магазина и может отличаться от цен в розничных магазинах</p>
+                  <div class="stock-info">
+                    <img src="/images/Shop.svg" alt="Office" class="stock-icon">
+                    <span>Офис в жуковском - {{ product.stock?.office || 'в наличие' }}</span>
+                  </div>
+                  <div class="stock-info">
+                    <img src="/images/Truck.svg" alt="Warehouse" class="stock-icon">
+                    <span>На складе - {{ product.stock?.warehouse || 'нет в наличие' }}</span>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="tab-content" v-if="activeTab === 'delivery'">
-              <h4>Доставка и оплата</h4>
-              <p>Доставка осуществляется по всей России.</p>
+
+            <!-- Характеристики -->
+            <div class="product-tabs-section">
+              <div class="tabs-header">
+                <button
+                    class="tab-button"
+                    :class="{ active: activeTab === 'specs' }"
+                    @click="activeTab = 'specs'">
+                  Характеристики
+                </button>
+                <button
+                    class="tab-button"
+                    :class="{ active: activeTab === 'delivery' }"
+                    @click="activeTab = 'delivery'">
+                  Доставка и оплата
+                </button>
+              </div>
+              <div class="tab-content" v-if="activeTab === 'specs'">
+                <div class="specs-section">
+                  <h4>Основные характеристики:</h4>
+                  <div class="characteristics-list">
+                    <div v-for="(value, key) in product.characteristics" :key="key" class="spec-row">
+                      <span class="spec-label">{{ key }}</span>
+                      <span class="spec-value">{{ value }}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-content" v-if="activeTab === 'delivery'">
+                <h4>Доставка и оплата</h4>
+                <p>Доставка осуществляется по всей России.</p>
+              </div>
             </div>
           </div>
         </div>
+      </div>
 
-        <div class="catalog-main1">
-          <!-- Рекомендуемые товары -->
-          <section class="related-section">
+      <div class="catalog-main1">
+        <!-- Рекомендуемые товары -->
+        <section class="related-section">
+          <div class="container">
             <h2 class="section-title">Так же рекомендуем <br> посмотреть</h2>
             <div class="products-carousel">
               <button class="carousel-arrow" @click="scrollCarousel('related', -1)">‹</button>
               <div class="products-carousel-grid" ref="relatedCarousel">
-                <a
-                    v-for="item in relatedProducts"
+                <a v-for="item in relatedProducts"
                     :key="item.id"
                     :href="`/product/${item.id}`"
                     class="product-card-small">
@@ -186,173 +188,178 @@
               <router-link to="/catalog" class="view-all">Смотреть все</router-link>
               <span class="arrow">→</span>
             </div>
-          </section>
-        </div>
+          </div>
+        </section>
       </div>
 
-      <!-- Преимущества -->
-      <section class="benefits-section">
-        <div class="benefits-inner">
-          <div class="benefit-card benefit-main">
-            <h2 class="benefit-main-title">Работать с СВС выгодно и надежно</h2>
-          </div>
-          <div class="benefit-card" v-for="benefit in benefits.slice(0, 1)" :key="benefit.id">
-            <div class="benefit-icon-placeholder">
-              <img :src="benefit.icon" :alt="benefit.title">
-            </div>
-            <h3 class="benefit-title">{{ benefit.title }}</h3>
-            <p class="benefit-desc">{{ benefit.description }}</p>
-          </div>
-          <div class="benefit-card" v-for="benefit in benefits.slice(1, 2)" :key="benefit.id">
-            <div class="benefit-icon-placeholder">
-              <img :src="benefit.icon" :alt="benefit.title">
-            </div>
-            <h3 class="benefit-title">{{ benefit.title }}</h3>
-            <p class="benefit-desc">{{ benefit.description }}</p>
-          </div>
-          <div class="benefit-card" v-for="benefit in benefits.slice(2, 3)" :key="benefit.id">
-            <div class="benefit-icon-placeholder">
-              <img :src="benefit.icon" :alt="benefit.title">
-            </div>
-            <h3 class="benefit-title">{{ benefit.title }}</h3>
-            <p class="benefit-desc">{{ benefit.description }}</p>
-          </div>
-          <div class="benefit-card benefit-wide">
-            <div class="benefit-icon-placeholder diamond-icon"></div>
-            <h3 class="benefit-title">Прямые поставки</h3>
-            <div class="brands-row">
-              <span class="brand-placeholder"><img src="/images/Square.jpg" alt="Square"></span>
-              <span class="brand-placeholder"><img src="/images/Nvidia.jpg" alt="Nvidia"></span>
-              <span class="brand-placeholder"><img src="/images/Asus.jpg" alt="Asus"></span>
-              <span class="brand-placeholder"><img src="/images/Hp.jpg" alt="Hp"></span>
-              <span class="brand-placeholder"><img src="/images/Samsung.jpg" alt="Samsung"></span>
-              <span class="brand-placeholder"><img src="/images/Intel.jpg" alt="Intel"></span>
-              <span class="brand-placeholder"><img src="/images/Lenovo.jpg" alt="Lenovo"></span>
-            </div>
-          </div>
-          <div class="benefit-card" v-for="benefit in benefits.slice(3, 4)" :key="benefit.id">
-            <div class="benefit-icon-placeholder">
-              <img :src="benefit.icon" :alt="benefit.title">
-            </div>
-            <h3 class="benefit-title">{{ benefit.title }}</h3>
-            <p class="benefit-desc">{{ benefit.description }}</p>
-          </div>
-          <div class="benefit-card" v-for="benefit in benefits.slice(4, 5)" :key="benefit.id">
-            <div class="benefit-icon-placeholder">
-              <img :src="benefit.icon" :alt="benefit.title">
-            </div>
-            <h3 class="benefit-title">{{ benefit.title }}</h3>
-            <p class="benefit-desc">{{ benefit.description }}</p>
-          </div>
-        </div>
-      </section>
 
-      <!-- Баннеры услуг -->
-      <section class="banners-section">
-        <div class="banners-inner">
-          <div class="banner-block banner-block-left">
-            <div class="banner-bg banner-bg-light"></div>
-            <div class="banner-icon-placeholder"><img src="/images/Monitors.svg" alt="Monitor"></div>
-            <div class="banner-content">
-              <h3 class="banner-block-title">Комплексные поставки компьютерного <br>
-                оборудования для вашего офиса <br>
-                в Жуковском</h3>
-              <p class="banner-block-desc">Специалист бесплатно подберет <br>
-                решение под ваши требования.</p>
-              <button class="btn-primary">ПОДОБРАТЬ ТЕХНИКУ</button>
+      <div class="container">
+        <!-- Преимущества -->
+        <section class="benefits-section">
+          <div class="benefits-inner">
+            <div class="benefit-card benefit-main">
+              <h2 class="benefit-main-title">Работать с СВС выгодно и надежно</h2>
             </div>
-            <div class="banner-illustration-placeholder"><img src="/images/undraw_monitor.svg" alt="Monitor"></div>
-          </div>
-          <div class="banner-block banner-block-right">
-            <div class="banner-bg banner-bg-purple"></div>
-            <div class="banner-icon-placeholder"><img src="/images/House.svg" alt="House"></div>
-            <div class="banner-content">
-              <h3 class="banner-block-title">Оборудуем офис <br>
-                "под ключ"</h3>
-              <p class="banner-block-desc">Компьютерной техникой <br>
-                периферией, мебелью <br>
-                канцтоварами, а также <br>
-                вкусным кофе</p>
-              <button class="btn-primary">СОБРАТЬ ОФИС</button>
+            <div class="benefit-card" v-for="benefit in benefits.slice(0, 1)" :key="benefit.id">
+              <div class="benefit-icon-placeholder">
+                <img :src="benefit.icon" :alt="benefit.title">
+              </div>
+              <h3 class="benefit-title">{{ benefit.title }}</h3>
+              <p class="benefit-desc">{{ benefit.description }}</p>
             </div>
-            <div class="banner-illustration-placeholder1"><img src="/images/undraw_Hello.svg" alt="Hello"></div>
+            <div class="benefit-card" v-for="benefit in benefits.slice(1, 2)" :key="benefit.id">
+              <div class="benefit-icon-placeholder">
+                <img :src="benefit.icon" :alt="benefit.title">
+              </div>
+              <h3 class="benefit-title">{{ benefit.title }}</h3>
+              <p class="benefit-desc">{{ benefit.description }}</p>
+            </div>
+            <div class="benefit-card" v-for="benefit in benefits.slice(2, 3)" :key="benefit.id">
+              <div class="benefit-icon-placeholder">
+                <img :src="benefit.icon" :alt="benefit.title">
+              </div>
+              <h3 class="benefit-title">{{ benefit.title }}</h3>
+              <p class="benefit-desc">{{ benefit.description }}</p>
+            </div>
+            <div class="benefit-card benefit-wide">
+              <div class="benefit-icon-placeholder diamond-icon"></div>
+              <h3 class="benefit-title">Прямые поставки</h3>
+              <div class="brands-row">
+                <span class="brand-placeholder"><img src="/images/Square.jpg" alt="Square"></span>
+                <span class="brand-placeholder"><img src="/images/Nvidia.jpg" alt="Nvidia"></span>
+                <span class="brand-placeholder"><img src="/images/Asus.jpg" alt="Asus"></span>
+                <span class="brand-placeholder"><img src="/images/Hp.jpg" alt="Hp"></span>
+                <span class="brand-placeholder"><img src="/images/Samsung.jpg" alt="Samsung"></span>
+                <span class="brand-placeholder"><img src="/images/Intel.jpg" alt="Intel"></span>
+                <span class="brand-placeholder"><img src="/images/Lenovo.jpg" alt="Lenovo"></span>
+              </div>
+            </div>
+            <div class="benefit-card" v-for="benefit in benefits.slice(3, 4)" :key="benefit.id">
+              <div class="benefit-icon-placeholder">
+                <img :src="benefit.icon" :alt="benefit.title">
+              </div>
+              <h3 class="benefit-title">{{ benefit.title }}</h3>
+              <p class="benefit-desc">{{ benefit.description }}</p>
+            </div>
+            <div class="benefit-card" v-for="benefit in benefits.slice(4, 5)" :key="benefit.id">
+              <div class="benefit-icon-placeholder">
+                <img :src="benefit.icon" :alt="benefit.title">
+              </div>
+              <h3 class="benefit-title">{{ benefit.title }}</h3>
+              <p class="benefit-desc">{{ benefit.description }}</p>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <!-- Интеграция -->
-      <section class="integration-section">
-        <div class="integration-inner">
-          <div class="integration-banner integration-left">
-            <div class="banner-bg banner-bg-light"></div>
-            <div class="banner-icon-placeholder"><img src="/images/PC.svg" alt="PC"></div>
-            <div class="banner-content">
-              <h3 class="banner-block-title">Решаем сложные задачи интеграции <br>
-                компьютерной техники <br>
-                в ваш бизнес</h3>
-              <p class="banner-block-desc">Предоставим бесплатный тест компьютерного <br>
-                оборудования, чтобы все работало как надо</p>
-              <button class="btn-primary">ВНЕДРИТЬ ОБОРУДОВАНИЕ</button>
+        <!-- Баннеры услуг -->
+        <section class="banners-section">
+          <div class="banners-inner">
+            <div class="banner-block banner-block-left">
+              <div class="banner-bg banner-bg-light"></div>
+              <div class="banner-icon-placeholder"><img src="/images/Monitors.svg" alt="Monitor"></div>
+              <div class="banner-content">
+                <h3 class="banner-block-title">Комплексные поставки компьютерного <br>
+                  оборудования для вашего офиса <br>
+                  в Жуковском</h3>
+                <p class="banner-block-desc">Специалист бесплатно подберет <br>
+                  решение под ваши требования.</p>
+                <button class="btn-primary">ПОДОБРАТЬ ТЕХНИКУ</button>
+              </div>
+              <div class="banner-illustration-placeholder"><img src="/images/undraw_monitor.svg" alt="Monitor"></div>
             </div>
-            <div class="banner-illustration-placeholder2"><img src="/images/Human.svg" alt="Human"></div>
-          </div>
-          <div class="integration-banner integration-right">
-            <div class="banner-bg banner-bg-purple"></div>
-            <div class="banner-icon-placeholder printer-icon"><img src="/images/Printer.svg" alt="Printer"></div>
-            <div class="banner-content">
-              <h3 class="banner-block-title">У вас много принтеров <br>
-                и они часто ломаются?</h3>
-              <p class="banner-block-desc">Проведем аудит печатной <br>
-                техники и экономим до <br>
-                300 000 рублей в год.</p>
-              <button class="btn-primary">УЗНАТЬ КАК</button>
+            <div class="banner-block banner-block-right">
+              <div class="banner-bg banner-bg-purple"></div>
+              <div class="banner-icon-placeholder"><img src="/images/House.svg" alt="House"></div>
+              <div class="banner-content">
+                <h3 class="banner-block-title">Оборудуем офис <br>
+                  "под ключ"</h3>
+                <p class="banner-block-desc">Компьютерной техникой <br>
+                  периферией, мебелью <br>
+                  канцтоварами, а также <br>
+                  вкусным кофе</p>
+                <button class="btn-primary">СОБРАТЬ ОФИС</button>
+              </div>
+              <div class="banner-illustration-placeholder1"><img src="/images/undraw_Hello.svg" alt="Hello"></div>
             </div>
-            <div class="banner-illustration-placeholder1"><img src="/images/undraw_printing.svg" alt="undraw_printing"></div>
           </div>
-        </div>
-      </section>
+        </section>
+
+        <!-- Интеграция -->
+        <section class="integration-section">
+          <div class="integration-inner">
+            <div class="integration-banner integration-left">
+              <div class="banner-bg banner-bg-light"></div>
+              <div class="banner-icon-placeholder"><img src="/images/PC.svg" alt="PC"></div>
+              <div class="banner-content">
+                <h3 class="banner-block-title">Решаем сложные задачи интеграции <br>
+                  компьютерной техники <br>
+                  в ваш бизнес</h3>
+                <p class="banner-block-desc">Предоставим бесплатный тест компьютерного <br>
+                  оборудования, чтобы все работало как надо</p>
+                <button class="btn-primary">ВНЕДРИТЬ ОБОРУДОВАНИЕ</button>
+              </div>
+              <div class="banner-illustration-placeholder2"><img src="/images/Human.svg" alt="Human"></div>
+            </div>
+            <div class="integration-banner integration-right">
+              <div class="banner-bg banner-bg-purple"></div>
+              <div class="banner-icon-placeholder printer-icon"><img src="/images/Printer.svg" alt="Printer"></div>
+              <div class="banner-content">
+                <h3 class="banner-block-title">У вас много принтеров <br>
+                  и они часто ломаются?</h3>
+                <p class="banner-block-desc">Проведем аудит печатной <br>
+                  техники и экономим до <br>
+                  300 000 рублей в год.</p>
+                <button class="btn-primary">УЗНАТЬ КАК</button>
+              </div>
+              <div class="banner-illustration-placeholder1"><img src="/images/undraw_printing.svg" alt="undraw_printing"></div>
+            </div>
+          </div>
+        </section>
+      </div>
 
       <!-- Ранее смотрели -->
       <section class="related-section">
-        <h2 class="section-title">Ранее вы смотрели на сайте СВС</h2>
-        <div class="products-carousel">
-          <button class="carousel-arrow" @click="scrollCarousel('viewed', -1)">‹</button>
-          <div class="products-carousel-grid" ref="viewedCarousel">
-            <a
-                v-for="item in viewedProducts"
-                :key="item.id"
-                :href="`/product/${item.id}`"
-                class="product-card-small">
-              <div class="card-image">
-                <img :src="item.image" :alt="item.name" @error="handleImageError">
-                <button class="card-favorite" @click.prevent>♡</button>
-              </div>
-              <h3 class="card-title">{{ item.shortName }}</h3>
-              <div class="card-rating">
-                <span v-for="i in 5" :key="i" class="star"></span>
-              </div>
-              <div class="card-stock">
-                <span class="stock-dot"></span>
-                <span>Много</span>
-              </div>
-              <div class="card-price-block">
-                <span class="price">{{ item.price }}</span>
-                <span class="currency">₽</span>
-              </div>
-              <button class="btn-add-cart" @click.prevent="addToCartItem(item)">
-                <img src="/images/Cart_white.svg" alt="Cart">
-                <span>В корзину</span>
-              </button>
-            </a>
+        <div class="container">
+          <h2 class="section-title">Ранее вы смотрели на сайте СВС</h2>
+          <div class="products-carousel">
+            <button class="carousel-arrow" @click="scrollCarousel('viewed', -1)">‹</button>
+            <div class="products-carousel-grid" ref="viewedCarousel">
+              <a v-for="item in viewedProducts"
+                  :key="item.id"
+                  :href="`/product/${item.id}`"
+                  class="product-card-small">
+                <div class="card-image">
+                  <img :src="item.image" :alt="item.name" @error="handleImageError">
+                  <button class="card-favorite" @click.prevent>♡</button>
+                </div>
+                <h3 class="card-title">{{ item.shortName }}</h3>
+                <div class="card-rating">
+                  <span v-for="i in 5" :key="i" class="star"></span>
+                </div>
+                <div class="card-stock">
+                  <span class="stock-dot"></span>
+                  <span>Много</span>
+                </div>
+                <div class="card-price-block">
+                  <span class="price">{{ item.price }}</span>
+                  <span class="currency">₽</span>
+                </div>
+                <button class="btn-add-cart" @click.prevent="addToCartItem(item)">
+                  <img src="/images/Cart_white.svg" alt="Cart">
+                  <span>В корзину</span>
+                </button>
+              </a>
+            </div>
+            <button class="carousel-arrow" @click="scrollCarousel('viewed', 1)">›</button>
           </div>
-          <button class="carousel-arrow" @click="scrollCarousel('viewed', 1)">›</button>
-        </div>
-        <div class="carousel-footer">
-          <router-link to="/catalog" class="view-all">Смотреть все</router-link>
-          <span class="arrow">→</span>
+          <div class="carousel-footer">
+            <router-link to="/catalog" class="view-all">Смотреть все</router-link>
+            <span class="arrow">→</span>
+          </div>
         </div>
       </section>
 
+    <div class="container">
       <!-- Форма консультации -->
       <section class="consultation-section">
         <div class="consultation-inner">
@@ -490,6 +497,7 @@ async function loadProduct() {
     allProducts.value = data.products || []
     categories.value = data.categories || []
     benefits.value = data.benefits || []
+
     const productId = parseInt(route.params.id)
     product.value = allProducts.value.find(p => p.id === productId) || allProducts.value[0]
     selectedImage.value = 0
@@ -563,6 +571,7 @@ onMounted(() => {
 </script>
 
 <style scoped>
+/* Страница товара */
 .catalog-page {
   padding: 20px 0 60px;
   min-height: 100vh;
@@ -581,7 +590,8 @@ onMounted(() => {
   align-items: center;
   gap: 10px;
   padding: 15px 0 20px;
-  font-family: 'Rubik-Regular', sans-serif;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 400;
   font-size: 14px;
   color: #4A4D4A;
 }
@@ -607,7 +617,7 @@ onMounted(() => {
   border-bottom: 1px dashed #4A4D4A;
 }
 
-/* Layout */
+/* Сетка макета */
 .catalog-layout {
   display: grid;
   grid-template-columns: 453px 1fr;
@@ -615,7 +625,7 @@ onMounted(() => {
   align-items: start;
 }
 
-/* Sidebar */
+/* Боковая панель */
 .sidebar {
   position: static;
   top: 20px;
@@ -637,7 +647,8 @@ onMounted(() => {
 }
 
 .catalog-menu-title {
-  font-family: 'Rubik-Medium', sans-serif;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 500;
   font-size: 24px;
   color: #4A4D4A;
   margin: 0;
@@ -685,7 +696,8 @@ onMounted(() => {
 }
 
 .menu-text {
-  font-family: 'Rubik-Medium', sans-serif;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 500;
   font-size: 15px;
   flex: 1;
   line-height: 1.3;
@@ -697,12 +709,12 @@ onMounted(() => {
   opacity: 0.6;
 }
 
-/* Main Content */
+/* Основная область контента */
 .catalog-main {
   min-width: 0;
 }
 
-/* Product Card Full */
+/* Полная карточка товара */
 .product-card-full {
   background: #FFFFFF;
   box-shadow: 0 0 28px rgba(0, 0, 0, 0.25);
@@ -714,6 +726,7 @@ onMounted(() => {
   margin-bottom: 30px;
 }
 
+/* Галерея товара */
 .product-gallery-section {
   display: flex;
   flex-direction: column;
@@ -808,7 +821,7 @@ onMounted(() => {
   background: #F0F0FF;
 }
 
-/* Product Info */
+/* Информация о товаре */
 .product-info-section {
   display: flex;
   flex-direction: column;
@@ -816,10 +829,11 @@ onMounted(() => {
 }
 
 .product-title-detail {
-  font-family: 'Rubik-Medium', sans-serif;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 500;
   font-size: 18px;
   color: #4A4D4A;
-  text-align: right;
+  text-align: start;
   margin: 0;
 }
 
@@ -829,23 +843,26 @@ onMounted(() => {
 
 .product-article,
 .product-warranty {
-  font-family: 'Rubik-Light', sans-serif;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 300;
   font-size: 14px;
   color: #4A4D4A;
   margin: 5px 0;
+  text-align: start;
 }
 
 .product-price-block {
   text-align: right;
   padding: 20px 0;
-  border-top: 0.2px solid #4A4D4A;
-  border-bottom: 0.2px solid #4A4D4A;
+  border-top: 1px solid #4A4D4A;
 }
 
 .price-value {
-  font-family: 'Rubik-Medium', sans-serif;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 500;
   font-size: 24px;
   color: #001569;
+  text-align: center;
 }
 
 .price-amount {
@@ -861,6 +878,7 @@ onMounted(() => {
   gap: 15px;
   align-items: center;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .quantity-control {
@@ -892,7 +910,8 @@ onMounted(() => {
   width: 40px;
   text-align: center;
   border: none;
-  font-family: 'Rubik-Light', sans-serif;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 300;
   font-size: 18px;
   color: #4A4D4A;
   outline: none;
@@ -905,7 +924,8 @@ onMounted(() => {
   padding: 15px 20px;
   background: transparent;
   border: 1px solid #001569;
-  font-family: 'Rubik-Medium', sans-serif;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 500;
   font-size: 12px;
   text-transform: uppercase;
   color: #4A4D4A;
@@ -925,7 +945,8 @@ onMounted(() => {
   padding: 15px 30px;
   background: #FFAF37;
   border: none;
-  font-family: 'Rubik-Bold', sans-serif;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 700;
   font-size: 18px;
   text-transform: uppercase;
   color: #FFFFFF;
@@ -947,22 +968,29 @@ onMounted(() => {
 }
 
 .availability-note {
-  font-family: 'Rubik-Light', sans-serif;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 300;
   font-size: 10px;
   text-decoration: underline;
   color: #000000;
   margin-bottom: 15px;
+  text-align: start;
 }
 
 .stock-info {
   display: flex;
   align-items: center;
   gap: 10px;
-  justify-content: flex-end;
-  font-family: 'Rubik-Regular', sans-serif;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 400;
   font-size: 14px;
   color: #4A4D4A;
   margin: 10px 0;
+}
+
+.stock-info span {
+  display: flex;
+  text-align: start;
 }
 
 .stock-icon {
@@ -970,14 +998,9 @@ onMounted(() => {
   height: 40px;
 }
 
-.stock-yes {
-  color: #07CE6D;
-}
-
-/* Tabs */
+/* Вкладки товара */
 .product-tabs-section {
   background: #FFFFFF;
-  box-shadow: 0 0 28px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
   overflow: hidden;
   margin-bottom: 30px;
@@ -985,14 +1008,14 @@ onMounted(() => {
 
 .tabs-header {
   display: flex;
-  border-bottom: 0.2px solid #4A4D4A;
 }
 
 .tab-button {
   padding: 20px 40px;
   background: #F0F0FF;
-  border: none;
-  font-family: 'Rubik-Regular', sans-serif;
+  border: 1px solid #4A4D4A;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 400;
   font-size: 18px;
   color: #4A4D4A;
   cursor: pointer;
@@ -1002,7 +1025,10 @@ onMounted(() => {
 .tab-button.active {
   background: #FFFFFF;
   color: #001569;
-  border-bottom: 2px solid #FFAF37;
+  border-top: 2px solid #FFAF37;
+  border-bottom: none;
+  border-right: none;
+  border-left: none;
 }
 
 .tab-content {
@@ -1010,7 +1036,8 @@ onMounted(() => {
 }
 
 .specs-section h4 {
-  font-family: 'Rubik-Medium', sans-serif;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 500;
   font-size: 18px;
   color: #4A4D4A;
   margin-bottom: 15px;
@@ -1025,29 +1052,30 @@ onMounted(() => {
 }
 
 .spec-label {
-  font-family: 'Rubik-Regular', sans-serif;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 400;
   font-size: 14px;
   color: #4A4D4A;
 }
 
 .spec-value {
-  font-family: 'Rubik-Regular', sans-serif;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 400;
   font-size: 14px;
   color: #4A4D4A;
   text-align: right;
 }
 
-/* Carousel */
+/* Карусель товаров */
 .related-section {
+  padding: 40px 0;
   background: #F0F0FF;
-  width: 1380px;
-  height: 570px;
-  padding-top: 30px;
   margin-bottom: 60px;
 }
 
 .section-title {
-  font-family: 'Rubik-Medium', sans-serif;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 500;
   font-size: 30px;
   color: #4A4D4A;
   margin-bottom: 30px;
@@ -1140,7 +1168,8 @@ onMounted(() => {
 }
 
 .card-title {
-  font-family: 'Rubik-Medium', sans-serif;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 500;
   font-size: 14px;
   line-height: 1.3;
   text-align: center;
@@ -1172,7 +1201,8 @@ onMounted(() => {
   align-items: center;
   gap: 8px;
   justify-content: center;
-  font-family: 'Rubik-Regular', sans-serif;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 400;
   font-size: 12px;
   color: #000000;
   margin-bottom: 10px;
@@ -1194,13 +1224,15 @@ onMounted(() => {
 }
 
 .price {
-  font-family: 'Rubik-Medium', sans-serif;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 500;
   font-size: 24px;
   color: #001569;
 }
 
 .currency {
-  font-family: 'Rubik-Medium', sans-serif;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 500;
   font-size: 24px;
   color: #001569;
 }
@@ -1210,7 +1242,8 @@ onMounted(() => {
   height: 50px;
   background: #FFAF37;
   border: none;
-  font-family: 'Rubik-Bold', sans-serif;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 700;
   font-size: 16px;
   text-transform: uppercase;
   color: #FFFFFF;
@@ -1240,7 +1273,8 @@ onMounted(() => {
 }
 
 .view-all {
-  font-family: 'Rubik-Medium', sans-serif;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 500;
   font-size: 18px;
   color: #4A4D4A;
   text-decoration: none;
@@ -1256,7 +1290,7 @@ onMounted(() => {
   color: #4A4D4A;
 }
 
-/* Benefits */
+/* Секция преимуществ */
 .benefits-section {
   padding: 40px 0;
 }
@@ -1354,7 +1388,7 @@ onMounted(() => {
   object-fit: contain;
 }
 
-/* Banners */
+/* Баннеры услуг */
 .banners-section {
   padding: 40px 0;
 }
@@ -1398,7 +1432,8 @@ onMounted(() => {
 }
 
 .banner-block-title {
-  font-family: 'Rubik-Medium', sans-serif;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 500;
   font-size: 24px;
   line-height: 122%;
   color: #4A4D4A;
@@ -1406,7 +1441,8 @@ onMounted(() => {
 }
 
 .banner-block-desc {
-  font-family: 'Rubik-Regular', sans-serif;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 400;
   font-size: 18px;
   line-height: 21px;
   color: #4A4D4A;
@@ -1452,7 +1488,8 @@ onMounted(() => {
   padding: 20px 40px;
   background: #FFAF37;
   border: none;
-  font-family: 'Rubik-Bold', sans-serif;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 700;
   font-size: 18px;
   line-height: 21px;
   text-transform: uppercase;
@@ -1465,7 +1502,7 @@ onMounted(() => {
   opacity: 0.85;
 }
 
-/* Integration */
+/* Секция интеграции */
 .integration-section {
   padding: 40px 0;
 }
@@ -1494,7 +1531,7 @@ onMounted(() => {
   margin-left: auto;
 }
 
-/* Consultation */
+/* Форма консультации */
 .consultation-section {
   padding: 40px 0;
 }
@@ -1539,6 +1576,7 @@ onMounted(() => {
   padding: 20px 15px;
   border: 1px solid #4A4D4A;
   font-family: 'Rubik', sans-serif;
+  font-weight: 400;
   font-size: 14px;
   outline: none;
   transition: border-color 0.3s;
@@ -1573,7 +1611,7 @@ onMounted(() => {
   accent-color: #4A4D4A;
 }
 
-/* Map */
+/* Карта и контакты */
 .map-section {
   padding: 40px 0;
 }
@@ -1635,7 +1673,7 @@ onMounted(() => {
   text-decoration: none;
 }
 
-/* Floating Widget */
+/* Плавающий виджет */
 .floating-widget {
   position: fixed;
   right: 0;
@@ -1712,82 +1750,5 @@ onMounted(() => {
 .badge-blue {
   background: #1F347B;
   border-color: #1F347B;
-}
-
-/* Responsive */
-@media (max-width: 1200px) {
-  .catalog-layout {
-    grid-template-columns: 1fr;
-  }
-
-  .sidebar {
-    display: none;
-  }
-
-  .product-card-full {
-    grid-template-columns: 1fr;
-  }
-
-  .benefits-inner {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .benefit-card.benefit-wide {
-    grid-column: span 2;
-  }
-
-  .banners-inner,
-  .integration-inner {
-    grid-template-columns: 1fr;
-  }
-
-  .consultation-card {
-    grid-template-columns: 1fr;
-  }
-
-  .map-content {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 768px) {
-  .products-carousel-grid {
-    flex-direction: column;
-  }
-
-  .product-card-small {
-    flex: 1;
-  }
-
-  .banners-inner,
-  .integration-inner {
-    grid-template-columns: 1fr;
-  }
-
-  .banner-content {
-    max-width: 100%;
-  }
-
-  .benefits-inner {
-    grid-template-columns: 1fr;
-  }
-
-  .benefit-card.benefit-wide {
-    grid-column: span 1;
-  }
-
-  .floating-widget {
-    bottom: 20px;
-    top: auto;
-    right: 20px;
-    transform: none;
-    flex-direction: row;
-    border-radius: 10px;
-  }
-
-  .widget-item {
-    width: 50px;
-    height: 50px;
-  }
 }
 </style>
