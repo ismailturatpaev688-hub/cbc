@@ -419,7 +419,7 @@
                   <span>Сб - Вс: принимаем онлайн-заказы</span>
                 </div>
               </div>
-              <img src="/images/Map.svg" alt="Map">
+              <img src="/images/Map.svg" alt="Map" class="map-image">
             </div>
           </div>
         </div>
@@ -429,15 +429,15 @@
     <!-- Плавающий виджет -->
     <div class="floating-widget">
       <div class="widget-item widget-cart" @click="openCart">
-        <span class="widget-icon cart-icon"></span>
+        <img src="/images/Cart_white.svg" alt="Cart_white">
         <span class="widget-badge">3</span>
       </div>
       <div class="widget-item widget-favorites" @click="openFavorites">
-        <span class="widget-icon heart-icon"></span>
+        <img src="/images/Heart.svg" alt="Heart">
         <span class="widget-badge badge-blue">1</span>
       </div>
       <div class="widget-item widget-compare" @click="openCompare">
-        <span class="widget-icon chart-icon"></span>
+        <img src="/images/Compare.svg" alt="Compare">
         <span class="widget-badge badge-blue">0</span>
       </div>
     </div>
@@ -476,10 +476,6 @@ const currentImage = computed(() => {
 
 const relatedProducts = computed(() => {
   return allProducts.value.filter(p => p.id !== product.value?.id).slice(0, 4)
-})
-
-const buyWithProducts = computed(() => {
-  return allProducts.value.filter(p => p.id !== product.value?.id).slice(4, 8)
 })
 
 const viewedProducts = computed(() => {
@@ -1711,24 +1707,6 @@ onMounted(() => {
   background: #162a63;
 }
 
-.widget-icon {
-  width: 30px;
-  height: 30px;
-  display: block;
-}
-
-.cart-icon {
-  border: 2px solid #FFFFFF;
-}
-
-.heart-icon {
-  border: 2px solid #FFAF37;
-}
-
-.chart-icon {
-  background: #FFAF37;
-}
-
 .widget-badge {
   position: absolute;
   top: 8px;
@@ -1750,5 +1728,219 @@ onMounted(() => {
 .badge-blue {
   background: #1F347B;
   border-color: #1F347B;
+}
+/* Адаптивная вёрстка */
+@media (max-width: 360px) {
+  .catalog-layout {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .sidebar {
+    order: 2;
+  }
+
+  .catalog-main {
+    order: 1;
+  }
+
+  .product-card-full {
+    grid-template-columns: 1fr;
+    padding: 20px 10px;
+    gap: 20px;
+  }
+
+  .product-image-main {
+    height: 300px;
+  }
+
+  .product-title-detail {
+    font-size: 14px;
+    text-align: center;
+  }
+
+  .product-meta-info {
+    text-align: center;
+  }
+
+  .product-price-block {
+    text-align: center;
+  }
+
+  .price-amount {
+    font-size: 24px;
+  }
+
+  .price-currency {
+    font-size: 24px;
+  }
+
+  .product-actions-block {
+    flex-direction: column;
+  }
+
+  .btn-one-click,
+  .btn-cart {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .availability-info {
+    text-align: center;
+  }
+
+  .stock-info {
+    justify-content: center;
+  }
+
+  .spec-row {
+    grid-template-columns: 1fr;
+    gap: 5px;
+  }
+
+  .spec-value {
+    text-align: left;
+  }
+
+  .related-section {
+    padding: 20px 0;
+  }
+
+  .section-title {
+    font-size: 20px;
+    text-align: center;
+  }
+
+  .product-card-small {
+    flex: 0 0 280px;
+  }
+
+  .benefits-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .benefit-card {
+    width: 100%;
+    max-width: 300px;
+    height: 200px;
+    margin: 0 auto;
+  }
+
+  .benefit-main-title {
+    font-size: 20px;
+  }
+
+  .benefit-title {
+    font-size: 18px;
+  }
+
+  .benefit-desc {
+    font-size: 16px;
+  }
+
+  .benefit-wide {
+    height: 233px;
+  }
+
+  .banners-inner {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .banner-block {
+    width: 100%;
+    max-width: 300px;
+    height: 360px;
+    margin: 0 auto;
+  }
+
+  .banner-content {
+    text-align: center;
+  }
+
+  .banner-block-title {
+    font-size: 18px;
+    text-align: center;
+  }
+
+  .banner-block-desc {
+    font-size: 16px;
+    text-align: center;
+  }
+
+  .integration-inner {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .integration-banner {
+    width: 100%;
+    max-width: 300px;
+    height: 380px;
+    margin: 0 auto;
+  }
+
+  .consultation-card {
+    grid-template-columns: 1fr;
+    padding: 20px 10px;
+  }
+
+  .consultation-card img {
+    display: none;
+  }
+
+  .form-input {
+    width: 100%;
+    max-width: 300px;
+    height: 60px;
+    margin: 0 auto;
+    display: block;
+  }
+
+  .form-submit {
+    width: 100%;
+    max-width: 300px;
+    height: 60px;
+    margin: 0 auto;
+    display: block;
+  }
+
+  .map-content {
+    grid-template-columns: 1fr;
+  }
+
+  .map-content img {
+    width: 30px;
+    height: 30px;
+  }
+
+  .map-image {
+    width: 250px;
+    height: 274px;
+  }
+
+  .map-info {
+    margin-top: 0;
+  }
+
+  .map-info-item {
+    font-size: 14px;
+  }
+
+  .floating-widget {
+    right: 0;
+    top: auto;
+    bottom: 20px;
+    transform: none;
+    flex-direction: row;
+    border-radius: 10px;
+  }
+
+  .widget-item {
+    width: 50px;
+    height: 50px;
+  }
 }
 </style>

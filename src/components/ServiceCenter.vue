@@ -7,7 +7,7 @@
         <span class="breadcrumb-current">Сервисный-центр</span>
       </nav>
     </div>
-    <!-- Hero Section -->
+    <!-- Секция заголовок -->
     <section class="hero-section">
       <div class="container hero-inner">
         <div class="hero-text">
@@ -48,7 +48,7 @@
       </div>
     </section>
 
-    <!-- Services Section -->
+    <!-- Секция сервисов -->
     <section class="services-section">
       <div class="container services-inner">
         <div class="service-card title-card">
@@ -69,7 +69,7 @@
       </div>
     </section>
 
-    <!-- Stats Section -->
+    <!-- Секция статов -->
     <section class="stats-section">
       <div class="container stats-inner">
         <div class="stats-graphics">
@@ -101,7 +101,7 @@
       </div>
     </section>
 
-    <!-- Benefits Section -->
+    <!-- Секция преимущества -->
     <section class="benefits-section">
       <div class="container benefits-inner">
         <div class="benefit-card benefit-main">
@@ -158,7 +158,7 @@
       </div>
     </section>
 
-    <!-- Trusted Section -->
+    <!-- Секция доверия -->
     <section class="trusted-section">
       <div class="container trusted-inner">
         <div class="trusted-frame">
@@ -174,12 +174,11 @@
       </div>
     </section>
 
-    <!-- Banners Section -->
+    <!-- Секция баннеров -->
     <section class="banners-section">
       <div class="container banners-inner">
         <div class="banner-block banner-block-left">
           <div class="banner-bg banner-bg-light"></div>
-          <div class="banner-icon-placeholder"><img src="/images/Monitors.svg" alt="Monitor"></div>
           <div class="banner-content">
             <h3 class="banner-block-title">Комплексные поставки компьютерного <br>
               оборудования для вашего офиса <br>
@@ -192,7 +191,6 @@
         </div>
         <div class="banner-block banner-block-right">
           <div class="banner-bg banner-bg-purple"></div>
-          <div class="banner-icon-placeholder"><img src="/images/House.svg" alt="House"></div>
           <div class="banner-content">
             <h3 class="banner-block-title">СВС Жуковский - поставщик компьютерной <br>
               техники крупных промышленных <br>
@@ -208,13 +206,11 @@
             </div>
             <button class="btn-primary">УЗНАТЬ О РАБОТЕ С ТЕНДЕРАМИ</button>
           </div>
-          <div class="banner-illustration-placeholder1"><img src="/images/Two_man.svg" alt="Two_man"></div>
         </div>
       </div>
       <div class="container banners-inner" style="margin-top: 30px;">
         <div class="banner-block banner-block-left">
           <div class="banner-bg banner-bg-light"></div>
-          <div class="banner-icon-placeholder"><img src="/images/PC.svg" alt="PC"></div>
           <div class="banner-content">
             <h3 class="banner-block-title">Решаем сложные задачи интеграции <br>
               компьютерной техники <br>
@@ -223,11 +219,9 @@
               оборудования, чтобы все работало как надо</p>
             <button class="btn-primary">ВНЕДРИТЬ ОБОРУДОВАНИЕ</button>
           </div>
-          <div class="banner-illustration-placeholder2"><img src="/images/Human.svg" alt="Human"></div>
         </div>
         <div class="banner-block banner-block-right">
           <div class="banner-bg banner-bg-purple"></div>
-          <div class="banner-icon-placeholder printer-icon"><img src="/images/Printer.svg" alt="Printer"></div>
           <div class="banner-content">
             <h3 class="banner-block-title">Оборудуем офис <br>
               "под ключ"</h3>
@@ -242,7 +236,7 @@
       </div>
     </section>
 
-    <!-- Consultation Section -->
+    <!-- Секция консультация -->
     <section class="consultation-section">
       <div class="container consultation-inner">
         <h2 class="section-title consultation-title">Хотите получить консультацию по обслуживанию и ремонту компьютерной техники?</h2>
@@ -269,7 +263,7 @@
       </div>
     </section>
 
-    <!-- Map Section -->
+    <!-- Секция карта -->
     <section class="map-section">
       <div class="container map-inner">
         <div class="map-frame">
@@ -301,24 +295,24 @@
                 <span>Сб - Вс: принимаем онлайн-заказы</span>
               </div>
             </div>
-            <img src="/images/Map.svg" alt="Map">
+            <img src="/images/Map.svg" alt="Map" class="map-image">
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Floating Widget -->
+    <!-- Плавающий виджет -->
     <div class="floating-widget">
       <div class="widget-item widget-cart" @click="openCart">
-        <span class="widget-icon cart-icon"></span>
+        <img src="/images/Cart_white.svg" alt="Cart_white">
         <span class="widget-badge">3</span>
       </div>
       <div class="widget-item widget-favorites" @click="openFavorites">
-        <span class="widget-icon heart-icon"></span>
+        <img src="/images/Heart.svg" alt="Heart">
         <span class="widget-badge badge-blue">1</span>
       </div>
       <div class="widget-item widget-compare" @click="openCompare">
-        <span class="widget-icon chart-icon"></span>
+        <img src="/images/Compare.svg" alt="Compare">
         <span class="widget-badge badge-blue">0</span>
       </div>
     </div>
@@ -345,7 +339,7 @@ async function loadData() {
     categories.value = data.categories || []
     benefits.value = data.benefits || []
 
-    // Mock services data
+    // Имитация данных служб
     services.value = [
       { id: 1, title: 'Ремонт и обслуживание компьютеров (мониторов)', price: 300, icon: '/images/Monitor.svg' },
       { id: 2, title: 'Ремонт и обслуживание ноутбуков', price: 500, icon: '/images/Laptops.svg' },
@@ -423,8 +417,10 @@ onMounted(() => {
   border-bottom: 1px dashed #4A4D4A;
 }
 
-/* Hero Section */
-.hero-section { padding: 40px 0; }
+/* Секция заголовок */
+.hero-section {
+  padding: 40px 0;
+}
 .hero-inner {
   display: grid;
   grid-template-columns: 350px 1fr;
@@ -432,7 +428,9 @@ onMounted(() => {
   gap: 30px;
   position: relative;
 }
-.hero-text { grid-column: 2; }
+.hero-text {
+  grid-column: 2;
+}
 .hero-title {
   font-family: 'Rubik', sans-serif;
   font-weight: 500;
@@ -479,7 +477,7 @@ onMounted(() => {
 .banner-title {
   font-family: 'Rubik', sans-serif;
   font-weight: 500;
-  font-size: 30px;
+  font-size: 20px;
   line-height: 123.4%;
   color: #FFFFFF;
   margin-bottom: 20px;
@@ -488,7 +486,7 @@ onMounted(() => {
 .banner-desc {
   font-family: 'Rubik', sans-serif;
   font-weight: 500;
-  font-size: 18px;
+  font-size: 14px;
   line-height: 21px;
   color: #FFFFFF;
   margin-bottom: 30px;
@@ -504,7 +502,9 @@ onMounted(() => {
   overflow: hidden;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
 }
-.catalog-header { padding: 20px 25px; }
+.catalog-header {
+  padding: 20px 25px;
+}
 .catalog-title {
   font-family: 'Rubik', sans-serif;
   font-weight: 500;
@@ -534,12 +534,28 @@ onMounted(() => {
 .catalog-menu-link:hover {
   background: #f5f5f5;
 }
-.menu-icon-img { width: 20px; height: 20px; flex-shrink: 0; object-fit: contain; }
-.menu-text { font-family: 'Rubik-Medium', sans-serif; font-size: 15px; flex: 1; line-height: 1.3; }
-.menu-arrow { font-size: 18px; color: #001569; opacity: 0.6; }
+.menu-icon-img {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+.menu-text {
+  font-family: 'Rubik-Medium', sans-serif;
+  font-size: 15px;
+  flex: 1;
+  line-height: 1.3;
+}
+.menu-arrow {
+  font-size: 18px;
+  color: #001569;
+  opacity: 0.6;
+}
 
-/* Services Section */
-.services-section { padding: 40px 0; }
+/* Секция сервисов */
+.services-section {
+  padding: 40px 0;
+}
 .services-inner {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -569,7 +585,9 @@ onMounted(() => {
   flex-direction: column;
 }
 
-.service-card:hover { transform: translateY(-3px); }
+.service-card:hover {
+  transform: translateY(-3px);
+}
 .title-card {
   background: #F0F0FF;
   justify-content: center;
@@ -590,7 +608,11 @@ onMounted(() => {
   margin-bottom: 15px;
   margin-right: 10px;
 }
-.service-icon { width: 108px; height: 90px; object-fit: contain; }
+.service-icon {
+  width: 108px;
+  height: 90px;
+  object-fit: contain;
+}
 .service-title {
   font-family: 'Rubik', sans-serif;
   font-weight: 500;
@@ -623,10 +645,14 @@ onMounted(() => {
   margin-top: auto;
   transition: color 0.3s;
 }
-.service-link:hover { color: #FFAF37; }
-.link-arrow { font-size: 24px; }
+.service-link:hover {
+  color: #FFAF37;
+}
+.link-arrow {
+  font-size: 24px;
+}
 
-/* Stats Section */
+/* Секция статов */
 .stats-section {
   padding: 60px 0;
   background: #F0F0FF;
@@ -637,7 +663,9 @@ onMounted(() => {
   gap: 60px;
   align-items: center;
 }
-.stats-graphics { position: relative; }
+.stats-graphics {
+  position: relative;
+}
 .stats-main-title {
   font-family: 'Rubik', sans-serif;
   font-weight: 500;
@@ -671,12 +699,27 @@ onMounted(() => {
   line-height: 24px;
   color: #4A4D4A;
 }
-.stat-monitors { top: 20px; left: 0; }
-.stat-laptops { top: 0; right: 50px; }
-.stat-printers { bottom: 0; left: 50px; }
-.stat-pcs { bottom: 20px; right: 0; }
+.stat-monitors {
+  top: 20px;
+  left: 0;
+}
+.stat-laptops {
+  top: 0;
+  right: 50px;
+}
+.stat-printers {
+  bottom: 0;
+  left: 50px;
+}
+.stat-pcs {
+  bottom: 20px;
+  right: 0;
+}
 
-.stats-text { max-width: 475px; margin: 0 auto; }
+.stats-text {
+  max-width: 475px;
+  margin: 0 auto;
+}
 .stats-title {
   font-family: 'Rubik', sans-serif;
   font-weight: 500;
@@ -696,8 +739,10 @@ onMounted(() => {
   margin-bottom: 30px;
 }
 
-/* Benefits Section */
-.benefits-section { padding: 40px 0; }
+/* Секция преимущества */
+.benefits-section {
+  padding: 40px 0;
+}
 .benefits-inner {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -761,7 +806,7 @@ onMounted(() => {
   justify-content: center;
 }
 
-/* Trusted Section */
+/* Секция доверия */
 .trusted-section {
   padding: 40px 0;
 }
@@ -797,8 +842,10 @@ onMounted(() => {
   object-fit: contain;
 }
 
-/* Banners Section */
-.banners-section { padding: 40px 0; }
+/* Секция баннеров */
+.banners-section {
+  padding: 40px 0;
+}
 .banners-inner {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -815,8 +862,12 @@ onMounted(() => {
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
 }
-.banner-bg-light { background: #F0F0FF; }
-.banner-bg-purple { background: #E3E1FF; }
+.banner-bg-light {
+  background: #F0F0FF;
+}
+.banner-bg-purple {
+  background: #E3E1FF;
+}
 .banner-content {
   top: 50px;
   text-align: end;
@@ -839,15 +890,7 @@ onMounted(() => {
   color: #4A4D4A;
   margin-bottom: 25px;
 }
-.banner-icon-placeholder {
-  position: absolute;
-  top: 30px;
-  left: 20px;
-  width: 60px;
-  height: 60px;
-}
-.banner-illustration-placeholder,
-.banner-illustration-placeholder2 {
+.banner-illustration-placeholder {
   position: absolute;
   bottom: 15px;
   left: 0;
@@ -861,12 +904,19 @@ onMounted(() => {
   width: 200px;
   height: 230px;
 }
-.banner-illustration-placeholder2 { bottom: 10px; }
 
-/* Consultation Section */
-.consultation-section { padding: 40px 0; }
-.consultation-title { text-align: center; margin-bottom: 10px; }
-.consultation-subtitle { text-align: center; margin-bottom: 30px; }
+/* Секция консультация */
+.consultation-section {
+  padding: 40px 0;
+}
+.consultation-title {
+  text-align: center;
+  margin-bottom: 10px;
+}
+.consultation-subtitle {
+  text-align: center;
+  margin-bottom: 30px;
+}
 .consultation-card {
   background: #FFFFFF;
   box-shadow: 0 0 28px rgba(0, 0, 0, 0.25);
@@ -876,8 +926,15 @@ onMounted(() => {
   gap: 40px;
   align-items: center;
 }
-.consultation-card img { width: 100%; height: 350px; object-fit: contain; }
-.consultation-form { display: flex; flex-direction: column; gap: 20px; }
+.consultation-card img {
+  width: 100%;
+  height: 350px;
+  object-fit: contain;
+}
+.consultation-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; }
 .form-input {
   width: 100%;
   padding: 20px 15px;
@@ -887,8 +944,13 @@ onMounted(() => {
   outline: none;
   transition: border-color 0.3s;
 }
-.form-input:focus { border-color: #FFAF37; }
-.form-submit { width: 100%; padding: 20px; }
+.form-input:focus {
+  border-color: #FFAF37;
+}
+.form-submit {
+  width: 100%;
+  padding: 20px;
+}
 .form-checkbox {
   display: flex;
   align-items: flex-start;
@@ -908,8 +970,10 @@ onMounted(() => {
   accent-color: #4A4D4A;
 }
 
-/* Map Section */
-.map-section { padding: 40px 0; }
+/* Секция карта */
+.map-section {
+  padding: 40px 0;
+}
 .map-frame {
   border: 6px solid rgba(31, 52, 123, 0.2);
   padding: 40px;
@@ -925,7 +989,9 @@ onMounted(() => {
   background: rgba(31, 52, 123, 0.2);
   border-radius: 50%;
 }
-.map-title { text-align: center; margin-bottom: 30px; }
+.map-title {
+  text-align: center;
+  margin-bottom: 30px; }
 .map-content {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -937,7 +1003,11 @@ onMounted(() => {
   max-width: 600px;
   border-radius: 20px;
 }
-.map-info { display: flex; flex-direction: column; gap: 20px; margin-top: 100px; }
+.map-info {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 100px; }
 .map-info-item {
   display: flex;
   align-items: center;
@@ -948,9 +1018,12 @@ onMounted(() => {
   line-height: 24px;
   color: #4A4D4A;
 }
-.map-info-item a { color: #4A4D4A; text-decoration: none; }
+.map-info-item a {
+  color: #4A4D4A;
+  text-decoration: none;
+}
 
-/* Floating Widget */
+/* Плавающщий виджет */
 .floating-widget {
   position: fixed;
   right: 0;
@@ -974,13 +1047,15 @@ onMounted(() => {
   cursor: pointer;
   transition: background 0.3s;
 }
-.widget-item:hover { background: #f5f5f5; }
-.widget-cart { background: #1F347B; }
-.widget-cart:hover { background: #162a63; }
-.widget-icon { width: 30px; height: 30px; display: block; }
-.cart-icon { border: 2px solid #FFFFFF; }
-.heart-icon { border: 2px solid #FFAF37; }
-.chart-icon { background: #FFAF37; }
+.widget-item:hover {
+  background: #f5f5f5;
+}
+.widget-cart {
+  background: #1F347B;
+}
+.widget-cart:hover {
+  background: #162a63;
+}
 .widget-badge {
   position: absolute;
   top: 8px;
@@ -998,5 +1073,291 @@ onMounted(() => {
   align-items: center;
   justify-content: center;
 }
-.badge-blue { background: #1F347B; border-color: #1F347B; }
+.badge-blue {
+  background: #1F347B;
+  border-color: #1F347B;
+}
+/* Адаптивная вёрстка */
+@media (max-width: 360px) {
+  .hero-inner {
+  display: flex;
+    gap: 20px;
+    flex-direction: column;
+  }
+
+  .hero-catalog {
+    order: 1;
+    width: 100%;
+    max-width: 302px;
+    margin: 0 auto;
+  }
+
+  .hero-text {
+    order: 2;
+    width: 100%;
+  }
+
+  .hero-title {
+    font-size: 24px;
+    line-height: 123.4%;
+    text-align: center;
+  }
+
+  .hero-banner {
+    order: 3;
+    width: 100%;
+    max-width: 320px;
+    height: 400px;
+    margin: 0 auto;
+  }
+
+  .banner-content {
+    top: 200px;
+    right: 20px;
+    width: 280px;
+    text-align: center;
+  }
+
+  .banner-title {
+    font-size: 18px;
+    text-align: center;
+  }
+
+  .banner-desc {
+    font-size: 14px;
+    text-align: center;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #FFAF37;
+    color: #FFFFFF;
+    font-family: 'Rubik-Bold', sans-serif;
+    font-size: 14px;
+    line-height: 21px;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    padding: 20px 40px;
+    transition: opacity 0.3s;
+  }
+
+  .catalog-title {
+    font-size: 14px;
+  }
+
+  .menu-text {
+    font-size: 12px;
+  }
+
+  .services-inner {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .service-card {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+    min-height: 180px;
+  }
+
+  .title-card-text {
+    font-size: 20px;
+  }
+
+  .service-title {
+    font-size: 16px;
+    min-height: 60px;
+  }
+
+  .service-price {
+    font-size: 18px;
+  }
+
+  .stats-inner {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .stats-main-title {
+    font-size: 20px;
+    text-align: center;
+  }
+
+  .stats-title {
+    font-size: 18px;
+  }
+
+  .stats-desc {
+    font-size: 16px;
+  }
+
+  .benefits-section {
+    padding: 20px 0;
+  }
+
+  .benefits-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .benefit-card {
+    width: 300px;
+    height: 200px;
+    margin: 0 auto;
+    padding: 20px 25px;
+  }
+
+  .benefit-main-title {
+    font-size: 20px;
+    line-height: 123.4%;
+  }
+
+  .benefit-icon-placeholder {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+  }
+
+  .diamond-icon {
+    width: 70px;
+    height: 72px;
+  }
+
+  .benefit-title {
+    font-size: 18px;
+    line-height: 123.4%;
+    margin-bottom: 10px;
+  }
+
+  .benefit-desc {
+    font-size: 16px;
+    line-height: 123.4%;
+  }
+
+  .benefit-wide {
+    height: 233px;
+  }
+
+  .trusted-frame {
+    width: 100%;
+    max-width: 279px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+  .trusted-frame .section-title {
+    font-size: 20px;
+  }
+
+  .trusted-logos img {
+    width: 80px;
+    height: 60px;
+  }
+
+  .banners-inner {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .banner-block {
+    width: 100%;
+    max-width: 300px;
+    height: 360px;
+    margin: 0 auto;
+  }
+
+  .banner-content {
+    top: 0;
+    right: 5px;
+    text-align: center;
+  }
+
+  .banner-block-title {
+    font-size: 18px;
+    text-align: center;
+  }
+
+  .banner-block-desc {
+    font-size: 16px;
+    text-align: center;
+  }
+
+
+  .banner-illustration-placeholder,
+  .banner-illustration-placeholder1{
+    top: 250px;
+    left: 50px;
+  }
+  .banner-illustration-placeholder img,
+  .banner-illustration-placeholder1 img,
+  .banner-illustration-placeholder2 img{
+    width: 200px;
+    height: 110px;
+  }
+
+  .consultation-card {
+    grid-template-columns: 1fr;
+    padding: 20px 10px;
+  }
+
+  .consultation-card img {
+    display: none;
+  }
+
+  .form-input {
+    width: 100%;
+    max-width: 300px;
+    height: 60px;
+    margin: 0 auto;
+    display: block;
+  }
+
+  .form-submit {
+    width: 100%;
+    max-width: 300px;
+    height: 60px;
+    margin: 0 auto;
+    display: block;
+  }
+
+  .map-content {
+    grid-template-columns: 1fr;
+  }
+
+  .map-content img {
+    width: 30px;
+    height: 30px;
+  }
+  .map-image {
+    width: 250px;
+    height: 274px;
+  }
+
+  .map-info {
+    margin-top: 0;
+  }
+
+  .map-info-item {
+    font-size: 14px;
+  }
+
+  .floating-widget {
+    right: 0;
+    top: auto;
+    bottom: 20px;
+    transform: none;
+    flex-direction: row;
+    border-radius: 10px;
+  }
+
+  .widget-item {
+    width: 50px;
+    height: 50px;
+  }
+}
 </style>

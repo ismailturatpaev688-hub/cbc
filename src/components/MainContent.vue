@@ -1,6 +1,6 @@
 <template>
   <main class="main-content">
-    <!-- Hero Section -->
+    <!-- Меню каталога -->
     <section class="hero-section">
       <div class="container hero-inner">
         <div class="hero-catalog">
@@ -48,7 +48,7 @@
       </div>
     </section>
 
-    <!-- Benefits Section -->
+    <!-- Секция преимущества -->
     <section class="benefits-section">
       <div class="container benefits-inner">
         <div class="benefit-card benefit-main">
@@ -105,7 +105,7 @@
       </div>
     </section>
 
-    <!-- Banners Section -->
+    <!-- Секция баннеров -->
     <section class="banners-section">
       <div class="container banners-inner">
         <div class="banner-block banner-block-left">
@@ -138,7 +138,7 @@
       </div>
     </section>
 
-    <!-- Tenders Section -->
+    <!-- Секция тендеров -->
     <section class="tenders-section">
       <div class="container tenders-inner">
         <div class="tenders-header">
@@ -177,7 +177,7 @@
       </div>
     </section>
 
-    <!-- Categories Section -->
+    <!-- Секция категории -->
     <section class="categories-section">
       <div class="container categories-inner">
         <div class="categories-header-card">
@@ -265,7 +265,7 @@
       </div>
     </section>
 
-    <!-- Integration Section -->
+    <!-- Интеграционная секция -->
     <section class="integration-section">
       <div class="container integration-inner">
         <div class="integration-banner integration-left">
@@ -290,14 +290,14 @@
             <p class="banner-block-desc">Проведем аудит печатной <br>
               техники и экономим до <br>
               300 000 рублей в год.</p>
-            <button class="btn-primary">УЗНАТЬ КАК</button>
+            <button class="btn-primary1">УЗНАТЬ КАК</button>
           </div>
           <div class="banner-illustration-placeholder1"><img src="/images/undraw_printing.svg" alt="undraw_printing"></div>
         </div>
       </div>
     </section>
 
-    <!-- Service Section -->
+    <!-- Секция сервиса -->
     <section class="service-section">
       <div class="container service-inner">
         <div class="service-bg"></div>
@@ -315,7 +315,7 @@
       </div>
     </section>
 
-    <!-- Trusted Section -->
+    <!-- Секция доверия -->
     <section class="trusted-section">
       <div class="container trusted-inner">
         <div class="trusted-frame">
@@ -331,7 +331,7 @@
       </div>
     </section>
 
-    <!-- Consultation Section -->
+    <!-- Секция консультация -->
     <section class="consultation-section">
       <div class="container consultation-inner">
         <h2 class="section-title consultation-title">Нужна консультация по выбору компьютерного оборудования?</h2>
@@ -358,7 +358,7 @@
       </div>
     </section>
 
-    <!-- Map Section -->
+    <!-- Секция карты -->
     <section class="map-section">
       <div class="container map-inner">
         <div class="map-frame">
@@ -389,25 +389,25 @@
                 <img src="/images/Times.svg" alt="Times">
                 <span>Сб - Вс: принимаем онлайн-заказы</span>
               </div>
+              <img src="/images/Map.svg" alt="Map" class="map-image">
             </div>
-            <img src="/images/Map.svg" alt="Map" class="map-image">
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Floating Widget -->
+    <!-- Плавающий виджет -->
     <div class="floating-widget">
       <div class="widget-item widget-cart" @click="openCart">
-        <span class="widget-icon cart-icon"></span>
+        <img src="/images/Cart_white.svg" alt="Cart_white">
         <span class="widget-badge">3</span>
       </div>
       <div class="widget-item widget-favorites" @click="openFavorites">
-        <span class="widget-icon heart-icon"></span>
+        <img src="/images/Heart.svg" alt="Heart">
         <span class="widget-badge badge-blue">1</span>
       </div>
       <div class="widget-item widget-compare" @click="openCompare">
-        <span class="widget-icon chart-icon"></span>
+        <img src="/images/Compare.svg" alt="Compare">
         <span class="widget-badge badge-blue">0</span>
       </div>
     </div>
@@ -472,7 +472,7 @@ function openCompare() {
 </script>
 
 <style scoped>
-/* ===== BASE STYLES (Desktop) ===== */
+/* Базовые параметры */
 .main-content {
   width: 100%;
   overflow-x: hidden;
@@ -485,7 +485,7 @@ function openCompare() {
   box-sizing: border-box;
 }
 
-/* ===== HERO SECTION ===== */
+/* Секция заголовок */
 .hero-section {
   padding: 40px 0;
 }
@@ -553,6 +553,22 @@ function openCompare() {
 }
 
 .btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #FFAF37;
+  color: #FFFFFF;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 123.4%;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  padding: 20px 40px;
+  transition: opacity 0.3s;
+}
+.btn-primary1 {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -695,7 +711,7 @@ function openCompare() {
   opacity: 0.6;
 }
 
-/* ===== BENEFITS SECTION ===== */
+/* Секция преимущества */
 .benefits-section {
   padding: 40px 0;
 }
@@ -779,7 +795,7 @@ function openCompare() {
   max-height: 40px;
 }
 
-/* ===== BANNERS SECTION ===== */
+/* Секция баннеров */
 .banners-section {
   padding: 40px 0;
 }
@@ -870,7 +886,7 @@ function openCompare() {
   max-height: 100%;
 }
 
-/* ===== TENDERS SECTION ===== */
+/* Секция тендеры */
 .tenders-section {
   padding: 40px 0;
   background: #F0F0FF;
@@ -952,7 +968,7 @@ function openCompare() {
   color: #4A4D4A;
 }
 
-/* ===== CATEGORIES SECTION ===== */
+/* Секция категории */
 .categories-section {
   padding: 40px 0;
 }
@@ -1054,7 +1070,7 @@ function openCompare() {
   min-height: 60px;
 }
 
-/* ===== INTEGRATION SECTION ===== */
+/* Секция интеграции */
 .integration-section {
   padding: 40px 0;
 }
@@ -1083,7 +1099,7 @@ function openCompare() {
   margin-left: auto;
 }
 
-/* ===== SERVICE SECTION ===== */
+/* Секция сервисов */
 .service-section {
   padding: 40px 0;
   background: #F0F0FF;
@@ -1123,7 +1139,7 @@ function openCompare() {
   object-fit: cover;
 }
 
-/* ===== TRUSTED SECTION ===== */
+/* Секция доверия */
 .trusted-section {
   padding: 40px 0;
 }
@@ -1164,7 +1180,7 @@ function openCompare() {
   object-fit: contain;
 }
 
-/* ===== CONSULTATION SECTION ===== */
+/* Секция консультация */
 .consultation-section {
   padding: 40px 0;
 }
@@ -1241,7 +1257,7 @@ function openCompare() {
   accent-color: #4A4D4A;
 }
 
-/* ===== MAP SECTION ===== */
+/* Секция карта */
 .map-section {
   padding: 40px 0;
 }
@@ -1310,7 +1326,7 @@ function openCompare() {
   text-decoration: none;
 }
 
-/* ===== FLOATING WIDGET ===== */
+/* Плавающий виджет */
 .floating-widget {
   position: fixed;
   right: 0;
@@ -1348,24 +1364,6 @@ function openCompare() {
   background: #162a63;
 }
 
-.widget-icon {
-  width: 30px;
-  height: 30px;
-  display: block;
-}
-
-.cart-icon {
-  border: 2px solid #FFFFFF;
-}
-
-.heart-icon {
-  border: 2px solid #FFAF37;
-}
-
-.chart-icon {
-  background: #FFAF37;
-}
-
 .widget-badge {
   position: absolute;
   top: 8px;
@@ -1389,7 +1387,7 @@ function openCompare() {
   border-color: #1F347B;
 }
 
-/* ===== COMMON STYLES ===== */
+/* Общие стили */
 .section-title {
   font-family: 'Rubik', sans-serif;
   font-weight: 500;
@@ -1423,9 +1421,7 @@ function openCompare() {
   transition: opacity 0.3s;
 }
 
-/* ============================================ */
-/* ===== MOBILE ADAPTIVE (320px - 360px) ===== */
-/* ============================================ */
+/* Мобильная адаптивка (320px - 360px) */
 @media (max-width: 320px) {
   * {
     box-sizing: border-box;
@@ -1436,7 +1432,6 @@ function openCompare() {
     max-width: 320px;
   }
 
-  /* ===== HERO ===== */
   .hero-section {
     padding: 20px 0;
   }
@@ -1531,7 +1526,6 @@ function openCompare() {
     display: none;
   }
 
-  /* ===== BENEFITS ===== */
   .benefits-section {
     padding: 20px 0;
   }
@@ -1590,7 +1584,6 @@ function openCompare() {
     max-height: 30px;
   }
 
-  /* ===== BANNERS ===== */
   .banners-section {
     padding: 20px 0;
   }
@@ -1609,19 +1602,19 @@ function openCompare() {
   }
 
   .banner-content {
-    top: 40%;
+    top: 20px;
     text-align: center;
   }
 
   .banner-block-title {
-    font-size: 18px;
+    font-size: 16px;
     line-height: 123.4%;
     text-align: center;
     margin-bottom: 10px;
   }
 
   .banner-block-desc {
-    font-size: 16px;
+    font-size: 14px;
     line-height: 123.4%;
     text-align: center;
     margin-bottom: 20px;
@@ -1642,12 +1635,11 @@ function openCompare() {
   .banner-illustration-placeholder,
   .banner-illustration-placeholder1,
   .banner-illustration-placeholder2 {
-    left: 20%;
+    left: 85px;
     width: 200px;
-    height: 180px;
+    height: 110px;
   }
 
-  /* ===== TENDERS ===== */
   .tenders-section {
     padding: 20px 0;
   }
@@ -1690,7 +1682,6 @@ function openCompare() {
     line-height: 123.4%;
   }
 
-  /* ===== CATEGORIES ===== */
   .categories-section {
     padding: 20px 0;
   }
@@ -1735,7 +1726,6 @@ function openCompare() {
     font-size: 16px;
   }
 
-  /* ===== INTEGRATION ===== */
   .integration-section {
     padding: 20px 0;
   }
@@ -1767,7 +1757,6 @@ function openCompare() {
     font-size: 16px;
   }
 
-  /* ===== SERVICE ===== */
   .service-section {
     padding: 20px 0;
   }
@@ -1809,7 +1798,6 @@ function openCompare() {
     margin-right: 0;
   }
 
-  /* ===== TRUSTED ===== */
   .trusted-section {
     padding: 20px 0;
   }
@@ -1836,7 +1824,6 @@ function openCompare() {
     height: 60px;
   }
 
-  /* ===== CONSULTATION ===== */
   .consultation-section {
     padding: 20px 0;
   }
@@ -1886,7 +1873,6 @@ function openCompare() {
     margin: 0 auto;
   }
 
-  /* ===== MAP ===== */
   .map-section {
     padding: 20px 0;
   }
@@ -1910,8 +1896,8 @@ function openCompare() {
   }
 
   .map-image {
-    width: 300px;
-    height: 324px;
+    width: 250px;
+    height: 274px;
     margin: 0 auto;
     border-radius: 20px;
   }
@@ -1931,7 +1917,6 @@ function openCompare() {
     height: 30px;
   }
 
-  /* ===== FLOATING WIDGET ===== */
   .floating-widget {
     right: 0;
     top: auto;
@@ -1946,11 +1931,6 @@ function openCompare() {
     height: 50px;
   }
 
-  .widget-icon {
-    width: 24px;
-    height: 24px;
-  }
-
   .widget-badge {
     width: 16px;
     height: 16px;
@@ -1959,7 +1939,6 @@ function openCompare() {
     font-size: 10px;
   }
 
-  /* ===== COMMON ===== */
   .section-title {
     font-size: 20px;
     line-height: 123.4%;
@@ -1971,6 +1950,9 @@ function openCompare() {
   }
 
   .btn-primary {
+    font-size: 12px;
+  }
+  .btn-primary1 {
     font-size: 16px;
   }
 

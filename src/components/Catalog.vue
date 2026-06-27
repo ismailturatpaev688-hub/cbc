@@ -585,7 +585,6 @@
         <div class="banners-inner">
           <div class="banner-block banner-block-left">
             <div class="banner-bg banner-bg-light"></div>
-            <div class="banner-icon-placeholder"><img src="/images/Monitors.svg" alt="Monitor"></div>
             <div class="banner-content">
               <h3 class="banner-block-title">Комплексные поставки компьютерного <br>
                 оборудования для вашего офиса <br>
@@ -594,11 +593,9 @@
                 решение под ваши требования.</p>
               <button class="btn-primary">ПОДОБРАТЬ ТЕХНИКУ</button>
             </div>
-            <div class="banner-illustration-placeholder"><img src="/images/undraw_monitor.svg" alt="Monitor"></div>
           </div>
           <div class="banner-block banner-block-right">
             <div class="banner-bg banner-bg-purple"></div>
-            <div class="banner-icon-placeholder"><img src="/images/House.svg" alt="House"></div>
             <div class="banner-content">
               <h3 class="banner-block-title">Оборудуем офис <br>
                 "под ключ"</h3>
@@ -608,7 +605,6 @@
                 вкусным кофе</p>
               <button class="btn-primary">СОБРАТЬ ОФИС</button>
             </div>
-            <div class="banner-illustration-placeholder1"><img src="/images/undraw_Hello.svg" alt="Hello"></div>
           </div>
         </div>
       </section>
@@ -618,7 +614,6 @@
         <div class="integration-inner">
           <div class="integration-banner integration-left">
             <div class="banner-bg banner-bg-light"></div>
-            <div class="banner-icon-placeholder"><img src="/images/PC.svg" alt="PC"></div>
             <div class="banner-content">
               <h3 class="banner-block-title">Решаем сложные задачи интеграции <br>
                 компьютерной техники <br>
@@ -627,11 +622,9 @@
                 оборудования, чтобы все работало как надо</p>
               <button class="btn-primary">ВНЕДРИТЬ ОБОРУДОВАНИЕ</button>
             </div>
-            <div class="banner-illustration-placeholder2"><img src="/images/Human.svg" alt="Human"></div>
           </div>
           <div class="integration-banner integration-right">
             <div class="banner-bg banner-bg-purple"></div>
-            <div class="banner-icon-placeholder printer-icon"><img src="/images/Printer.svg" alt="Printer"></div>
             <div class="banner-content">
               <h3 class="banner-block-title">У вас много принтеров <br>
                 и они часто ломаются?</h3>
@@ -640,7 +633,6 @@
                 300 000 рублей в год.</p>
               <button class="btn-primary">УЗНАТЬ КАК</button>
             </div>
-            <div class="banner-illustration-placeholder1"><img src="/images/undraw_printing.svg" alt="undraw_printing"></div>
           </div>
         </div>
       </section>
@@ -704,7 +696,7 @@
                   <span>Сб - Вс: принимаем онлайн-заказы</span>
                 </div>
               </div>
-              <img src="/images/Map.svg" alt="Map">
+              <img src="/images/Map.svg" alt="Map" class="map-image">
             </div>
           </div>
         </div>
@@ -714,15 +706,15 @@
     <!-- Плавающий виджет -->
     <div class="floating-widget">
       <div class="widget-item widget-cart" @click="openCart">
-        <span class="widget-icon cart-icon"></span>
+        <img src="/images/Cart_white.svg" alt="Cart_white">
         <span class="widget-badge">3</span>
       </div>
       <div class="widget-item widget-favorites" @click="openFavorites">
-        <span class="widget-icon heart-icon"></span>
+        <img src="/images/Heart.svg" alt="Heart">
         <span class="widget-badge badge-blue">1</span>
       </div>
       <div class="widget-item widget-compare" @click="openCompare">
-        <span class="widget-icon chart-icon"></span>
+        <img src="/images/Compare.svg" alt="Compare">
         <span class="widget-badge badge-blue">0</span>
       </div>
     </div>
@@ -2296,5 +2288,212 @@ onMounted(() => {
 .badge-blue {
   background: #1F347B;
   border-color: #1F347B;
+}
+/* Адаптивная вёрстка */
+@media (max-width: 360px) {
+  .catalog-layout {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .sidebar {
+    order: 2;
+  }
+
+  .catalog-main {
+    order: 1;
+  }
+
+  .catalog-menu-title {
+    font-size: 14px;
+  }
+
+  .menu-text {
+    font-size: 12px;
+  }
+
+  .filter-panel {
+    padding: 15px 10px;
+  }
+
+  .filter-panel-title {
+    font-size: 14px;
+  }
+
+  .filter-section-header {
+    font-size: 14px;
+  }
+
+  .subcategories {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .subcategory-card {
+    padding: 15px 10px;
+  }
+
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .product-title {
+    font-size: 12px;
+  }
+
+  .price-value,
+  .price-currency {
+    font-size: 18px;
+  }
+
+  .add-to-cart-btn {
+    height: 40px;
+    font-size: 14px;
+  }
+
+  .promo-container {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .promo-sidebar {
+    width: 100%;
+    height: auto;
+    padding: 20px 15px;
+  }
+
+  .promo-card {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+
+  .benefits-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .benefit-card {
+    width: 100%;
+    max-width: 300px;
+    height: 200px;
+    margin: 0 auto;
+  }
+
+  .benefit-main-title {
+    font-size: 20px;
+  }
+
+  .benefit-title {
+    font-size: 18px;
+  }
+
+  .benefit-desc {
+    font-size: 16px;
+  }
+
+  .benefit-wide {
+    height: 233px;
+  }
+
+  .banners-inner {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .banner-block {
+    width: 100%;
+    max-width: 300px;
+    height: 360px;
+    margin: 0 auto;
+  }
+
+  .banner-content {
+    text-align: center;
+  }
+
+  .banner-block-title {
+    font-size: 18px;
+    text-align: center;
+  }
+
+  .banner-block-desc {
+    font-size: 16px;
+    text-align: center;
+  }
+
+  .integration-inner {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .integration-banner {
+    width: 100%;
+    max-width: 300px;
+    height: 380px;
+    margin: 0 auto;
+  }
+
+  .consultation-card {
+    grid-template-columns: 1fr;
+    padding: 20px 10px;
+  }
+
+  .consultation-card img {
+    display: none;
+  }
+
+  .form-input {
+    width: 100%;
+    max-width: 300px;
+    height: 60px;
+    margin: 0 auto;
+    display: block;
+  }
+
+  .form-submit {
+    width: 100%;
+    max-width: 300px;
+    height: 60px;
+    margin: 0 auto;
+    display: block;
+  }
+
+  .map-content {
+    grid-template-columns: 1fr;
+  }
+
+  .map-content img {
+    width: 30px;
+    height: 30px;
+  }
+  .map-image {
+    width: 250px;
+    height: 274px;
+  }
+
+  .map-info {
+    margin-top: 0;
+  }
+
+  .map-info-item {
+    font-size: 14px;
+  }
+
+  .floating-widget {
+    right: 0;
+    top: auto;
+    bottom: 20px;
+    transform: none;
+    flex-direction: row;
+    border-radius: 10px;
+  }
+
+  .widget-item {
+    width: 50px;
+    height: 50px;
+  }
 }
 </style>

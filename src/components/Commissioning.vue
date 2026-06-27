@@ -9,7 +9,7 @@
       </nav>
     </div>
 
-    <!-- Hero Section -->
+    <!-- Секция заголовок -->
     <section class="hero-section">
       <div class="container hero-inner">
         <div class="hero-text">
@@ -20,7 +20,7 @@
         </div>
         <div class="hero-banner">
           <div class="banner-image-placeholder">
-            <div class="banner-content1">
+            <div class="banner-content">
               <h2 class="banner-title">Решаем cложные задачи пуско-наладки <br>
                 компьютерной техники</h2>
               <p class="banner-desc">Работаем с 1993 года, хорошо знаем поставщиков,<br>
@@ -73,7 +73,7 @@
       </div>
     </section>
 
-    <!-- Задачи Section -->
+    <!-- Секция задачи -->
     <section class="tasks-section">
       <div class="container tasks-inner">
         <h2 class="section-title tasks-title">Какие задачи мы решаем?</h2>
@@ -102,7 +102,7 @@
       </div>
     </section>
 
-    <!-- Benefits Section -->
+    <!-- Секция преимущества -->
     <section class="benefits-section">
       <div class="container benefits-inner">
         <div class="benefit-card benefit-main">
@@ -140,7 +140,6 @@
             <span class="brand-placeholder"><img src="/images/Samsung.jpg" alt="Samsung"></span>
             <span class="brand-placeholder"><img src="/images/Intel.jpg" alt="Intel"></span>
             <span class="brand-placeholder"><img src="/images/Lenovo.jpg" alt="Lenovo"></span>
-
           </div>
         </div>
         <div class="benefit-card" v-for="benefit in benefits.slice(3, 4)" :key="benefit.id">
@@ -160,7 +159,7 @@
       </div>
     </section>
 
-    <!-- Trusted Section -->
+    <!-- Секция доверия -->
     <section class="trusted-section">
       <div class="container trusted-inner">
         <div class="trusted-frame">
@@ -176,29 +175,30 @@
       </div>
     </section>
 
-    <!-- Banners Section -->
+    <!-- Секция баннеров -->
     <section class="banners-section">
       <div class="container banners-inner">
         <div class="banner-block banner-block-left">
           <div class="banner-bg banner-bg-light"></div>
-          <div class="banner-icon-placeholder"><img src="/images/Monitors.svg" alt="Monitor"></div>
           <div class="banner-content">
-            <h3 class="banner-block-title">Комплексные поставки компьютерного <br>
-              оборудования для вашего офиса <br>
-              в Жуковском</h3>
-            <p class="banner-block-desc">Специалист бесплатно подберет <br>
-              решение под ваши требования.</p>
+            <h3 class="banner-block-title">Комплексные поставки <br>
+              компьютерного <br>
+              оборудования для <br>
+              вашего офиса в <br>
+              Жуковском</h3>
+            <p class="banner-block-desc">Специалист бесплатно <br>
+              подберет решение <br>
+              под ваши требования.</p>
             <button class="btn-primary">ПОДОБРАТЬ ТЕХНИКУ</button>
           </div>
-          <div class="banner-illustration-placeholder"><img src="/images/undraw_monitor.svg" alt="Monitor"></div>
         </div>
         <div class="banner-block banner-block-right">
           <div class="banner-bg banner-bg-purple"></div>
-          <div class="banner-icon-placeholder"><img src="/images/House.svg" alt="House"></div>
           <div class="banner-content">
-            <h3 class="banner-block-title">СВС Жуковский - поставщик компьютерной <br>
-              техники крупных промышленных <br>
-              и государственных предприятий</h3>
+            <h3 class="banner-block-title">СВС Жуковский - поставщик <br>
+              компьютерной техники <br>
+              крупных промышленных и <br>
+              государственных предприятий</h3>
             <div class="banner-brands">
               <div>
                 <img src="/images/AO.svg" alt="AO">
@@ -210,26 +210,23 @@
             </div>
             <button class="btn-primary">УЗНАТЬ О РАБОТЕ С ТЕНДЕРАМИ</button>
           </div>
-          <div class="banner-illustration-placeholder1"><img src="/images/Two_man.svg" alt="Two_man"></div>
         </div>
       </div>
       <div class="container banners-inner" style="margin-top: 30px;">
         <div class="banner-block banner-block-left">
           <div class="banner-bg banner-bg-light"></div>
-          <div class="banner-icon-placeholder"><img src="/images/PC.svg" alt="PC"></div>
           <div class="banner-content">
-            <h3 class="banner-block-title">Решаем сложные задачи интеграции <br>
-              компьютерной техники <br>
-              в ваш бизнес</h3>
-            <p class="banner-block-desc">Предоставим бесплатный тест компьютерного <br>
-              оборудования, чтобы все работало как надо</p>
+            <h3 class="banner-block-title">Решаем сложные задачи <br>
+              интеграции компьютерной <br>
+              техники в ваш бизнес</h3>
+            <p class="banner-block-desc">Предоставим бесплатный тест <br>
+              компьютерного оборудования, чтобы <br>
+              все работало как надо</p>
             <button class="btn-primary">ВНЕДРИТЬ ОБОРУДОВАНИЕ</button>
           </div>
-          <div class="banner-illustration-placeholder2"><img src="/images/Human.svg" alt="Human"></div>
         </div>
         <div class="banner-block banner-block-right">
           <div class="banner-bg banner-bg-purple"></div>
-          <div class="banner-icon-placeholder printer-icon"><img src="/images/Printer.svg" alt="Printer"></div>
           <div class="banner-content">
             <h3 class="banner-block-title">Оборудуем офис <br>
               "под ключ"</h3>
@@ -239,12 +236,11 @@
               вкусным кофе</p>
             <button class="btn-primary">СОБРАТЬ ОФИС</button>
           </div>
-          <div class="banner-illustration-placeholder1"><img src="/images/undraw_printing.svg" alt="undraw_printing"></div>
         </div>
       </div>
     </section>
 
-    <!-- Consultation Section -->
+    <!-- Секция консультация -->
     <section class="consultation-section">
       <div class="container consultation-inner">
         <h2 class="section-title consultation-title">Хотите получить бесплатную консультацию по пуско-наладке компьютерного оборудования под "ключ"?</h2>
@@ -271,7 +267,7 @@
       </div>
     </section>
 
-    <!-- Map Section -->
+    <!-- Секция карта -->
     <section class="map-section">
       <div class="container map-inner">
         <div class="map-frame">
@@ -303,24 +299,24 @@
                 <span>Сб - Вс: принимаем онлайн-заказы</span>
               </div>
             </div>
-            <img src="/images/Map.svg" alt="Map">
+            <img src="/images/Map.svg" alt="Map" class="map-image">
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Floating Widget -->
+    <!-- Плавающий виджет -->
     <div class="floating-widget">
       <div class="widget-item widget-cart" @click="openCart">
-        <span class="widget-icon cart-icon"></span>
+        <img src="/images/Cart_white.svg" alt="Cart_white">
         <span class="widget-badge">3</span>
       </div>
       <div class="widget-item widget-favorites" @click="openFavorites">
-        <span class="widget-icon heart-icon"></span>
+        <img src="/images/Heart.svg" alt="Heart">
         <span class="widget-badge badge-blue">1</span>
       </div>
       <div class="widget-item widget-compare" @click="openCompare">
-        <span class="widget-icon chart-icon"></span>
+        <img src="/images/Compare.svg" alt="Compare">
         <span class="widget-badge badge-blue">0</span>
       </div>
     </div>
@@ -409,7 +405,7 @@ onMounted(() => {
   border-bottom: 1px dashed #4A4D4A;
 }
 
-/* Hero Section */
+/* Секция заголовок */
 .hero-section { padding: 40px 0; }
 .hero-inner {
   display: grid;
@@ -622,12 +618,13 @@ onMounted(() => {
   text-align: center;
 }
 
-/* Benefits Section */
-.benefits-section { padding: 40px 0; }
+/* Секция преимуществ */
+.benefits-section {
+  padding: 40px 0;
+}
 .benefits-inner {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+  grid-template-columns: 1fr;
+  gap: 10px;
 }
 .benefit-card {
   background: #FFFFFF;
@@ -671,7 +668,9 @@ onMounted(() => {
   text-align: center;
   color: #4A4D4A;
 }
-.benefit-wide { grid-column: span 2; }
+.benefit-wide {
+  grid-column: span 2;
+}
 .brands-row {
   display: flex;
   gap: 30px;
@@ -685,8 +684,10 @@ onMounted(() => {
   justify-content: center;
 }
 
-/* Trusted Section */
-.trusted-section { padding: 40px 0; }
+/* Секция доверия */
+.trusted-section {
+  padding: 40px 0;
+}
 .trusted-frame {
   border: 6px solid rgba(31, 52, 123, 0.2);
   padding: 40px;
@@ -702,7 +703,9 @@ onMounted(() => {
   background: rgba(31, 52, 123, 0.2);
   border-radius: 50%;
 }
-.trusted-frame .section-title { margin-bottom: 30px; }
+.trusted-frame .section-title {
+  margin-bottom: 30px;
+}
 .trusted-logos {
   display: flex;
   justify-content: space-around;
@@ -711,10 +714,16 @@ onMounted(() => {
   margin-top: 60px;
   gap: 30px;
 }
-.trusted-logos img { width: 180px; height: 140px; object-fit: contain; }
+.trusted-logos img {
+  width: 180px;
+  height: 140px;
+  object-fit: contain;
+}
 
-/* Banners Section */
-.banners-section { padding: 40px 0; }
+/* Секция баннеров */
+.banners-section {
+  padding: 40px 0;
+}
 .banners-inner {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -729,22 +738,22 @@ onMounted(() => {
 }
 .banner-bg {
   position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
-.banner-bg-light { background: #F0F0FF; }
-.banner-bg-purple { background: #E3E1FF; }
+.banner-bg-light {
+  background: #F0F0FF;
+}
+.banner-bg-purple {
+  background: #E3E1FF;
+}
 .banner-content {
   position: relative;
   margin-top: 0;
   right: 90px;
   top: 0;
-  text-align: end;
-}
-.banner-content1 {
-  position: relative;
-  margin-top: 0;
-  right: 50px;
-  top: 200px;
   text-align: end;
 }
 .banner-block-title {
@@ -761,26 +770,8 @@ onMounted(() => {
   color: #4A4D4A;
   margin-bottom: 25px;
 }
-.banner-icon-placeholder {
-  position: absolute;
-  top: 30px;
-  left: 20px;
-  width: 60px;
-  height: 60px;
-}
-.banner-illustration-placeholder,
-.banner-illustration-placeholder1,
-.banner-illustration-placeholder2 {
-  position: absolute;
-  bottom: 15px;
-  left: 0;
-  width: 300px;
-  height: 230px;
-}
-.banner-illustration-placeholder1 { bottom: 42px; }
-.banner-illustration-placeholder2 { bottom: 10px; }
 
-/* Consultation Section */
+/* Секция консультация */
 .consultation-section {
   padding: 40px 0;
 }
@@ -804,8 +795,16 @@ onMounted(() => {
   gap: 40px;
   align-items: center;
 }
-.consultation-card img { width: 100%; height: 350px; object-fit: contain; }
-.consultation-form { display: flex; flex-direction: column; gap: 20px; }
+.consultation-card img {
+  width: 100%;
+  height: 350px;
+  object-fit: contain;
+}
+.consultation-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
 .form-input {
   width: 100%;
   padding: 20px 15px;
@@ -815,8 +814,13 @@ onMounted(() => {
   outline: none;
   transition: border-color 0.3s;
 }
-.form-input:focus { border-color: #FFAF37; }
-.form-submit { width: 100%; padding: 20px; }
+.form-input:focus {
+  border-color: #FFAF37;
+}
+.form-submit {
+  width: 100%;
+  padding: 20px;
+}
 .form-checkbox {
   display: flex;
   align-items: flex-start;
@@ -835,8 +839,10 @@ onMounted(() => {
   accent-color: #4A4D4A;
 }
 
-/* Map Section */
-.map-section { padding: 40px 0; }
+/* Секция карта */
+.map-section {
+  padding: 40px 0;
+}
 .map-frame {
   border: 6px solid rgba(31, 52, 123, 0.2);
   padding: 40px;
@@ -852,7 +858,10 @@ onMounted(() => {
   background: rgba(31, 52, 123, 0.2);
   border-radius: 50%;
 }
-.map-title { text-align: center; margin-bottom: 30px; }
+.map-title {
+  text-align: center;
+  margin-bottom: 30px;
+}
 .map-content {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -864,7 +873,12 @@ onMounted(() => {
   max-width: 600px;
   border-radius: 20px;
 }
-.map-info { display: flex; flex-direction: column; gap: 20px; margin-top: 100px; }
+.map-info {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 100px;
+}
 .map-info-item {
   display: flex;
   align-items: center;
@@ -874,9 +888,12 @@ onMounted(() => {
   line-height: 24px;
   color: #4A4D4A;
 }
-.map-info-item a { color: #4A4D4A; text-decoration: none; }
+.map-info-item a {
+  color: #4A4D4A;
+  text-decoration: none;
+}
 
-/* Floating Widget */
+/* Плавающий виджет */
 .floating-widget {
   position: fixed;
   right: 0;
@@ -900,13 +917,15 @@ onMounted(() => {
   cursor: pointer;
   transition: background 0.3s;
 }
-.widget-item:hover { background: #f5f5f5; }
-.widget-cart { background: #1F347B; }
-.widget-cart:hover { background: #162a63; }
-.widget-icon { width: 30px; height: 30px; display: block; }
-.cart-icon { border: 2px solid #FFFFFF; }
-.heart-icon { border: 2px solid #FFAF37; }
-.chart-icon { background: #FFAF37; }
+.widget-item:hover {
+  background: #f5f5f5;
+}
+.widget-cart {
+  background: #1F347B;
+}
+.widget-cart:hover {
+  background: #162a63;
+}
 .widget-badge {
   position: absolute;
   top: 8px;
@@ -924,5 +943,265 @@ onMounted(() => {
   align-items: center;
   justify-content: center;
 }
-.badge-blue { background: #1F347B; border-color: #1F347B; }
+.badge-blue {
+  background: #1F347B;
+  border-color: #1F347B;
+}
+
+/* Адаптивная вёрстка */
+@media (max-width: 360px) {
+  .hero-inner {
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+  }
+
+  .hero-catalog {
+    order: 1;
+    width: 100%;
+    max-width: 302px;
+    margin: 0 auto;
+  }
+
+  .hero-text {
+    order: 2;
+    width: 100%;
+  }
+
+  .hero-title {
+    font-size: 24px;
+    line-height: 123.4%;
+    text-align: center;
+  }
+
+  .hero-banner {
+    order: 3;
+    width: 100%;
+    max-width: 320px;
+    height: 400px;
+    margin: 0 auto;
+  }
+
+  .banner-content {
+    top: 70px;
+    right: 200px;
+    text-align: center;
+  }
+
+  .banner-title {
+    font-size: 12px;
+    text-align: center;
+  }
+
+  .banner-desc {
+    font-size: 10px;
+    text-align: center;
+  }
+
+  .catalog-title {
+    font-size: 14px;
+  }
+
+  .menu-text {
+    font-size: 12px;
+  }
+
+  .description-header {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .description-title {
+    font-size: 20px;
+    text-align: center;
+  }
+
+  .description-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .description-text p {
+    font-size: 16px;
+  }
+
+  .tasks-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .task-card {
+    min-height: 180px;
+  }
+
+  .task-title {
+    font-size: 16px;
+  }
+
+  .benefits-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .benefit-card {
+    width: 100%;
+    max-width: 300px;
+    height: 200px;
+    margin: 0 auto;
+  }
+
+  .benefit-main-title {
+    font-size: 20px;
+  }
+
+  .benefit-title {
+    font-size: 18px;
+  }
+
+  .benefit-desc {
+    font-size: 16px;
+  }
+
+  .benefit-wide {
+    height: 233px;
+  }
+
+  .trusted-frame {
+    width: 100%;
+    max-width: 279px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+  .trusted-frame .section-title {
+    font-size: 20px;
+  }
+
+  .trusted-logos img {
+    width: 80px;
+    height: 60px;
+  }
+
+  .banners-inner {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .banner-block {
+    width: 100%;
+    max-width: 300px;
+    height: 360px;
+    margin: 0 auto;
+  }
+
+  .banner-content {
+    text-align: center;
+  }
+
+  .banner-block-title {
+    font-size: 18px;
+    text-align: center;
+  }
+
+  .banner-block-desc {
+    font-size: 16px;
+    text-align: center;
+  }
+  .banners-inner {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .banner-block {
+    width: 100%;
+    max-width: 300px;
+    height: 360px;
+    margin: 0 auto;
+  }
+
+  .banner-content {
+    top: 0;
+    right: 235px;
+    text-align: center;
+  }
+
+  .banner-block-title {
+    font-size: 18px;
+    text-align: center;
+  }
+
+  .banner-block-desc {
+    font-size: 16px;
+    text-align: center;
+  }
+
+
+  .banner-illustration-placeholder img,
+  .banner-illustration-placeholder1 img,
+  .banner-illustration-placeholder2 img{
+    width: 200px;
+    height: 110px;
+  }
+
+  .consultation-card {
+    grid-template-columns: 1fr;
+    padding: 20px 10px;
+  }
+
+  .consultation-card img {
+    display: none;
+  }
+
+  .form-input {
+    width: 100%;
+    max-width: 300px;
+    height: 60px;
+    margin: 0 auto;
+    display: block;
+  }
+
+  .form-submit {
+    width: 100%;
+    max-width: 300px;
+    height: 60px;
+    margin: 0 auto;
+    display: block;
+  }
+
+  .map-content {
+    grid-template-columns: 1fr;
+  }
+
+  .map-content img {
+    width: 30px;
+    height: 30px;
+  }
+  .map-image {
+    width: 250px;
+    height: 274px;
+  }
+
+  .map-info {
+    margin-top: 0;
+  }
+
+  .map-info-item {
+    font-size: 14px;
+  }
+
+  .floating-widget {
+    right: 0;
+    top: auto;
+    bottom: 20px;
+    transform: none;
+    flex-direction: row;
+    border-radius: 10px;
+  }
+
+  .widget-item {
+    width: 50px;
+    height: 50px;
+  }
+}
 </style>
